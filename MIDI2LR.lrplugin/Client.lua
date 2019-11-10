@@ -95,8 +95,9 @@ LrTasks.startAsyncTask(
     --local constants--may edit these to change program behaviors
     local BUTTON_ON        = 0.40 -- sending 1.0, but use > BUTTON_ON because of note keypressess not hitting 100%
     local PICKUP_THRESHOLD = 0.03 -- roughly equivalent to 4/127
-    local RECEIVE_PORT     = 58763
-    local SEND_PORT        = 58764
+    local RECEIVE_PORT     = 54778
+    local SEND_PORT        = 54779
+
     local LrLogger = import 'LrLogger'
     local logger = LrLogger( 'tangent2midi2lr' )
     logger:enable("logfile")
