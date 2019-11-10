@@ -97,6 +97,9 @@ LrTasks.startAsyncTask(
     local PICKUP_THRESHOLD = 0.03 -- roughly equivalent to 4/127
     local RECEIVE_PORT     = 58763
     local SEND_PORT        = 58764
+    local LrLogger = import 'LrLogger'
+    local logger = LrLogger( 'tangent2midi2lr' )
+    logger:enable("logfile")
 
     local ACTIONS = {
       AdjustmentBrush                        = CU.fToggleTool('localized'),
@@ -709,10 +712,12 @@ LrTasks.startAsyncTask(
               local split = message:find(' ',1,true)
               local param = message:sub(1,split-1)
               local value = message:sub(split+1)
+              logger:trace('<<< '..param)
               if Database.Parameters[param] then
                 guardsetting:performWithGuard(UpdateParam,param,tonumber(value))
               elseif(ACTIONS[param]) then -- perform a one time action
                 if(tonumber(value) > BUTTON_ON) then
+                  logger:trace('Action: '..param)
                   ACTIONS[param]()
                 end
               elseif(SETTINGS[param]) then -- do something requiring the transmitted value to be known
@@ -736,6 +741,7 @@ LrTasks.startAsyncTask(
           end,
           onClosed = function( socket )
             if MIDI2LR.RUNNING then
+              logger:trace('client closed, reconnecting')
               -- MIDI2LR closed connection, allow for reconnection
               socket:reconnect()
               -- calling SERVER:reconnect causes LR to hang for some reason...
@@ -751,6 +757,7 @@ LrTasks.startAsyncTask(
         }
 
         startServer(context)
+        logger:trace('startServer')
 
         if(WIN_ENV) then
           -- TODO: LrShell.openFilesInApp({LrPathUtils.child(_PLUGIN.path, 'Info.lua')}, LrPathUtils.child(_PLUGIN.path, 'MIDI2LR.exe'))
