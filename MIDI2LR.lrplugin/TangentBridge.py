@@ -70,25 +70,25 @@ class Control(object):
         return Control.by_name[name].id
 
 ALL_CONTROLS = [
-    Control(0x10001, 'Prev'),
-    Control(0x10002, 'Next'),
+    Control(0x00102, 'Prev'),
+    Control(0x00103, 'Next'),
 
-    Control(0x20001, 'Temperature'),
-    Control(0x20002, 'Tint'),
-    Control(0x20003, 'Exposure'),
-    Control(0x20004, 'Highlights'),
-    Control(0x20005, 'Shadows'),
-    Control(0x20006, 'Brightness'),
-    Control(0x20007, 'Contrast'),
-    Control(0x20008, 'Blacks'),
-    Control(0x20009, 'Whites'),
-    Control(0x2000a, 'Clarity'),
-    Control(0x2000b, 'Vibrance'),
-    Control(0x2000c, 'Saturation'),
+    Control(0x00201, 'Temperature'),
+    Control(0x00202, 'Tint'),
+    Control(0x00203, 'Exposure'),
+    Control(0x00204, 'Highlights'),
+    Control(0x00205, 'Shadows'),
+    Control(0x00206, 'Brightness'),
+    Control(0x00207, 'Contrast'),
+    Control(0x00208, 'Blacks'),
+    Control(0x00209, 'Whites'),
+    Control(0x0020a, 'Clarity'),
+    Control(0x0020b, 'Vibrance'),
+    Control(0x0020c, 'Saturation'),
 
-    Control(0x21000, 'Undo'),
-    Control(0x21001, 'Redo'),
-    Control(0x21002, 'AutoTone'),
+    Control(0x00100, 'Undo'),
+    Control(0x00101, 'Redo'),
+    Control(0x00200, 'AutoTone'),
 ]
 # TODO: This is temporary. Likely better to read commands from the XML.
 

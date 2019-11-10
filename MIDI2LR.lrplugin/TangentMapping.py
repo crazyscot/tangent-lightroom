@@ -60,9 +60,15 @@ class Action(XMLable):
         super(Action, self).__init__()
         self.id = id
         self.Name = name
-        self.Name9 = name9
-        self.Name14 = name14
-        self.Name20 = name20
+        self.Name9 = name9 or name
+        self.Name14 = name14 or name
+        self.Name20 = name20 or name
+        if len(self.Name9) > 9:
+            self.Name9 = self.Name9[0:9]
+        if len(self.Name14) > 14:
+            self.Name14 = self.Name14[0:14]
+        if len(self.Name20) > 20:
+            self.Name20 = self.Name20[0:20]
     def xml(self, indent):
         baseindent = TAB * indent
         rv  = baseindent + '<Action id="0x%08x">\n' % self.id
@@ -77,9 +83,15 @@ class Parameter(XMLable):
         super(Parameter, self).__init__()
         self.id = id
         self.Name = name
-        self.Name9 = name9
-        self.Name10=name10
-        self.Name12=name12
+        self.Name9 = name9 or name
+        self.Name10=name10 or name
+        self.Name12=name12 or name
+        if len(self.Name9) > 9:
+            self.Name9 = self.Name9[0:9]
+        if len(self.Name10) > 10:
+            self.Name10 = self.Name10[0:10]
+        if len(self.Name12) > 12:
+            self.Name12 = self.Name12[0:12]
         self.MinValue=minval
         self.MaxValue=maxval
         self.StepSize=stepsize
@@ -132,28 +144,29 @@ class ControlsFile(XMLable):
     <CustomControls enabled="true"/>
   </Capabilities>
 '''
+        rv += TAB + '<Modes>\n'
         for m in self.modes:
-            rv += m.xml(1)
-        rv += TAB + '<Controls>'
+            rv += m.xml(2)
+        rv += TAB + '</Modes>\n'
+        rv += TAB + '<Controls>\n'
         for g in self.groups:
             rv += g.xml(2)
-        rv += TAB + '</Controls>'
-        rv += '''
-  <DefaultGlobalSettings>
+        rv += TAB + '</Controls>\n'
+        rv += '''  <DefaultGlobalSettings>
     <KnobSensitivity std="1" alt="5"/>
     <JogDialSensitivity std="1" alt="5"/>
     <TrackerballSensitivity std="1" alt="5"/>
     <TrackerballDialSensitivity std="1" alt="5"/>
     <IndependentPanelBanks enabled="false"/>
   </DefaultGlobalSettings>
-</TangentWave>
-'''
+</TangentWave>'''
         lines = rv.split('\n')
         baseindent = TAB * indent
         return ''.join([ baseindent + l + '\n' for l in lines ])
 
 
 if __name__ == '__main__':
+    # This is test code.. for the real outputs, see TangentMappingDefinitions
     t1 = Action(42, 'myACtion', name14='itsname14')
     #print(t1.xml(0))
     t2 = Parameter(69, 'myParam', name9='itsname9', maxval=1.5)
@@ -162,4 +175,3 @@ if __name__ == '__main__':
     #print(g.xml(0))
     cf = ControlsFile([Mode(1,'Develop'), Mode(2,'Navigate')], [g, g])
     print(cf.xml(0))
-    # TODO write out files
