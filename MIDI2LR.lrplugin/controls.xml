@@ -37,6 +37,22 @@
                 <MaxValue>1</MaxValue>
                 <StepSize>0.0001</StepSize>
             </Parameter>
+
+            <Parameter id="0x00020004">
+                <Name>Highlights</Name> <!-- Recovery in V1/V2 -->
+                <Name9>Highlight</Name9>
+                <Name20>Highlights</Name20> <!-- Recovery in V1/V2 -->
+                <MinValue>0</MinValue>
+                <MaxValue>1</MaxValue>
+                <StepSize>0.0001</StepSize>
+            </Parameter>
+            <Parameter id="0x00020005"> <!-- Fill Light in V1/V2 -->
+                <Name>Shadows</Name>
+                <Name20>Shadows</Name20>
+                <MinValue>0</MinValue>
+                <MaxValue>1</MaxValue>
+                <StepSize>0.0001</StepSize>
+            </Parameter>
         </Group>
     </Controls>
     <DefaultGlobalSettings>

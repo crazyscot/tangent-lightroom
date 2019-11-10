@@ -113,6 +113,24 @@
                                 <CustomName>Whites</CustomName>
                             </Mapping>
                         </Control>
+
+                        <Control type="Encoder" number="6"> <!-- Wave Knob 7 -->
+                            <Mapping mode="Std">
+                                <Key>0x00020004</Key> <!-- Highlights -->
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x00020004</Key> <!-- Highlights -->
+                            </Mapping>
+                        </Control>
+                        <Control type="Encoder" number="7"> <!-- Wave Knob 8 -->
+                            <Mapping mode="Std">
+                                <Key>0x00020005</Key> <!-- Shadows -->
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x00020005</Key> <!-- Shadows -->
+                            </Mapping>
+                        </Control>
+
                     </Bank>
                 </ControlBank>
                 <ControlBank id="Button"> <!-- buttons with displays -->

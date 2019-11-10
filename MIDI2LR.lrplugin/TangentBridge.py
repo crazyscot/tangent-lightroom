@@ -75,6 +75,8 @@ ALL_CONTROLS = [
 
     Control(0x20001, 'Temperature'),
     Control(0x20002, 'Tint'),
+    Control(0x20004, 'Highlights'),
+    Control(0x20005, 'Shadows'),
 ]
 # TODO: This is temporary. Likely better to read commands from the XML.
 
@@ -262,13 +264,14 @@ class Bridge(object):
         else:
             self.log('<<< PARAM: %s -> %s (->Tangent)'%(command,value))
             try:
-                id = Control.id_for(command)
+                id = Control.id_for(command) # may fail with KeyError
                 VALUES[id] = float(value)
-                
                 self.sendTangent(u4(0x82) + u4(id) + encf(VALUES[id]) + u4(0))
-                # Caution! MIDI2LR use values 0..1 ... midi2lr has a xlation layer, need to play nicely with that. This is a job for the XML.
+                # Caution! MIDI2LR uses values 0..1 ... midi2lr has a xlation layer, need to play nicely with that. This is a job for the XML.
             except KeyError:
-                pass
+                # Assume it's a custom param
+                VALUES[command] = float(value)
+                self.sendTangent(u4(0xa6) + encstr(command) + encf(float(value)) + u4(0))
 
     def inboundLR(self):
         ''' Process inbound data from MIDI2LR '''
