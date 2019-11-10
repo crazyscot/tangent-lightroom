@@ -151,6 +151,28 @@
                                 <Key>0x00010002</Key> <!-- Next -->
                             </Mapping>
                         </Control>
+
+                        <Control type="Button" number="15"> <!-- Wave button 4 -->
+                            <Mapping mode="Std">
+                                <Key>0x80000013</Key> <!-- Custom -->
+                                <CustomControl>WhiteBalanceAuto</CustomControl>
+                                <CustomName>WB Auto</CustomName>
+                            </Mapping>
+                        </Control>
+                        <Control type="Button" number="16"> <!-- Wave button 5 -->
+                            <Mapping mode="Std">
+                                <Key>0x80000013</Key> <!-- Custom -->
+                                <CustomControl>WhiteBalanceAs_Shot</CustomControl>
+                                <CustomName>WB AsShot</CustomName>
+                            </Mapping>
+                        </Control>
+                        <Control type="Button" number="17"> <!-- Wave button 6 -->
+                            <Mapping mode="Std">
+                                <Key>0x80000013</Key> <!-- Custom -->
+                                <CustomControl>WhiteBalanceDaylight</CustomControl>
+                                <CustomName>WB Daylight</CustomName>
+                            </Mapping>
+                        </Control>
                     </Bank>
                     <Bank>
                         <Control type="Button" number="15"> <!-- Wave button 4 -->

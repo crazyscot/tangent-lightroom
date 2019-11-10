@@ -194,6 +194,14 @@ class Bridge(object):
             action = rd4(pkt,4)
             name = Control.name_for(action)
             self.log('T< ACTION OFF: 0x%x (%s) (ignored)'%(action,name))
+        elif cmd==0x3c:
+            name,_ = rdstr(pkt, 4)
+            self.log('T< CUSTOM ACTION ON: %s'%name)
+            self.sendLR(name, '1')
+        elif cmd==0x3d:
+            name,_ = rdstr(pkt, 4)
+            self.log('T< CUSTOM ACTION OFF: %s'%name)
+
 
         # Transport Ring. We use jog mode only.
         elif cmd==0xa:
