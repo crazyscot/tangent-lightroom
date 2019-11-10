@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<TangentWave fileType="PanelMap" fileVersion="3.0">
+    <Panels>
+        <Panel type="Wave">
+            <Mode id="0x00000001"> <!-- Develop -->
+                <ControlBank id="Standard"> <!-- For controls without displays -->
+                    <Bank>
+                        <Control type="Button" number="36"> <!-- Previous -->
+                            <Mapping mode="Std">
+                                <Key>0x00010001</Key> <!-- Previous -->
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x00010001</Key> <!-- Previous -->
+                            </Mapping>
+                        </Control>
+                        <Control type="Button" number="37"> <!-- Next -->
+                            <Mapping mode="Std">
+                                <Key>0x00010002</Key> <!-- Next -->
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x00010002</Key> <!-- Next -->
+                            </Mapping>
+                        </Control>
+
+                        <!-- STANDARD FUNCTIONALITY -->
+                        <Control type="Button" number="9"> <!-- Wave Alt -->
+                            <Mapping mode="Std">
+                                <Key>0x80000001</Key> <!-- Select ALTernative Function -->
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x80000001</Key> <!-- Select ALTernative Function -->
+                            </Mapping>
+                        </Control>
+                        <Control type="Button" number="25"> <!-- Wave Up Arrow -->
+                            <Mapping mode="Std">
+                                <Key>0x80000002</Key> <!-- Next Knob Bank -->
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x80000003</Key> <!-- Previous Knob Bank -->
+                            </Mapping>
+                        </Control>
+                        <Control type="Button" number="26"> <!-- Wave Down Arrow -->
+                            <Mapping mode="Std">
+                                <Key>0x80000004</Key> <!-- Next Button Bank -->
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x80000005</Key> <!-- Previous Button Bank -->
+                            </Mapping>
+                        </Control>
+                        <Control type="Encoder" number="12"> <!-- Wave Transport Dial -->
+                            <Mapping mode="Std">
+                                <Key>0x81000001</Key> <!-- Transport (Jog/Shuttle) -->
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x81000001</Key> <!-- Transport (Jog/Shuttle) -->
+                            </Mapping>
+                        </Control>
+<!-- TODO: Multiple banks? Put Up/Down in every bank... -->
+                    </Bank>
+                </ControlBank>
+                <ControlBank id="Encoder"> <!-- encoders with displays -->
+                    <Bank>
+                        <Control type="Encoder" number="0"> <!-- Wave Knob 1 -->
+                            <Mapping mode="Std">
+                                <Key>0x00020001</Key> <!-- Temp -->
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x00020001</Key> <!-- Temp -->
+                            </Mapping>
+                        </Control>
+                        <Control type="Encoder" number="1"> <!-- Wave Knob 2 -->
+                            <Mapping mode="Std">
+                                <Key>0x00020002</Key> <!-- Tint -->
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x00020002</Key> <!-- Tint -->
+                            </Mapping>
+                        </Control>
+                    </Bank>
+                </ControlBank>
+                <ControlBank id="Button"> <!-- buttons with displays -->
+                    <Bank>
+                        <Control type="Button" number="10"> <!-- Wave button 1 -->
+                            <Mapping mode="Std">
+                                <Key>0x00010001</Key> <!-- Next -->
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x00010001</Key> <!-- Next -->
+                            </Mapping>
+                        </Control>
+                        <Control type="Button" number="11"> <!-- Wave button 2 -->
+                            <Mapping mode="Std">
+                                <Key>0x00010002</Key> <!-- Next -->
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x00010002</Key> <!-- Next -->
+                            </Mapping>
+                        </Control>
+                    </Bank>
+                    <Bank>
+                        <Control type="Button" number="15"> <!-- Wave button 4 -->
+                            <Mapping mode="Std">
+                                <Key>0x00010001</Key> <!-- Next -->
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x00010001</Key> <!-- Next -->
+                            </Mapping>
+                        </Control>
+                        <Control type="Button" number="16"> <!-- Wave button 5 -->
+                            <Mapping mode="Std">
+                                <Key>0x00010002</Key> <!-- Next -->
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x00010002</Key> <!-- Next -->
+                            </Mapping>
+                        </Control>
+                    </Bank>
+                </ControlBank>
+            </Mode>
+        </Panel>
+    </Panels>
+</TangentWave>

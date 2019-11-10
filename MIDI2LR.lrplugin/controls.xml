@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TangentWave fileType="ControlSystem" fileVersion="3.0">
+    <Capabilities>
+        <Jog enabled="true"/>
+        <Shuttle enabled="false"/>
+        <StatusDisplay lineCount="3"/>
+        <CustomControls enabled="true"/>
+    </Capabilities>
+    <Modes>
+        <Mode id="0x00000001">
+            <Name>Develop</Name>
+        </Mode>
+    </Modes>
+    <Controls>
+	<Group name="Navigation">
+            <Action id="0x00010001">
+                <Name>Previous</Name>
+            </Action>
+             <Action id="0x00010002">
+                <Name>Next</Name>
+            </Action>
+	</Group>
+
+        <Group name="Adjust">
+            <Parameter id="0x00020001">
+                <Name>Color Temp</Name>
+                <Name9>ColorTemp</Name9>
+                <Name20>Color Temp</Name20>
+                <MinValue>0</MinValue>
+                <MaxValue>1</MaxValue>
+                <StepSize>0.0001</StepSize>
+            </Parameter>
+            <Parameter id="0x00020002">
+                <Name>Tint</Name>
+                <Name20>Tint</Name20>
+                <MinValue>0</MinValue>
+                <MaxValue>1</MaxValue>
+                <StepSize>0.0001</StepSize>
+            </Parameter>
+        </Group>
+    </Controls>
+    <DefaultGlobalSettings>
+        <KnobSensitivity std="1" alt="5"/>
+        <JogDialSensitivity std="1" alt="5"/>
+        <TrackerballSensitivity std="1" alt="5"/>
+        <TrackerballDialSensitivity std="1" alt="5"/>
+        <IndependentPanelBanks enabled="false"/>
+    </DefaultGlobalSettings>
+</TangentWave>
