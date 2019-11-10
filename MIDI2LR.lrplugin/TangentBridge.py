@@ -75,8 +75,20 @@ ALL_CONTROLS = [
 
     Control(0x20001, 'Temperature'),
     Control(0x20002, 'Tint'),
+    Control(0x20003, 'Exposure'),
     Control(0x20004, 'Highlights'),
     Control(0x20005, 'Shadows'),
+    Control(0x20006, 'Brightness'),
+    Control(0x20007, 'Contrast'),
+    Control(0x20008, 'Blacks'),
+    Control(0x20009, 'Whites'),
+    Control(0x2000a, 'Clarity'),
+    Control(0x2000b, 'Vibrance'),
+    Control(0x2000c, 'Saturation'),
+
+    Control(0x21000, 'Undo'),
+    Control(0x21001, 'Redo'),
+    Control(0x21002, 'AutoTone'),
 ]
 # TODO: This is temporary. Likely better to read commands from the XML.
 

@@ -22,7 +22,6 @@
                             </Mapping>
                         </Control>
 
-                        <!-- STANDARD FUNCTIONALITY -->
                         <Control type="Button" number="9"> <!-- Wave Alt -->
                             <Mapping mode="Std">
                                 <Key>0x80000001</Key> <!-- Select ALTernative Function -->
@@ -47,6 +46,34 @@
                                 <Key>0x80000005</Key> <!-- Previous Button Bank -->
                             </Mapping>
                         </Control>
+
+                        <Control type="Encoder" number="9"> <!-- Wave Dial 1 -->
+                            <Mapping mode="Std">
+                                <Key>0x00020005</Key> <!-- Shadows -->
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x00020005</Key> <!-- Shadows -->
+                            </Mapping>
+                        </Control>
+
+                        <Control type="Encoder" number="10"> <!-- Wave Dial 2 -->
+                            <Mapping mode="Std">
+                                <Key>0x00020003</Key> <!-- Exposure -->
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x00020003</Key> <!-- Exposure -->
+                            </Mapping>
+                        </Control>
+
+                        <Control type="Encoder" number="11"> <!-- Wave Dial 3 -->
+                            <Mapping mode="Std">
+                                <Key>0x00020004</Key> <!-- Highlights -->
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x00020004</Key> <!-- Highlights -->
+                            </Mapping>
+                        </Control>
+
                         <Control type="Encoder" number="12"> <!-- Wave Transport Dial -->
                             <Mapping mode="Std">
                                 <Key>0x81000001</Key> <!-- Transport (Jog/Shuttle) -->
@@ -77,57 +104,45 @@
                             </Mapping>
                         </Control>
 
-                        <Control type="Encoder" number="3"> <!-- Wave Knob 4 -->
-                            <Mapping mode="Std">
-                                <Key>0x81000003</Key> <!-- Custom Parameter -->
-                                <CustomControl>Exposure</CustomControl>
-                                <CustomName>Exposure</CustomName>
-                            </Mapping>
-                            <Mapping mode="Alt">
-                                <Key>0x81000003</Key> <!-- Custom Parameter -->
-                                <CustomControl>Exposure</CustomControl>
-                                <CustomName>Exposure</CustomName>
-                            </Mapping>
-                        </Control>
                         <Control type="Encoder" number="4"> <!-- Wave Knob 5 -->
                             <Mapping mode="Std">
-                                <Key>0x81000003</Key> <!-- Custom Parameter -->
-                                <CustomControl>Blacks</CustomControl>
-                                <CustomName>Blacks</CustomName>
+                                <Key>0x00020008</Key> <!-- Blacks -->
                             </Mapping>
                             <Mapping mode="Alt">
-                                <Key>0x81000003</Key> <!-- Custom Parameter -->
-                                <CustomControl>Blacks</CustomControl>
-                                <CustomName>Blacks</CustomName>
+                                <Key>0x00020008</Key> <!-- Blacks -->
                             </Mapping>
                         </Control>
                         <Control type="Encoder" number="5"> <!-- Wave Knob 6 -->
                             <Mapping mode="Std">
-                                <Key>0x81000003</Key> <!-- Custom Parameter -->
-                                <CustomControl>Whites</CustomControl>
-                                <CustomName>Whites</CustomName>
+                                <Key>0x00020009</Key> <!-- Whites -->
                             </Mapping>
                             <Mapping mode="Alt">
-                                <Key>0x81000003</Key> <!-- Custom Parameter -->
-                                <CustomControl>Whites</CustomControl>
-                                <CustomName>Whites</CustomName>
+                                <Key>0x00020009</Key> <!-- Whites -->
                             </Mapping>
                         </Control>
 
                         <Control type="Encoder" number="6"> <!-- Wave Knob 7 -->
                             <Mapping mode="Std">
-                                <Key>0x00020004</Key> <!-- Highlights -->
+                                <Key>0x0002000a</Key> <!-- Clarity -->
                             </Mapping>
                             <Mapping mode="Alt">
-                                <Key>0x00020004</Key> <!-- Highlights -->
+                                <Key>0x0002000a</Key> <!-- Clarity -->
                             </Mapping>
                         </Control>
                         <Control type="Encoder" number="7"> <!-- Wave Knob 8 -->
                             <Mapping mode="Std">
-                                <Key>0x00020005</Key> <!-- Shadows -->
+                                <Key>0x0002000b</Key> <!-- Vibrance -->
                             </Mapping>
                             <Mapping mode="Alt">
-                                <Key>0x00020005</Key> <!-- Shadows -->
+                                <Key>0x0002000b</Key> <!-- Vibrance -->
+                            </Mapping>
+                        </Control>
+                        <Control type="Encoder" number="8"> <!-- Wave Knob 9 -->
+                            <Mapping mode="Std">
+                                <Key>0x0002000c</Key> <!-- Saturation -->
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x0002000c</Key> <!-- Saturation -->
                             </Mapping>
                         </Control>
 
@@ -137,40 +152,17 @@
                     <Bank>
                         <Control type="Button" number="10"> <!-- Wave button 1 -->
                             <Mapping mode="Std">
-                                <Key>0x00010001</Key> <!-- Next -->
-                            </Mapping>
-                            <Mapping mode="Alt">
-                                <Key>0x00010001</Key> <!-- Next -->
+                                <Key>0x00021000</Key> <!-- Undo -->
                             </Mapping>
                         </Control>
                         <Control type="Button" number="11"> <!-- Wave button 2 -->
                             <Mapping mode="Std">
-                                <Key>0x00010002</Key> <!-- Next -->
-                            </Mapping>
-                            <Mapping mode="Alt">
-                                <Key>0x00010002</Key> <!-- Next -->
+                                <Key>0x00021001</Key> <!-- Redo -->
                             </Mapping>
                         </Control>
-
-                        <Control type="Button" number="15"> <!-- Wave button 4 -->
+                        <Control type="Button" number="12"> <!-- Wave button 3 -->
                             <Mapping mode="Std">
-                                <Key>0x80000013</Key> <!-- Custom -->
-                                <CustomControl>WhiteBalanceAuto</CustomControl>
-                                <CustomName>WB Auto</CustomName>
-                            </Mapping>
-                        </Control>
-                        <Control type="Button" number="16"> <!-- Wave button 5 -->
-                            <Mapping mode="Std">
-                                <Key>0x80000013</Key> <!-- Custom -->
-                                <CustomControl>WhiteBalanceAs_Shot</CustomControl>
-                                <CustomName>WB AsShot</CustomName>
-                            </Mapping>
-                        </Control>
-                        <Control type="Button" number="17"> <!-- Wave button 6 -->
-                            <Mapping mode="Std">
-                                <Key>0x80000013</Key> <!-- Custom -->
-                                <CustomControl>WhiteBalanceDaylight</CustomControl>
-                                <CustomName>WB Daylight</CustomName>
+                                <Key>0x00021002</Key> <!-- Auto Tone -->
                             </Mapping>
                         </Control>
                     </Bank>

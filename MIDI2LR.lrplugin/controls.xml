@@ -22,6 +22,19 @@
 	</Group>
 
         <Group name="Adjust">
+            <Action id="0x00021000">
+                <Name>Undo</Name>
+                <Name9>Undo</Name9>
+            </Action>
+            <Action id="0x00021001">
+                <Name>Redo</Name>
+                <Name9>Redo</Name9>
+            </Action>
+            <Action id="0x00021002">
+                <Name>Auto Tone</Name>
+                <Name9>Auto Tone</Name9>
+            </Action>
+
             <Parameter id="0x00020001">
                 <Name>Color Temp</Name>
                 <Name9>ColorTemp</Name9>
@@ -38,6 +51,14 @@
                 <StepSize>0.0001</StepSize>
             </Parameter>
 
+            <Parameter id="0x00020003">
+                <Name>Exposure</Name>
+                <Name9>Exposure</Name9>
+                <Name20>Exposure</Name20>
+                <MinValue>0</MinValue>
+                <MaxValue>1</MaxValue>
+                <StepSize>0.0001</StepSize>
+            </Parameter>
             <Parameter id="0x00020004">
                 <Name>Highlights</Name> <!-- Recovery in V1/V2 -->
                 <Name9>Highlight</Name9>
@@ -49,6 +70,56 @@
             <Parameter id="0x00020005"> <!-- Fill Light in V1/V2 -->
                 <Name>Shadows</Name>
                 <Name20>Shadows</Name20>
+                <MinValue>0</MinValue>
+                <MaxValue>1</MaxValue>
+                <StepSize>0.0001</StepSize>
+            </Parameter>
+            <Parameter id="0x00020006">
+                <Name>Brightness</Name> <!-- V1/V2 only -->
+                <Name9>Brightnes</Name9>
+                <Name20>Brightness</Name20> <!-- V1/V2 only -->
+                <MinValue>0</MinValue>
+                <MaxValue>1</MaxValue>
+                <StepSize>0.0001</StepSize>
+            </Parameter>
+            <Parameter id="0x00020007">
+                <Name>Contrast</Name>
+                <Name20>Contrast</Name20>
+                <MinValue>0</MinValue>
+                <MaxValue>1</MaxValue>
+                <StepSize>0.0001</StepSize>
+            </Parameter>
+            <Parameter id="0x00020008">
+                <Name>Blacks</Name>
+                <Name20>Blacks</Name20>
+                <MinValue>0</MinValue>
+                <MaxValue>1</MaxValue>
+                <StepSize>0.0001</StepSize>
+            </Parameter>
+            <Parameter id="0x00020009">
+                <Name>Whites</Name>
+                <Name20>Whites</Name20>
+                <MinValue>0</MinValue>
+                <MaxValue>1</MaxValue>
+                <StepSize>0.0001</StepSize>
+            </Parameter>
+            <Parameter id="0x0002000a">
+                <Name>Clarity</Name>
+                <Name20>Clarity</Name20>
+                <MinValue>0</MinValue>
+                <MaxValue>1</MaxValue>
+                <StepSize>0.0001</StepSize>
+            </Parameter>
+            <Parameter id="0x0002000b">
+                <Name>Vibrance</Name>
+                <Name20>Vibrance</Name20>
+                <MinValue>0</MinValue>
+                <MaxValue>1</MaxValue>
+                <StepSize>0.0001</StepSize>
+            </Parameter>
+            <Parameter id="0x0002000c">
+                <Name>Saturation</Name>
+                <Name20>Saturation</Name20>
                 <MinValue>0</MinValue>
                 <MaxValue>1</MaxValue>
                 <StepSize>0.0001</StepSize>
