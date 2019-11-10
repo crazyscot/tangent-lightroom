@@ -9,6 +9,8 @@ import socket
 import struct
 import sys
 
+import TangentMappingDefinitions
+
 TANGENT_PORT = 64246
 # of course, lrsend and lrecv ports are the opposite way round to what's in the lua side
 LRSEND_PORT = 54778
@@ -69,28 +71,10 @@ class Control(object):
     def id_for(name):
         return Control.by_name[name].id
 
-ALL_CONTROLS = [
-    Control(0x00102, 'Prev'),
-    Control(0x00103, 'Next'),
-
-    Control(0x00201, 'Temperature'),
-    Control(0x00202, 'Tint'),
-    Control(0x00203, 'Exposure'),
-    Control(0x00204, 'Highlights'),
-    Control(0x00205, 'Shadows'),
-    Control(0x00206, 'Brightness'),
-    Control(0x00207, 'Contrast'),
-    Control(0x00208, 'Blacks'),
-    Control(0x00209, 'Whites'),
-    Control(0x0020a, 'Clarity'),
-    Control(0x0020b, 'Vibrance'),
-    Control(0x0020c, 'Saturation'),
-
-    Control(0x00100, 'Undo'),
-    Control(0x00101, 'Redo'),
-    Control(0x00200, 'AutoTone'),
-]
-# TODO: This is temporary. Likely better to read commands from the XML.
+ALL_CONTROLS = []
+for group in TangentMappingDefinitions.controls.groups:
+    for ctrl in group.controls:
+        ALL_CONTROLS.append(Control(ctrl.id, ctrl.Name))
 
 # Current values, indexed by ID [for now]
 VALUES = {}

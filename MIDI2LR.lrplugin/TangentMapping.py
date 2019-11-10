@@ -104,14 +104,14 @@ class Parameter(XMLable):
         return rv
 
 class Group(XMLable):
-    def __init__(self, name, actions):
+    def __init__(self, name, controls):
         super(Group, self).__init__()
         self.name = name
-        self.actions = actions
+        self.controls = controls
     def xml(self, indent):
         baseindent = TAB * indent
         rv  = baseindent + '<Group name="%s">\n' % self.name
-        for a in self.actions:
+        for a in self.controls:
             rv += a.xml(indent+1)
         rv += baseindent + '</Group>\n'
         return rv
