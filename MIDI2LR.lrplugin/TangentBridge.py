@@ -65,6 +65,9 @@ class Control(object):
         return Control.by_name[name].id
 
 ALL_CONTROLS = [
+    Control(0x10001, 'Prev'),
+    Control(0x10002, 'Next'),
+
     Control(0x20001, 'Temperature'),
     Control(0x20002, 'Tint'),
 ]
@@ -149,6 +152,18 @@ class Bridge(object):
             self.log('>>> GetValue %s'%name)
             self.sendLR('GetValue', name)
             # And the response will DTRT.
+
+        # Button actions. We action on DOWN and ignore UP.
+        elif cmd==8:
+            action = rd4(pkt,4)
+            name = Control.name_for(action)
+            self.log('T< ACTION ON: %x (%s)'%(action,name))
+            self.sendLR(name, '1')
+        elif cmd==0xb:
+            action = rd4(pkt,4)
+            name = Control.name_for(action)
+            self.log('T< ACTION OFF: %x (%s) (ignored)'%(action,name))
+
         else:
             self.log('T< ??? (0x%x): %s'%(cmd, hexdump(pkt[4:])))
 
