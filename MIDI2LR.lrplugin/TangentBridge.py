@@ -137,21 +137,25 @@ class Bridge(object):
             # TODO: determine current mode & send that to panel?
             self.sendTangent(u4(0x85)+u4(1))
 
+        # Parameters. Note that these always range from 0 to 1 in midi2lr's world; it keeps a mapping.
         elif cmd==2:
             param,incr = rd4(pkt,4), rd4f(pkt,8)
             name = Control.name_for(param)
             VALUES[param] += incr
             print('T< Param Change: %u (%s): %f -> %f'%(param,name,incr,VALUES[param]))
             self.sendLR(name, VALUES[param])
-
         elif cmd==4:
             param = rd4(pkt,4)
             name = Control.name_for(param)
             self.log('T< READ PARAM: %x (%s)'%(param,name))
-
-            self.log('>>> GetValue %s'%name)
+            #self.log('>>> GetValue %s'%name)
             self.sendLR('GetValue', name)
             # And the response will DTRT.
+        elif cmd==3: # Reset param (knob pushed)
+            param = rd4(pkt,4)
+            name = Control.name_for(param)
+            self.log('T< RESET PARAM: %x (%s)'%(param,name))
+            self.sendLR('Reset'+name, '1')
 
         # Button actions. We action on DOWN and ignore UP.
         elif cmd==8:
