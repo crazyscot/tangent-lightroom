@@ -151,19 +151,19 @@ class Bridge(object):
             param,incr = rd4(pkt,4), rd4f(pkt,8)
             name = Control.name_for(param)
             VALUES[param] += incr
-            print('T< Param Change: %u (%s): %f -> %f'%(param,name,incr,VALUES[param]))
+            print('T< Param Change: 0x%x (%s): %f -> %f'%(param,name,incr,VALUES[param]))
             self.sendLR(name, VALUES[param])
         elif cmd==4:
             param = rd4(pkt,4)
             name = Control.name_for(param)
-            self.log('T< READ PARAM: %x (%s)'%(param,name))
+            self.log('T< READ PARAM: 0x%x (%s)'%(param,name))
             #self.log('>>> GetValue %s'%name)
             self.sendLRQueued('GetValue', name)
             # And the response will DTRT (--> 0x82)
         elif cmd==3: # Reset param (knob pushed)
             param = rd4(pkt,4)
             name = Control.name_for(param)
-            self.log('T< RESET PARAM: %x (%s)'%(param,name))
+            self.log('T< RESET PARAM: 0x%x (%s)'%(param,name))
             self.sendLR('Reset'+name, '1')
 
         # Custom Parameters.
@@ -188,12 +188,12 @@ class Bridge(object):
         elif cmd==8:
             action = rd4(pkt,4)
             name = Control.name_for(action)
-            self.log('T< ACTION ON: %x (%s)'%(action,name))
+            self.log('T< ACTION ON: 0x%x (%s)'%(action,name))
             self.sendLR(name, '1')
         elif cmd==0xb:
             action = rd4(pkt,4)
             name = Control.name_for(action)
-            self.log('T< ACTION OFF: %x (%s) (ignored)'%(action,name))
+            self.log('T< ACTION OFF: 0x%x (%s) (ignored)'%(action,name))
 
         # Transport Ring. We use jog mode only.
         elif cmd==0xa:
