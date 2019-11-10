@@ -736,6 +736,13 @@ LrTasks.startAsyncTask(
                     CU.showBezel(resetparam,lrvalue)
                   end
                 end
+              elseif param == 'GetValue' then
+                local lrvalue = LrDevelopController.getValue(value)
+                --logger:trace('GetValue '..value)
+                --logger:trace('GetValue '..value..' = '..lrvalue)
+                --logger:trace('cooked value is '..CU.LRValueToMIDIValue(value))
+                MIDI2LR.SERVER:send(string.format('%s %g\n', value, CU.LRValueToMIDIValue(value)))
+                observer[param] = lrvalue
               end
             end
           end,
