@@ -164,6 +164,17 @@ class Bridge(object):
             name = Control.name_for(action)
             self.log('T< ACTION OFF: %x (%s) (ignored)'%(action,name))
 
+        # Transport Ring. We use jog mode only.
+        elif cmd==0xa:
+            jog,shutl = rd4multi(pkt, 4, 2)
+            self.log('T< TRANSPORT: jog %d, shuttle %d'%(jog,shutl))
+            if jog<0:
+                for i in range(-jog):
+                    self.sendLR('Prev','1')
+            else:
+                for i in range(jog):
+                    self.sendLR('Next','1')
+
         else:
             self.log('T< ??? (0x%x): %s'%(cmd, hexdump(pkt[4:])))
 
