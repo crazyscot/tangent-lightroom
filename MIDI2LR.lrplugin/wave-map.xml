@@ -76,6 +76,43 @@
                                 <Key>0x00020002</Key> <!-- Tint -->
                             </Mapping>
                         </Control>
+
+                        <Control type="Encoder" number="3"> <!-- Wave Knob 4 -->
+                            <Mapping mode="Std">
+                                <Key>0x81000003</Key> <!-- Custom Parameter -->
+                                <CustomControl>Exposure</CustomControl>
+                                <CustomName>Exposure</CustomName>
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x81000003</Key> <!-- Custom Parameter -->
+                                <CustomControl>Exposure</CustomControl>
+                                <CustomName>Exposure</CustomName>
+                            </Mapping>
+                        </Control>
+                        <Control type="Encoder" number="4"> <!-- Wave Knob 5 -->
+                            <Mapping mode="Std">
+                                <Key>0x81000003</Key> <!-- Custom Parameter -->
+                                <CustomControl>Blacks</CustomControl>
+                                <CustomName>Blacks</CustomName>
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x81000003</Key> <!-- Custom Parameter -->
+                                <CustomControl>Blacks</CustomControl>
+                                <CustomName>Blacks</CustomName>
+                            </Mapping>
+                        </Control>
+                        <Control type="Encoder" number="5"> <!-- Wave Knob 6 -->
+                            <Mapping mode="Std">
+                                <Key>0x81000003</Key> <!-- Custom Parameter -->
+                                <CustomControl>Whites</CustomControl>
+                                <CustomName>Whites</CustomName>
+                            </Mapping>
+                            <Mapping mode="Alt">
+                                <Key>0x81000003</Key> <!-- Custom Parameter -->
+                                <CustomControl>Whites</CustomControl>
+                                <CustomName>Whites</CustomName>
+                            </Mapping>
+                        </Control>
                     </Bank>
                 </ControlBank>
                 <ControlBank id="Button"> <!-- buttons with displays -->

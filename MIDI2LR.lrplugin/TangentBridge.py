@@ -2,10 +2,11 @@
 # Python 2 as that's what OSX provides
 
 import binascii
+import os
+import Queue
 import select
 import socket
 import struct
-import os
 import sys
 
 TANGENT_PORT = 64246
@@ -29,6 +30,10 @@ def rd4multi(seq, pos, n):
     return [ rd4(seq, pos*i+4) for i in range(n)]
 def u4(i):
     return struct.pack('>i', i)
+def rdstr(seq,pos):
+    # returns (string, how far to advance the stream)
+    length = rd4(seq,pos)
+    return seq[pos+4:pos+4+length], 4+length
 def encstr(s):
     return u4(len(s)) + s
 def encf(f):
@@ -87,6 +92,8 @@ class Bridge(object):
         self.Tangent = None
         self.LRSend = None
         self.LRRecv = None
+        self.lrQueue = Queue.Queue()
+        self.lrSendInProgress= False
 
         self.log('Starting up, plugin dir is %s'%self.pluginDir)
         self.connectAll()
@@ -132,7 +139,7 @@ class Bridge(object):
             self.log('Tangent Initiate Comms: protocol %d, %d panels'%(protocol,npanels))
             # We don't really care about the panel type data
             self.sendTangent(u4(0x81) + encstr(APPNAME) + encstr(self.pluginDir) + encstr(''))
-            self.sendLR('GetPluginInfo', 1)
+            #self.sendLR('GetPluginInfo', 1)
             # Mode: Develop
             # TODO: determine current mode & send that to panel?
             self.sendTangent(u4(0x85)+u4(1))
@@ -149,13 +156,31 @@ class Bridge(object):
             name = Control.name_for(param)
             self.log('T< READ PARAM: %x (%s)'%(param,name))
             #self.log('>>> GetValue %s'%name)
-            self.sendLR('GetValue', name)
-            # And the response will DTRT.
+            self.sendLRQueued('GetValue', name)
+            # And the response will DTRT (--> 0x82)
         elif cmd==3: # Reset param (knob pushed)
             param = rd4(pkt,4)
             name = Control.name_for(param)
             self.log('T< RESET PARAM: %x (%s)'%(param,name))
             self.sendLR('Reset'+name, '1')
+
+        # Custom Parameters.
+        elif cmd==0x36:
+            name,offset = rdstr(pkt, 4)
+            incr = rd4f(pkt, 4+offset)
+            self.log('T< CUSTOM PARAM: %s, %f'%(name,incr))
+            VALUES[name] += incr
+            print('T< Param Change: %s: %f -> %f'%(name,incr,VALUES[name]))
+            self.sendLR(name, VALUES[name])
+        elif cmd==0x37:
+            name,_ = rdstr(pkt, 4)
+            self.log('T< CUSTOM PARAM RESET: %s'%name)
+            self.sendLR('Reset'+name, '1')
+        elif cmd==0x38:
+            name,_ = rdstr(pkt, 4)
+            self.log('T< READ CUSTOM PARAM: %s'%name)
+            self.sendLRQueued('GetValue', name)
+            # And the response will DTRT (--> 0xa6)
 
         # Button actions. We action on DOWN and ignore UP.
         elif cmd==8:
@@ -199,8 +224,23 @@ class Bridge(object):
     # -----------------------------------------------------------------
     # MIDI2LR logic
 
+    def runLRSendQ(self):
+        if not self.lrSendInProgress:
+            try:
+                item = self.lrQueue.get(False)
+                self.lrSendInProgress = True
+                #print('>>> %s'%item.strip())
+                self.LRSend.sendall(item)
+            except Queue.Empty:
+                pass
+
     def sendLR(self, param, value):
         self.LRSend.sendall("%s %s\n"%(param,value))
+
+    def sendLRQueued(self, param, value):
+        # LR can't cope with too many messages at once, so queue them
+        self.lrQueue.put("%s %s\n"%(param,value))
+        self.runLRSendQ()
 
     def handleLR(self, message):
         ''' Deal with a single Midi2LR request '''
@@ -244,6 +284,8 @@ class Bridge(object):
         for p in packets:
             if len(p):
                 self.handleLR(p)
+        self.lrSendInProgress = False
+        self.runLRSendQ()
 
     # -----------------------------------------------------------------
 
@@ -261,7 +303,8 @@ class Bridge(object):
             if lrrx in rlist:
                 self.inboundLR()
             if lrtx in rlist:
-                self.LRSend.recv(4096) # this is just an 'ok' for each command; sink it
+                # this is an 'ok' for each command, which we just sink
+                _ = self.LRSend.recv(128)
 
 if __name__ == '__main__':
     # First argument is the path to the plugin Info.lua, which must be in the same dir as the XML files
