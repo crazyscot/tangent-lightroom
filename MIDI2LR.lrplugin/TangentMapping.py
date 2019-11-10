@@ -65,7 +65,7 @@ class Action(XMLable):
         self.Name20 = name20
     def xml(self, indent):
         baseindent = TAB * indent
-        rv  = baseindent + '<Action id="0x%x">\n' % self.id
+        rv  = baseindent + '<Action id="0x%08x">\n' % self.id
         rv += self.element('Name', indent+1)
         rv += self.optionals(['Name9', 'Name14', 'Name20'], indent+1)
         rv += baseindent + '</Action>\n'
@@ -85,16 +85,81 @@ class Parameter(XMLable):
         self.StepSize=stepsize
     def xml(self, indent):
         baseindent = TAB * indent
-        rv  = baseindent + '<Parameter id="0x%x">\n' % self.id
+        rv  = baseindent + '<Parameter id="0x%08x">\n' % self.id
         rv += self.elements(['Name', 'MinValue', 'MaxValue', 'StepSize'], indent+1)
         rv += self.optionals(['Name9', 'Name10', 'Name12'], indent+1)
         rv += baseindent + '</Parameter>\n'
         return rv
 
+class Group(XMLable):
+    def __init__(self, name, actions):
+        super(Group, self).__init__()
+        self.name = name
+        self.actions = actions
+    def xml(self, indent):
+        baseindent = TAB * indent
+        rv  = baseindent + '<Group name="%s">\n' % self.name
+        for a in self.actions:
+            rv += a.xml(indent+1)
+        rv += baseindent + '</Group>\n'
+        return rv
+
+class Mode(XMLable):
+    def __init__(self, id, name):
+        super(Mode, self).__init__()
+        self.id = id
+        self.Name = name
+    def xml(self, indent):
+        baseindent = TAB * indent
+        rv  = baseindent + '<Mode id="0x%08x">\n' % self.id
+        rv += self.element('Name', indent+1)
+        rv += baseindent + '</Mode>\n'
+        return rv
+
+class ControlsFile(XMLable):
+    def __init__(self, modes, groups):
+        super(ControlsFile, self).__init__()
+        self.modes = modes
+        self.groups = groups
+    def xml(self, indent):
+        rv = '''
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TangentWave fileType="ControlSystem" fileVersion="3.0">
+  <Capabilities>
+    <Jog enabled="true"/>
+    <Shuttle enabled="false"/>
+    <StatusDisplay lineCount="3"/>
+    <CustomControls enabled="true"/>
+  </Capabilities>
+'''
+        for m in self.modes:
+            rv += m.xml(1)
+        rv += TAB + '<Controls>'
+        for g in self.groups:
+            rv += g.xml(2)
+        rv += TAB + '</Controls>'
+        rv += '''
+  <DefaultGlobalSettings>
+    <KnobSensitivity std="1" alt="5"/>
+    <JogDialSensitivity std="1" alt="5"/>
+    <TrackerballSensitivity std="1" alt="5"/>
+    <TrackerballDialSensitivity std="1" alt="5"/>
+    <IndependentPanelBanks enabled="false"/>
+  </DefaultGlobalSettings>
+</TangentWave>
+'''
+        lines = rv.split('\n')
+        baseindent = TAB * indent
+        return ''.join([ baseindent + l + '\n' for l in lines ])
+
+
 if __name__ == '__main__':
     t1 = Action(42, 'myACtion', name14='itsname14')
-    print(t1.xml(0))
+    #print(t1.xml(0))
     t2 = Parameter(69, 'myParam', name9='itsname9', maxval=1.5)
-    print(t2.xml(1))
+    #print(t2.xml(1))
+    g = Group('mygroup', [t1,t2,t2])
+    #print(g.xml(0))
+    cf = ControlsFile([Mode(1,'Develop'), Mode(2,'Navigate')], [g, g])
+    print(cf.xml(0))
     # TODO write out files
-    pass
