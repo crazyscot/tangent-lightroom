@@ -55,6 +55,9 @@ class XMLable(object):
                 rv.append(self.element(a, tabs))
         return ''.join(rv)
 
+##################################################################33
+# CONTROLS FILES
+
 class Action(XMLable):
     def __init__(self,id, name, name9=None, name14=None, name20=None):
         super(Action, self).__init__()
@@ -117,19 +120,30 @@ class Group(XMLable):
         return rv
 
 class Mode(XMLable):
-    def __init__(self, id, name):
+    # This class does double duty, holding both Mode definitions (in Controls files) and mappings (in Mapping files).
+    def __init__(self, id, name=None, controlBanks=None):
         super(Mode, self).__init__()
         self.id = id
         self.Name = name
+        self.controlbanks = controlBanks
+        if name is None and controlBanks is None:
+            raise Error('one of Name and ControlBanks is required')
+        if name is not None and controlBanks is not None:
+            raise Error('only one of Name and ControlBanks is allowed')
     def xml(self, indent):
         baseindent = TAB * indent
         rv  = baseindent + '<Mode id="0x%08x">\n' % self.id
-        rv += self.element('Name', indent+1)
+        if self.Name:
+            rv += self.element('Name', indent+1)
+        if self.controlbanks:
+            for cb in self.controlbanks:
+                rv += cb.xml(indent+1)
         rv += baseindent + '</Mode>\n'
         return rv
 
 FILEHEADER = '''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TangentWave fileType="ControlSystem" fileVersion="3.0">'''
+<TangentWave fileType="ControlSystem" fileVersion="3.0">
+'''
 
 FILEFOOTER = "</TangentWave>"
 
@@ -139,8 +153,7 @@ class ControlsFile(XMLable):
         self.modes = modes
         self.groups = groups
     def xml(self, indent):
-        rv = FILEHEADER + '''
-  <Capabilities>
+        rv = FILEHEADER + '''<Capabilities>
     <Jog enabled="true"/>
     <Shuttle enabled="false"/>
     <StatusDisplay lineCount="3"/>
@@ -168,6 +181,81 @@ class ControlsFile(XMLable):
         return ''.join([ baseindent + l + '\n' for l in lines ])
 
 
+##################################################################33
+# MAP FILES
+
+class Control(XMLable):
+    # A control has a Type and a Number; then at least one Mapping within. Each Mapping contains a Key.
+    # See Button and Encoder subclasses.
+    def __init__(self, type, number, keyStd=None, keyAlt=None):
+        self.type = type
+        self.number = number
+        self.keyStd = keyStd
+        self.keyAlt = keyAlt
+    def xml(self, indent):
+        baseindent = TAB * indent
+        rv = baseindent + '<Control type="%s" number="%d">\n' % (self.type, self.number)
+        if self.keyStd:
+            rv += baseindent + TAB + '<Mapping mode="Std">\n'
+            rv += baseindent + TAB + TAB + '<Key>0x%08x</Key>\n' % self.keyStd
+            # TODO add comment, what is it? look it up ...
+            rv += baseindent + TAB + '</Mapping>\n'
+        if self.keyAlt:
+            rv += baseindent + TAB + '<Mapping mode="Alt">\n'
+            rv += baseindent + TAB + TAB + '<Key>0x%08x</Key>\n' % self.keyAlt
+            # TODO add comment, what is it? look it up ...
+            rv += baseindent + TAB + '</Mapping>\n'
+        rv += baseindent + '</Control>\n'
+        return rv
+
+class Button(Control):
+    def __init__(self, number, keyStd=None, keyAlt=None):
+        super(Button, self).__init__('Button', number, keyStd, keyAlt)
+
+class Encoder(Control):
+    def __init__(self, number, keyStd=None, keyAlt=None):
+        super(Encoder, self).__init__('Encoder', number, keyStd, keyAlt)
+
+class Bank(XMLable):
+    # A bank of one or more controls
+    def __init__(self, controls):
+        self.controls = controls
+    def xml(self, indent):
+        rv = TAB*indent + '<Bank>\n'
+        for c in self.controls:
+            rv += c.xml(indent+1)
+        rv += TAB*indent + '</Bank>\n'
+        return rv
+
+class ControlBank(XMLable):
+    # One or more banks, grouped by the type of control (Standard, Encoder, Button)
+    def __init__(self, id, banks):
+        self.id = id
+        self.banks = banks
+    def xml(self, indent):
+        rv = TAB*indent + '<ControlBank id="%s">\n'%self.id
+        for b in self.banks:
+            rv += b.xml(indent+1)
+        rv += TAB*indent + '</ControlBank>\n'
+        return rv
+
+class MapFile(XMLable):
+    def __init__(self, panelType, modes):
+        self.panelType = panelType
+        self.modes = modes
+    def xml(self, indent):
+        rv = FILEHEADER
+        rv += TAB*(indent+1) + '<Panels>\n'
+        rv += TAB*(indent+2) + '<Panel type="%s">\n' % self.panelType
+        for m in self.modes:
+            rv += m.xml(indent+3)
+        rv += TAB*(indent+2) + '</Panel>\n'
+        rv += TAB*(indent+1) + '</Panels>\n'
+        rv += FILEFOOTER
+        return rv
+    # TODO: must check all modes in Defs file are present...
+
+
 if __name__ == '__main__':
     # This is test code.. for the real outputs, see TangentMappingDefinitions
     t1 = Action(42, 'myACtion', name14='itsname14')
@@ -177,4 +265,17 @@ if __name__ == '__main__':
     g = Group('mygroup', [t1,t2,t2])
     #print(g.xml(0))
     cf = ControlsFile([Mode(1,'Develop'), Mode(2,'Navigate')], [g, g])
-    print(cf.xml(0))
+    #print(cf.xml(0))
+    c = Button(10, 0x100, 0x101)
+    #print(c.xml(0))
+    e = Encoder(4, 0x200, 0x201)
+    #print(e.xml(0))
+    b = Bank([c,e])
+    #print(b.xml(0))
+    cb = ControlBank('Standard', [b])
+    #print(cb.xml(0))
+    m = Mode(1, controlBanks = [cb])
+    #print(m.xml(0))
+    mf = MapFile('Wave', [m])
+    print(mf.xml(0))
+
