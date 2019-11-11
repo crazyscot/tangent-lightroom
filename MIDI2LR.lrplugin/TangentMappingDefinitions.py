@@ -83,8 +83,8 @@ wave.check(controls)
 
 if __name__ == '__main__':
     with open('controls.xml','w') as f:
-        f.write( controls.xml(0) )
+        f.write( controls.xml(0, controls) )
         print("Wrote to controls.xml")
     with open('wave-map.xml', 'w') as f:
-        f.write( wave.xml(0) )
+        f.write( wave.xml(0, controls) )
         print("Wrote to wave-map.xml")

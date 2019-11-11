@@ -19,7 +19,7 @@ class XMLable(object):
         self.TYPES = {}
 
     @abc.abstractmethod
-    def xml(self, indent=0):
+    def xml(self, indent=0, controlsfile=None):
         """
         Returns an XML representation of this object, starting at the given indent level.
         Indent levels are expressed as number of tabs (see TABSIZE).
@@ -81,7 +81,8 @@ class Action(XMLable):
             self.Name14 = self.Name14[0:14]
         if len(self.Name20) > 20:
             self.Name20 = self.Name20[0:20]
-    def xml(self, indent):
+    def xml(self, indent, cf):
+        self.check(cf)
         baseindent = TAB * indent
         rv  = baseindent + '<Action id="0x%08x">\n' % self.id
         rv += self.element('Name', indent+1)
@@ -109,7 +110,8 @@ class Parameter(XMLable):
         self.MinValue=minval
         self.MaxValue=maxval
         self.StepSize=stepsize
-    def xml(self, indent):
+    def xml(self, indent, cf):
+        self.check(cf)
         baseindent = TAB * indent
         rv  = baseindent + '<Parameter id="0x%08x">\n' % self.id
         rv += self.elements(['Name', 'MinValue', 'MaxValue', 'StepSize'], indent+1)
@@ -125,11 +127,12 @@ class Group(XMLable):
         super(Group, self).__init__()
         self.name = name
         self.controls = controls
-    def xml(self, indent):
+    def xml(self, indent, cf):
+        self.check(cf)
         baseindent = TAB * indent
         rv  = baseindent + '<Group name="%s">\n' % self.name
         for a in self.controls:
-            rv += a.xml(indent+1)
+            rv += a.xml(indent+1, cf)
         rv += baseindent + '</Group>\n'
         return rv
     def check(self, controlsfile):
@@ -149,14 +152,15 @@ class Mode(XMLable):
             raise Error('one of Name and ControlBanks is required')
         if name is not None and controlBanks is not None:
             raise Error('only one of Name and ControlBanks is allowed')
-    def xml(self, indent):
+    def xml(self, indent, cf):
+        self.check(cf)
         baseindent = TAB * indent
         rv  = baseindent + '<Mode id="0x%08x">\n' % self.id
         if self.Name:
             rv += self.element('Name', indent+1)
         if self.controlbanks:
             for cb in self.controlbanks:
-                rv += cb.xml(indent+1)
+                rv += cb.xml(indent+1, cf)
         rv += baseindent + '</Mode>\n'
         return rv
     def check(self, controlsfile):
@@ -187,7 +191,8 @@ class ControlsFile(XMLable):
         super(ControlsFile, self).__init__()
         self.modes = modes
         self.groups = groups
-    def xml(self, indent):
+    def xml(self, indent, cf):
+        self.check(cf)
         rv = FILEHEADER%'ControlSystem' + '''<Capabilities>
     <Jog enabled="true"/>
     <Shuttle enabled="false"/>
@@ -197,11 +202,11 @@ class ControlsFile(XMLable):
 '''
         rv += TAB + '<Modes>\n'
         for m in self.modes:
-            rv += m.xml(2)
+            rv += m.xml(2,cf)
         rv += TAB + '</Modes>\n'
         rv += TAB + '<Controls>\n'
         for g in self.groups:
-            rv += g.xml(2)
+            rv += g.xml(2,cf)
         rv += TAB + '</Controls>\n'
         rv += '''  <DefaultGlobalSettings>
     <KnobSensitivity std="1" alt="5"/>
@@ -232,7 +237,8 @@ class Control(XMLable):
         self.number = number
         self.keyStd = keyStd
         self.keyAlt = keyAlt
-    def xml(self, indent):
+    def xml(self, indent, cf):
+        self.check(cf)
         baseindent = TAB * indent
         rv = baseindent + '<Control type="%s" number="%d">\n' % (self.type, self.number)
         if self.keyStd:
@@ -263,10 +269,11 @@ class Bank(XMLable):
     # A bank of one or more controls
     def __init__(self, controls):
         self.controls = controls
-    def xml(self, indent):
+    def xml(self, indent, cf):
+        self.check(cf)
         rv = TAB*indent + '<Bank>\n'
         for c in self.controls:
-            rv += c.xml(indent+1)
+            rv += c.xml(indent+1,cf)
         rv += TAB*indent + '</Bank>\n'
         return rv
     def check(self, controlsfile):
@@ -278,10 +285,11 @@ class ControlBank(XMLable):
     def __init__(self, id, banks):
         self.id = id
         self.banks = banks
-    def xml(self, indent):
+    def xml(self, indent, cf):
+        self.check(cf)
         rv = TAB*indent + '<ControlBank id="%s">\n'%self.id
         for b in self.banks:
-            rv += b.xml(indent+1)
+            rv += b.xml(indent+1,cf)
         rv += TAB*indent + '</ControlBank>\n'
         return rv
     def check(self, controlsfile):
@@ -293,17 +301,19 @@ class MapFile(XMLable):
     def __init__(self, panelType, modes):
         self.panelType = panelType
         self.modes = modes
-    def xml(self, indent):
+    def xml(self, indent, cf):
+        self.check(cf)
         rv = FILEHEADER%'PanelMap'
         rv += TAB*(indent+1) + '<Panels>\n'
         rv += TAB*(indent+2) + '<Panel type="%s">\n' % self.panelType
         for m in self.modes:
-            rv += m.xml(indent+3)
+            rv += m.xml(indent+3, cf)
         rv += TAB*(indent+2) + '</Panel>\n'
         rv += TAB*(indent+1) + '</Panels>\n'
         rv += FILEFOOTER
         return rv
     def check(self, controlsfile):
+        assert controlsfile is not None
         assert self.panelType is not None
         for m in self.modes:
             m.check(controlsfile)
@@ -329,7 +339,7 @@ if __name__ == '__main__':
     #print(g.xml(0))
     cf = ControlsFile([Mode(1,'Develop'), Mode(2,'Navigate')], [g, g])
     cf.check(None)
-    #print(cf.xml(0))
+    #print(cf.xml(0,cf))
     c = Button(10, 0x100, 0x101)
     #print(c.xml(0))
     e = Encoder(4, 0x200, 0x201)
@@ -343,5 +353,5 @@ if __name__ == '__main__':
     #print(m.xml(0))
     mf = MapFile('Wave', [m, m2])
     mf.check(cf)
-    print(mf.xml(0))
+    print(mf.xml(0, cf))
 
