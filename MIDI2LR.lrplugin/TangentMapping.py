@@ -155,7 +155,10 @@ class Mode(XMLable):
     def xml(self, indent, cf):
         self.check(cf)
         baseindent = TAB * indent
-        rv  = baseindent + '<Mode id="0x%08x">\n' % self.id
+        namecomment = ''
+        if not self.Name:
+            namecomment = ' <!-- %s -->' % cf.find_mode(self.id).Name
+        rv  = baseindent + '<Mode id="0x%08x">%s\n' % (self.id,namecomment)
         if self.Name:
             rv += self.element('Name', indent+1)
         if self.controlbanks:
@@ -170,12 +173,7 @@ class Mode(XMLable):
             assert controlsfile is not None
             # our ID must be found in the controls file
             found=False
-            for m in controlsfile.modes:
-                if m.id == self.id:
-                    found=True
-                    break
-            if not found:
-                raise Error('mode id %08x not found in controls file'%self.id)
+            controlsfile.find_mode(self.id)
             for cb in self.controlbanks:
                 cb.check(controlsfile)
 
@@ -224,6 +222,11 @@ class ControlsFile(XMLable):
             m.check(controlsfile)
         for g in self.groups:
             g.check(controlsfile)
+    def find_mode(self, id):
+        for m in self.modes:
+            if m.id == id:
+                return m
+        raise Exception('Mode 0x%08x not found'%id)
 
 
 ##################################################################33
