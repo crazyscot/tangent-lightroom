@@ -31,9 +31,58 @@ controls = ControlsFile(
     ]
 )
 
+wave = MapFile(
+    'Wave',
+    [
+        Mode(1, controlBanks=[
+            ControlBank('Standard',[
+                # Buttons and encoders without displays
+                Bank([
+                    # Truly standard controls which should appear in every bank:
+                    Button(36, 0x102, 0x102), # Previous
+                    Button(37, 0x103, 0x103), # Next
+                    Button( 9, 0x80000001, 0x80000001), # Alt
+                    Button(25, 0x80000002, 0x80000003), # Up arrow -> next/prev knob bank
+                    Button(26, 0x80000004, 0x80000005), # Down arrow -> next/prev button bank
+                    Encoder(12, 0x81000001, 0x81000001), # Transport dial
+
+                    # Specific to this mode:
+                    Encoder( 9, 0x205, 0x205), # Dial 1 - Shadows
+                    Encoder(10, 0x203, 0x203), # Dial 2 - Exposure
+                    Encoder(11, 0x204, 0x204), # Dial 3 - Highlights
+                ]),
+            ]),
+            ControlBank('Encoder',[
+                # Encoders with displays
+                Bank([
+                    Encoder(0, 0x201, 0x201), # Temp
+                    Encoder(1, 0x202, 0x202), # Tint
+                    Encoder(4, 0x208, 0x208), # Knob 5 -> Blacks
+                    Encoder(5, 0x209, 0x209), # Knob 6 -> Whites
+                    Encoder(6, 0x20a, 0x20a), # Knob 7 -> Clarity
+                    Encoder(7, 0x20b, 0x20b), # Knob 8 -> Vibrance
+                    Encoder(8, 0x20c, 0x20c), # Knob 9 -> Saturation
+                ]),
+            ]),
+            ControlBank('Button',[
+                # Buttons with displays
+                Bank([
+                    Button(10, 0x100), # Undo (TODO - Move to Standard)
+                    Button(11, 0x101), # Redo (Ditto)
+                    Button(12, 0x200), # Auto Tone
+                    Button(15, 0x102), # Prev (TODO - Remove)
+                    Button(16, 0x103), # Next (Ditto)
+                ]),
+            ]),
+        ]),
+    ]
+)
+
 
 if __name__ == '__main__':
     with open('controls.xml','w') as f:
         f.write( controls.xml(0) )
         print("Wrote to controls.xml")
-    # TODO mapping..
+    with open('wave-map.xml', 'w') as f:
+        f.write( wave.xml(0) )
+        print("Wrote to wave-map.xml")

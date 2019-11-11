@@ -142,7 +142,7 @@ class Mode(XMLable):
         return rv
 
 FILEHEADER = '''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TangentWave fileType="ControlSystem" fileVersion="3.0">
+<TangentWave fileType="%s" fileVersion="3.0">
 '''
 
 FILEFOOTER = "</TangentWave>"
@@ -153,7 +153,7 @@ class ControlsFile(XMLable):
         self.modes = modes
         self.groups = groups
     def xml(self, indent):
-        rv = FILEHEADER + '''<Capabilities>
+        rv = FILEHEADER%'ControlSystem' + '''<Capabilities>
     <Jog enabled="true"/>
     <Shuttle enabled="false"/>
     <StatusDisplay lineCount="3"/>
@@ -244,7 +244,7 @@ class MapFile(XMLable):
         self.panelType = panelType
         self.modes = modes
     def xml(self, indent):
-        rv = FILEHEADER
+        rv = FILEHEADER%'PanelMap'
         rv += TAB*(indent+1) + '<Panels>\n'
         rv += TAB*(indent+2) + '<Panel type="%s">\n' % self.panelType
         for m in self.modes:
@@ -254,6 +254,7 @@ class MapFile(XMLable):
         rv += FILEFOOTER
         return rv
     # TODO: must check all modes in Defs file are present...
+    # TODO: common sections
 
 
 if __name__ == '__main__':
