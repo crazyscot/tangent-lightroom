@@ -55,6 +55,15 @@ class XMLable(object):
                 rv.append(self.element(a, tabs))
         return ''.join(rv)
 
+    @abc.abstractmethod
+    def check(self, controlsfile):
+        '''
+        Performs sanity checks of this element and all its children.
+        A ControlsFile must be given for elements within a Map File,
+        in order to cross-reference.
+        '''
+        pass
+
 ##################################################################33
 # CONTROLS FILES
 
@@ -79,7 +88,9 @@ class Action(XMLable):
         rv += self.optionals(['Name9', 'Name14', 'Name20'], indent+1)
         rv += baseindent + '</Action>\n'
         return rv
-
+    def check(self, controlsfile):
+        assert self.id is not None
+        assert self.Name is not None
 
 class Parameter(XMLable):
     def __init__(self, id, name, name9=None, name10=None, name12=None, minval=0, maxval=1, stepsize=0.0001):
@@ -105,6 +116,9 @@ class Parameter(XMLable):
         rv += self.optionals(['Name9', 'Name10', 'Name12'], indent+1)
         rv += baseindent + '</Parameter>\n'
         return rv
+    def check(self, controlsfile):
+        assert self.id is not None
+        assert self.Name is not None
 
 class Group(XMLable):
     def __init__(self, name, controls):
@@ -118,6 +132,11 @@ class Group(XMLable):
             rv += a.xml(indent+1)
         rv += baseindent + '</Group>\n'
         return rv
+    def check(self, controlsfile):
+        assert self.name is not None
+        assert self.controls is not None
+        for c in self.controls:
+            c.check(controlsfile)
 
 class Mode(XMLable):
     # This class does double duty, holding both Mode definitions (in Controls files) and mappings (in Mapping files).
@@ -140,6 +159,22 @@ class Mode(XMLable):
                 rv += cb.xml(indent+1)
         rv += baseindent + '</Mode>\n'
         return rv
+    def check(self, controlsfile):
+        assert self.id is not None
+        assert (self.Name and not self.controlbanks) or (self.controlbanks and not self.Name)
+        if self.controlbanks:
+            assert controlsfile is not None
+            # our ID must be found in the controls file
+            found=False
+            for m in controlsfile.modes:
+                if m.id == self.id:
+                    found=True
+                    break
+            if not found:
+                raise Error('mode id %08x not found in controls file'%self.id)
+            for cb in self.controlbanks:
+                cb.check(controlsfile)
+
 
 FILEHEADER = '''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TangentWave fileType="%s" fileVersion="3.0">
@@ -179,6 +214,11 @@ class ControlsFile(XMLable):
         lines = rv.split('\n')
         baseindent = TAB * indent
         return ''.join([ baseindent + l + '\n' for l in lines ])
+    def check(self, controlsfile=None):
+        for m in self.modes:
+            m.check(controlsfile)
+        for g in self.groups:
+            g.check(controlsfile)
 
 
 ##################################################################33
@@ -207,6 +247,9 @@ class Control(XMLable):
             rv += baseindent + TAB + '</Mapping>\n'
         rv += baseindent + '</Control>\n'
         return rv
+    def check(self, controlsfile):
+        assert self.type is not None
+        assert self.number is not None
 
 class Button(Control):
     def __init__(self, number, keyStd=None, keyAlt=None):
@@ -226,6 +269,9 @@ class Bank(XMLable):
             rv += c.xml(indent+1)
         rv += TAB*indent + '</Bank>\n'
         return rv
+    def check(self, controlsfile):
+        for c in self.controls:
+            c.check(controlsfile)
 
 class ControlBank(XMLable):
     # One or more banks, grouped by the type of control (Standard, Encoder, Button)
@@ -238,6 +284,10 @@ class ControlBank(XMLable):
             rv += b.xml(indent+1)
         rv += TAB*indent + '</ControlBank>\n'
         return rv
+    def check(self, controlsfile):
+        assert self.id is not None
+        for b in self.banks:
+            b.check(controlsfile)
 
 class MapFile(XMLable):
     def __init__(self, panelType, modes):
@@ -253,7 +303,19 @@ class MapFile(XMLable):
         rv += TAB*(indent+1) + '</Panels>\n'
         rv += FILEFOOTER
         return rv
-    # TODO: must check all modes in Defs file are present...
+    def check(self, controlsfile):
+        assert self.panelType is not None
+        for m in self.modes:
+            m.check(controlsfile)
+        for cm in controlsfile.modes:
+            # every defined mode must be mapped
+            found=False
+            for m in self.modes:
+                if m.id == cm.id:
+                    found=True
+                    break
+            if not found:
+                raise Exception('Mode 0x%08x (%s) in controls file not found in map for %s'%(cm.id, cm.Name, self.panelType))
     # TODO: common sections
 
 
@@ -266,6 +328,7 @@ if __name__ == '__main__':
     g = Group('mygroup', [t1,t2,t2])
     #print(g.xml(0))
     cf = ControlsFile([Mode(1,'Develop'), Mode(2,'Navigate')], [g, g])
+    cf.check(None)
     #print(cf.xml(0))
     c = Button(10, 0x100, 0x101)
     #print(c.xml(0))
@@ -276,7 +339,9 @@ if __name__ == '__main__':
     cb = ControlBank('Standard', [b])
     #print(cb.xml(0))
     m = Mode(1, controlBanks = [cb])
+    m2 = Mode(2, controlBanks = [cb])
     #print(m.xml(0))
-    mf = MapFile('Wave', [m])
+    mf = MapFile('Wave', [m, m2])
+    mf.check(cf)
     print(mf.xml(0))
 

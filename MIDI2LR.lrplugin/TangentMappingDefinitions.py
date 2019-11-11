@@ -78,6 +78,8 @@ wave = MapFile(
     ]
 )
 
+controls.check(None)
+wave.check(controls)
 
 if __name__ == '__main__':
     with open('controls.xml','w') as f:
