@@ -366,7 +366,6 @@ class MapFile(XMLable):
                     break
             if not found:
                 raise Exception('Mode 0x%08x (%s) in controls file not found in map for %s'%(cm.id, cm.Name, self.panelType))
-    # TODO: common sections
 
 
 if __name__ == '__main__':
