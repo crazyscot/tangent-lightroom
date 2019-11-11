@@ -128,15 +128,18 @@ class Mode(XMLable):
         rv += baseindent + '</Mode>\n'
         return rv
 
+FILEHEADER = '''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TangentWave fileType="ControlSystem" fileVersion="3.0">'''
+
+FILEFOOTER = "</TangentWave>"
+
 class ControlsFile(XMLable):
     def __init__(self, modes, groups):
         super(ControlsFile, self).__init__()
         self.modes = modes
         self.groups = groups
     def xml(self, indent):
-        rv = '''
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TangentWave fileType="ControlSystem" fileVersion="3.0">
+        rv = FILEHEADER + '''
   <Capabilities>
     <Jog enabled="true"/>
     <Shuttle enabled="false"/>
@@ -159,7 +162,7 @@ class ControlsFile(XMLable):
     <TrackerballDialSensitivity std="1" alt="5"/>
     <IndependentPanelBanks enabled="false"/>
   </DefaultGlobalSettings>
-</TangentWave>'''
+''' + FILEFOOTER
         lines = rv.split('\n')
         baseindent = TAB * indent
         return ''.join([ baseindent + l + '\n' for l in lines ])
