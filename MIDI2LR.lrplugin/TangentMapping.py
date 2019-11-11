@@ -92,6 +92,8 @@ class Action(XMLable):
     def check(self, controlsfile):
         assert self.id is not None
         assert self.Name is not None
+    def __str__(self):
+        return 'Action: %s'%self.Name
 
 class Parameter(XMLable):
     def __init__(self, id, name, name9=None, name10=None, name12=None, minval=0, maxval=1, stepsize=0.0001):
@@ -121,6 +123,8 @@ class Parameter(XMLable):
     def check(self, controlsfile):
         assert self.id is not None
         assert self.Name is not None
+    def __str__(self):
+        return 'Parameter: %s'%self.Name
 
 class Group(XMLable):
     def __init__(self, name, controls):
@@ -140,6 +144,32 @@ class Group(XMLable):
         assert self.controls is not None
         for c in self.controls:
             c.check(controlsfile)
+
+RESERVED_CONTROLS = [
+    Action(0x80000001, 'ALT'),
+    Action(0x80000002, 'Next Knob Bank'),
+    Action(0x80000003, 'Previous Knob Bank'),
+    Action(0x80000004, 'Next Button Bank'),
+    Action(0x80000005, 'Previous Button Bank'),
+    Action(0x80000006, 'Next Trackerball Bank'),
+    Action(0x80000007, 'Previous Trackerball Bank'),
+    Action(0x80000008, '<reserved>'),
+    Action(0x80000009, 'Next Mode'),
+    Action(0x8000000a, 'Previous Mode'),
+    Action(0x8000000b, 'Go To Mode'),
+    Action(0x8000000c, 'Toggle Jog/Shuttle'),
+    Action(0x8000000d, 'Toggle Mouse Emulation'),
+    Action(0x8000000e, 'Keyboard Shortcut'),
+    Action(0x8000000f, 'Show HUD'),
+    Action(0x80000010, 'Goto Knob Bank'),
+    Action(0x80000011, 'Goto Button Bank'),
+    Action(0x80000012, 'Goto Trackerball Bank'),
+    Action(0x80000013, 'Custom Action'),
+
+    Parameter(0x81000001, 'Transport Ring'),
+    Parameter(0x81000002, 'Keyboard Shortcut'),
+    Parameter(0x81000003, 'Custom Parameter'),
+]
 
 class Mode(XMLable):
     # This class does double duty, holding both Mode definitions (in Controls files) and mappings (in Mapping files).
@@ -227,6 +257,15 @@ class ControlsFile(XMLable):
             if m.id == id:
                 return m
         raise Exception('Mode 0x%08x not found'%id)
+    def find_control(self, id):
+        for g in self.groups:
+            for c in g.controls:
+                if c.id == id:
+                    return c
+        for c in RESERVED_CONTROLS:
+            if c.id == id:
+                return c
+        raise Exception('Control 0x%08x not found'%id)
 
 
 ##################################################################33
@@ -246,13 +285,11 @@ class Control(XMLable):
         rv = baseindent + '<Control type="%s" number="%d">\n' % (self.type, self.number)
         if self.keyStd:
             rv += baseindent + TAB + '<Mapping mode="Std">\n'
-            rv += baseindent + TAB + TAB + '<Key>0x%08x</Key>\n' % self.keyStd
-            # TODO add comment, what is it? look it up ...
+            rv += baseindent + TAB + TAB + '<Key>0x%08x</Key> <!-- %s -->\n' % (self.keyStd, cf.find_control(self.keyStd))
             rv += baseindent + TAB + '</Mapping>\n'
         if self.keyAlt:
             rv += baseindent + TAB + '<Mapping mode="Alt">\n'
-            rv += baseindent + TAB + TAB + '<Key>0x%08x</Key>\n' % self.keyAlt
-            # TODO add comment, what is it? look it up ...
+            rv += baseindent + TAB + TAB + '<Key>0x%08x</Key> <!-- %s -->\n' % (self.keyAlt, cf.find_control(self.keyAlt))
             rv += baseindent + TAB + '</Mapping>\n'
         rv += baseindent + '</Control>\n'
         return rv
@@ -338,7 +375,7 @@ if __name__ == '__main__':
     #print(t1.xml(0))
     t2 = Parameter(69, 'myParam', name9='itsname9', maxval=1.5)
     #print(t2.xml(1))
-    g = Group('mygroup', [t1,t2,t2])
+    g = Group('mygroup', [t1,t2,Action(0x100, 'foo'),Action(0x101, 'bar'),Action(0x200,'baz'),Action(0x201,'qux')])
     #print(g.xml(0))
     cf = ControlsFile([Mode(1,'Develop'), Mode(2,'Navigate')], [g, g])
     cf.check(None)
