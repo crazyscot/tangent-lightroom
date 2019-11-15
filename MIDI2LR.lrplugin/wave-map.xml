@@ -33,9 +33,15 @@
               <Mapping mode="Std">
                 <Key>0x80000009</Key> <!-- Action: Next Mode -->
               </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000009</Key> <!-- Action: Next Mode -->
+              </Mapping>
             </Control>
             <Control type="Button" number="26">
               <Mapping mode="Std">
+                <Key>0x8000000a</Key> <!-- Action: Previous Mode -->
+              </Mapping>
+              <Mapping mode="Alt">
                 <Key>0x8000000a</Key> <!-- Action: Previous Mode -->
               </Mapping>
             </Control>
@@ -75,14 +81,23 @@
               <Mapping mode="Std">
                 <Key>0x00000100</Key> <!-- Action: Undo -->
               </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
             </Control>
             <Control type="Button" number="34">
               <Mapping mode="Std">
                 <Key>0x00000101</Key> <!-- Action: Redo -->
               </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
             </Control>
             <Control type="Button" number="35">
               <Mapping mode="Std">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+              <Mapping mode="Alt">
                 <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
               </Mapping>
             </Control>
@@ -158,14 +173,23 @@
               <Mapping mode="Std">
                 <Key>0x00000100</Key> <!-- Action: Undo -->
               </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
             </Control>
             <Control type="Button" number="21">
               <Mapping mode="Std">
                 <Key>0x00000101</Key> <!-- Action: Redo -->
               </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
             </Control>
             <Control type="Button" number="22">
               <Mapping mode="Std">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+              <Mapping mode="Alt">
                 <Key>0x00000104</Key> <!-- Action: ShowClipping -->
               </Mapping>
             </Control>
@@ -252,14 +276,23 @@
               <Mapping mode="Std">
                 <Key>0x00000100</Key> <!-- Action: Undo -->
               </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
             </Control>
             <Control type="Button" number="21">
               <Mapping mode="Std">
                 <Key>0x00000101</Key> <!-- Action: Redo -->
               </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
             </Control>
             <Control type="Button" number="22">
               <Mapping mode="Std">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+              <Mapping mode="Alt">
                 <Key>0x00000104</Key> <!-- Action: ShowClipping -->
               </Mapping>
             </Control>
@@ -295,9 +328,15 @@
               <Mapping mode="Std">
                 <Key>0x80000009</Key> <!-- Action: Next Mode -->
               </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000009</Key> <!-- Action: Next Mode -->
+              </Mapping>
             </Control>
             <Control type="Button" number="26">
               <Mapping mode="Std">
+                <Key>0x8000000a</Key> <!-- Action: Previous Mode -->
+              </Mapping>
+              <Mapping mode="Alt">
                 <Key>0x8000000a</Key> <!-- Action: Previous Mode -->
               </Mapping>
             </Control>
@@ -337,14 +376,218 @@
               <Mapping mode="Std">
                 <Key>0x00000100</Key> <!-- Action: Undo -->
               </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
             </Control>
             <Control type="Button" number="34">
               <Mapping mode="Std">
                 <Key>0x00000101</Key> <!-- Action: Redo -->
               </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
             </Control>
             <Control type="Button" number="35">
               <Mapping mode="Std">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000003"> <!-- Tone Curve -->
+        <ControlBank id="Encoder">
+          <Bank>
+            <Control type="Encoder" number="1">
+              <Mapping mode="Std">
+                <Key>0x00000212</Key> <!-- Parameter: ParametricShadows -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000212</Key> <!-- Parameter: ParametricShadows -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x00000210</Key> <!-- Parameter: ParametricDarks -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000210</Key> <!-- Parameter: ParametricDarks -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="3">
+              <Mapping mode="Std">
+                <Key>0x00000211</Key> <!-- Parameter: ParametricLights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000211</Key> <!-- Parameter: ParametricLights -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="4">
+              <Mapping mode="Std">
+                <Key>0x00000213</Key> <!-- Parameter: ParametricHighlights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000213</Key> <!-- Parameter: ParametricHighlights -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="6">
+              <Mapping mode="Std">
+                <Key>0x00000214</Key> <!-- Parameter: ParametricShadowSplit -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000214</Key> <!-- Parameter: ParametricShadowSplit -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000215</Key> <!-- Parameter: ParametricMidtoneSplit -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000215</Key> <!-- Parameter: ParametricMidtoneSplit -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000216</Key> <!-- Parameter: ParametricHighlightSplit -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000216</Key> <!-- Parameter: ParametricHighlightSplit -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Button">
+          <Bank>
+            <Control type="Button" number="12">
+              <Mapping mode="Std">
+                <Key>0x00000217</Key> <!-- Menu : Pt Curve {'Strong': 'PointCurveStrongContrast', 'Medium': 'PointCurveMediumContrast', 'Linear': 'PointCurveLinear'} -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="20">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="21">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="22">
+              <Mapping mode="Std">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="36">
+              <Mapping mode="Std">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="37">
+              <Mapping mode="Std">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="9">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="25">
+              <Mapping mode="Std">
+                <Key>0x80000009</Key> <!-- Action: Next Mode -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000009</Key> <!-- Action: Next Mode -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="26">
+              <Mapping mode="Std">
+                <Key>0x8000000a</Key> <!-- Action: Previous Mode -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x8000000a</Key> <!-- Action: Previous Mode -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="12">
+              <Mapping mode="Std">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="9">
+              <Mapping mode="Std">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="33">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="34">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="35">
+              <Mapping mode="Std">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+              <Mapping mode="Alt">
                 <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
               </Mapping>
             </Control>
