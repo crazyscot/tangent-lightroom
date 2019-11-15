@@ -198,6 +198,18 @@ class Mode(XMLable):
                     raise Error('shared control bank %s has more than one bank; not supported' % mcb.id)
                 for bnk in cb.banks:
                     bnk.controls.extend(mcb.banks[0].controls)
+        # And the reverse mapping: a mode need not define all banks, but must still accept all shared banks
+        for mcb in sharedBanks:
+            found = False
+            for cb in self.controlbanks:
+                if mcb.id != cb.id:
+                    continue
+                found = True
+            if not found:
+                #raise Exception('shared control bank %s has nowhere to go in mode %08x'%(mcb.id, self.id))
+                print('Creating control bank %s in mode %08x'%(mcb.id,self.id))
+                self.controlbanks.append(mcb)
+
     def xml(self, indent, cf):
         self.check(cf)
         baseindent = TAB * indent
