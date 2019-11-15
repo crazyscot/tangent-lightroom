@@ -10,8 +10,11 @@ def INV(s):
     return rv
 
 controls = ControlsFile(
-    [Mode(1,'Colour/Tone'),
-     Mode(2,'Tone/Presence')],
+    [
+        Mode(1,'Colour/Tone'),
+        Mode(2,'Tone/Presence'),
+        Mode(3,'Tone Curve'),
+    ],
     [
         Group('General', [
             Action(0x100, 'Undo', panel=INV('Undo')),
@@ -53,6 +56,20 @@ controls = ControlsFile(
             Parameter(0x20c, 'Saturation', name9='Saturate'),
             Parameter(0x20d, 'Dehaze'),
             Parameter(0x20e, 'Texture'),
+        ]),
+        Group('Tone Curve', [
+            Parameter(0x210, 'ParametricDarks', panel='Darks'),
+            Parameter(0x211, 'ParametricLights', panel='Lights'),
+            Parameter(0x212, 'ParametricShadows', panel='Shadows'),
+            Parameter(0x213, 'ParametricHighlights', panel='Highlights'),
+            Parameter(0x214, 'ParametricShadowSplit', panel='ShadoSplit'),
+            Parameter(0x215, 'ParametricMidtoneSplit', panel='Mid Split'),
+            Parameter(0x216, 'ParametricHighlightSplit', panel='HighSplit'),
+            Menu(0x217, 'Pt Curve', verbs={
+                'Linear': 'PointCurveLinear',
+                'Medium': 'PointCurveMediumContrast',
+                'Strong': 'PointCurveStrongContrast'
+            }),
         ]),
     ]
 )
@@ -140,6 +157,29 @@ wave = MapFile(
                 # Buttons with displays
                 Bank([
                     Button(11, 0x110), # Auto Tone
+                ]),
+            ]),
+        ]),
+
+        # Point Curve
+        Mode(3, controlBanks=[
+            ControlBank('Encoder',[
+                # Encoders with displays
+                Bank([
+                    Encoder(1, 0x212, 0x212), # Shadows
+                    Encoder(2, 0x210, 0x210), # Darks
+                    Encoder(3, 0x211, 0x211), # Lights
+                    Encoder(4, 0x213, 0x213), # Highlights
+
+                    Encoder(6, 0x214, 0x214), # Shadow split
+                    Encoder(7, 0x215, 0x215), # Midtone split
+                    Encoder(8, 0x216, 0x216), # Highlight split
+                ]),
+            ]),
+            ControlBank('Button',[
+                # Buttons with displays
+                Bank([
+                    Button(12, 0x217), # Pt Curve menu
                 ]),
             ]),
         ]),
