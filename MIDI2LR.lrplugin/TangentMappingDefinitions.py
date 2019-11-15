@@ -34,6 +34,7 @@ controls = ControlsFile(
 
 wave = MapFile(
     'Wave',
+    [], # common definitions
     [
         Mode(1, controlBanks=[
             ControlBank('Standard',[

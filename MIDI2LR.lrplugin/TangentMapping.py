@@ -182,6 +182,20 @@ class Mode(XMLable):
             raise Error('one of Name and ControlBanks is required')
         if name is not None and controlBanks is not None:
             raise Error('only one of Name and ControlBanks is allowed')
+    def merge(self, sharedBanks):
+        # sharedBanks is an array of ControlBank objects to merge in
+        if self.controlbanks is None:
+            raise Error('cannot merge when no ControlBanks are present')
+        for cb in self.controlbanks: # for each bank ...
+            for mcb in sharedBanks: # find a matching shared bank
+                if mcb.id != cb.id:
+                    continue
+                # got it; merge in
+                print('merging %s into %s'%(mcb.id, cb.id))
+                if len(mcb.banks)>1:
+                    raise Error('shared control bank %s has more than one bank; not supported' % mcb.id)
+                for bnk in cb.banks:
+                    bnk.controls.extend(mcb.banks[0].controls)
     def xml(self, indent, cf):
         self.check(cf)
         baseindent = TAB * indent
@@ -338,9 +352,12 @@ class ControlBank(XMLable):
             b.check(controlsfile)
 
 class MapFile(XMLable):
-    def __init__(self, panelType, modes):
+    def __init__(self, panelType, sharedControlBanks, modes):
         self.panelType = panelType
         self.modes = modes
+        self.sharedControlBanks = sharedControlBanks
+        for m in self.modes:
+            m.merge(self.sharedControlBanks)
     def xml(self, indent, cf):
         self.check(cf)
         rv = FILEHEADER%'PanelMap'
@@ -374,7 +391,7 @@ if __name__ == '__main__':
     #print(t1.xml(0))
     t2 = Parameter(69, 'myParam', name9='itsname9', maxval=1.5)
     #print(t2.xml(1))
-    g = Group('mygroup', [t1,t2,Action(0x100, 'foo'),Action(0x101, 'bar'),Action(0x200,'baz'),Action(0x201,'qux')])
+    g = Group('mygroup', [t1,t2,Action(0x100, 'foo'),Action(0x101, 'bar'),Action(0x200,'baz'),Action(0x201,'qux'),Action(0xfff,'qix')])
     #print(g.xml(0))
     cf = ControlsFile([Mode(1,'Develop'), Mode(2,'Navigate')], [g, g])
     cf.check(None)
@@ -386,11 +403,12 @@ if __name__ == '__main__':
     b = Bank([c,e])
     #print(b.xml(0))
     cb = ControlBank('Standard', [b])
+    cb2 = ControlBank('Standard', [Bank([ Button(32, 0xfff) ])])
     #print(cb.xml(0))
     m = Mode(1, controlBanks = [cb])
-    m2 = Mode(2, controlBanks = [cb])
+    m2 = Mode(2, controlBanks = [ControlBank('Standard', [Bank([c,e])])]) # needs to be a deep clone, so the shared logic doesn't duplicate
     #print(m.xml(0))
-    mf = MapFile('Wave', [m, m2])
+    mf = MapFile('Wave', [cb2], [m, m2])
     mf.check(cf)
     print(mf.xml(0, cf))
 
