@@ -2,16 +2,23 @@
 
 from TangentMapping import *
 
+def INV(s):
+    # Sets all bits of the input string to 0x80, which inverts on the Tangent display
+    rv = ''
+    for c in s:
+        rv += (chr(ord(c) | 0x80))
+    return rv
+
 controls = ControlsFile(
     [Mode(1,'Colour/Tone'),
      Mode(2,'Tone/Presence')],
     [
         Group('General', [
-            Action(0x100, 'Undo'),
-            Action(0x101, 'Redo'),
+            Action(0x100, 'Undo', panel=INV('Undo')),
+            Action(0x101, 'Redo', panel=INV('Redo')),
             Action(0x102, 'Prev'),
             Action(0x103, 'Next'),
-            Action(0x104, 'ShowClipping', panel='Clipping On/Off', name9='Clipping'),
+            Action(0x104, 'ShowClipping', panel=INV('Clipping')+' '+INV('On/Off'), name9=INV('Clipping')),
             Action(0x105, 'VirtualCopy'),
         ]),
 
