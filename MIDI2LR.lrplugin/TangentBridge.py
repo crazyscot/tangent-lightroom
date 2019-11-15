@@ -154,6 +154,8 @@ class Bridge(object):
         elif cmd==2:
             param,incr = rd4(pkt,4), rd4f(pkt,8)
             name = Control.name_for(param)
+            if param not in VALUES:
+                VALUES[param]=0.5 # safeish default?
             VALUES[param] += incr
             print('T< Param Change: 0x%x (%s): %f -> %f'%(param,name,incr,VALUES[param]))
             self.sendLR(name, VALUES[param])
