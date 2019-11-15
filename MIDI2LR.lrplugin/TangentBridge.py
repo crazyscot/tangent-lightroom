@@ -9,6 +9,7 @@ import socket
 import struct
 import sys
 
+from TangentMapping import ALL_MENUS
 import TangentMappingDefinitions
 
 TANGENT_PORT = 64246
@@ -216,6 +217,28 @@ class Bridge(object):
             else:
                 for i in range(jog):
                     self.sendLR('Next','1')
+
+        elif cmd==5:
+            id,incr = rd4multi(pkt, 4, 2)
+            display,verb = ALL_MENUS[id].change(incr)
+            self.log('T< MENU CHANGE: %08x, incr %d --> %s'%(id,incr,display))
+            self.log('>>> %s'%verb)
+            self.sendLR(verb, '1')
+            self.sendTangent(u4(0x83)+u4(id)+encstr(display)+u4(0))
+        elif cmd==6:
+            id = rd4(pkt, 4)
+            mnu = ALL_MENUS[id]
+            mnu.index = 0
+            display, verb = mnu.get()
+            self.log('T< MENU RESET: %08x --> %s'%(id,display))
+            self.log('>>> %s'%verb)
+            self.sendLR(verb, '1')
+            self.sendTangent(u4(0x83)+u4(id)+encstr(display)+u4(0))
+        elif cmd==7:
+            id = rd4(pkt, 4)
+            display, _= ALL_MENUS[id].get()
+            self.log('T< MENU STRING REQ: %08x --> %s'%(id,display))
+            self.sendTangent(u4(0x83)+u4(id)+encstr(display)+u4(0))
 
         else:
             self.log('T< ??? (0x%x): %s'%(cmd, hexdump(pkt[4:])))

@@ -128,6 +128,56 @@ class Parameter(XMLable):
     def __str__(self):
         return 'Parameter: %s'%self.Name
 
+# a list of all menus, indexed by ID, so we can retrieve their contents efficiently
+ALL_MENUS = {} # indexed by id
+
+class Menu(XMLable):
+    def __init__(self,id, name, verbs, panel=None, name9=None, name14=None, name20=None):
+        # verbs is a dict, mapping DISPLAYNAME to MIDI2LR-VERB
+        # e.g. {'Colour':'SetTreatmentColor', 'B&W':'SetTreatmentBW'}
+        super(Menu, self).__init__()
+        self.id = id
+        self.Name = name
+        self.verbs = verbs
+        self.Name9 = name9 or panel or name
+        self.Name14 = name14 or panel or name
+        self.Name20 = name20 or panel or name
+        if len(self.Name9) > 9:
+            self.Name9 = self.Name9[0:9]
+        if len(self.Name14) > 14:
+            self.Name14 = self.Name14[0:14]
+        if len(self.Name20) > 20:
+            self.Name20 = self.Name20[0:20]
+        assert id not in ALL_MENUS
+        self.index = 0 # currently selected index; TODO can we read these out of LR?
+        ALL_MENUS[id] = self
+    def get(self):
+        # returns a tuple (Display string, MIDI2LR verb)
+        key = self.verbs.keys()[self.index]
+        return (key,self.verbs[key])
+    def change(self, incr):
+        t=self.index + incr
+        if t < 0:
+            t = len(self.verbs)-1
+        elif t >= len(self.verbs):
+            t = 0
+        self.index = t
+        return self.get()
+    def xml(self, indent, cf):
+        self.check(cf)
+        baseindent = TAB * indent
+        rv  = baseindent + '<Menu id="0x%08x">\n' % self.id
+        rv += self.element('Name', indent+1)
+        rv += self.optionals(['Name9', 'Name14', 'Name20'], indent+1)
+        rv += baseindent + '</Menu>\n'
+        return rv
+    def check(self, controlsfile):
+        assert self.id is not None
+        assert self.Name is not None
+        assert self.verbs is not None and len(self.verbs)>1
+    def __str__(self):
+        return 'Menu : %s %s'%(self.Name,self.verbs)
+
 class Group(XMLable):
     def __init__(self, name, controls):
         super(Group, self).__init__()
@@ -146,6 +196,7 @@ class Group(XMLable):
         assert self.controls is not None
         for c in self.controls:
             c.check(controlsfile)
+
 
 RESERVED_CONTROLS = [
     Action(0x80000001, 'ALT'),
@@ -405,7 +456,9 @@ if __name__ == '__main__':
     #print(t1.xml(0))
     t2 = Parameter(69, 'myParam', name9='itsname9', maxval=1.5)
     #print(t2.xml(1))
-    g = Group('mygroup', [t1,t2,Action(0x100, 'foo'),Action(0x101, 'bar'),Action(0x200,'baz'),Action(0x201,'qux'),Action(0xfff,'qix')])
+    mnu = Menu(77, 'mymenu', name9='menu9', verbs=['foo','bar','baz'])
+    #print(mnu.xml(1, None))
+    g = Group('mygroup', [t1,t2,Action(0x100, 'foo'),Action(0x101, 'bar'),Action(0x200,'baz'),Action(0x201,'qux'),Action(0xfff,'qix'), mnu])
     #print(g.xml(0))
     cf = ControlsFile([Mode(1,'Develop'), Mode(2,'Navigate')], [g, g])
     cf.check(None)

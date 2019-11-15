@@ -13,11 +13,20 @@ controls = ControlsFile(
             Action(0x103, 'Next'),
             Action(0x104, 'ShowClipping', panel='Clipping'),
             Action(0x105, 'VirtualCopy'),
-            ]),
+        ]),
 
         Group('WB', [
             Action(0x111, 'WhiteBalanceAuto', panel='Auto WB'),
-            ]),
+            Menu(0x112, 'Treatment', verbs={'Colour':'SetTreatmentColor', 'B&W':'SetTreatmentBW'}),
+            Menu(0x113, 'WB Preset', verbs={
+                'Daylight':'QuickDevWBDaylight',
+                'Cloudy':'QuickDevWBCloudy',
+                'Shade':'QuickDevWBShade',
+                'Tungsten':'QuickDevWBTungsten',
+                'Fluo':'QuickDevWBFluorescent',
+                'Flash':'QuickDevWBFlash'
+            }),
+        ]),
         Group('Tone', [
             Action(0x110, 'AutoTone', panel='Auto Tone'),
 
@@ -30,14 +39,14 @@ controls = ControlsFile(
             Parameter(0x207, 'Contrast'),
             Parameter(0x208, 'Blacks'),
             Parameter(0x209, 'Whites'),
-            ]),
+        ]),
         Group('Presence', [
             Parameter(0x20a, 'Clarity'),
             Parameter(0x20b, 'Vibrance'),
             Parameter(0x20c, 'Saturation', name9='Saturate'),
             Parameter(0x20d, 'Dehaze'),
             Parameter(0x20e, 'Texture'),
-            ]),
+        ]),
     ]
 )
 
@@ -92,6 +101,8 @@ wave = MapFile(
             ControlBank('Button',[
                 # Buttons with displays
                 Bank([
+                    Button(10, 0x112), # Colour/B&W
+                    Button(11, 0x113), # WB presets
                     Button(12, 0x111), # Auto WB
                     Button(16, 0x110), # Auto Tone
                 ]),
