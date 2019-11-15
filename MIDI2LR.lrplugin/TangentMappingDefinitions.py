@@ -34,9 +34,7 @@ controls = ControlsFile(
 
 wave = MapFile(
     'Wave',
-    [], # common definitions
-    [
-        Mode(1, controlBanks=[
+    [ # common definitions
             ControlBank('Standard',[
                 # Buttons and encoders without displays
                 Bank([
@@ -47,8 +45,21 @@ wave = MapFile(
                     Button(25, 0x80000009), # Up arrow -> next mode
                     Button(26, 0x8000000a), # Down arrow -> prev mode
                     Encoder(12, 0x81000001, 0x81000001), # Transport dial
-
-                    # Specific to this mode:
+                ]),
+            ]),
+            ControlBank('Button',[
+                # Buttons with displays
+                Bank([
+                    Button(10, 0x100), # Undo
+                    Button(11, 0x101), # Redo
+                ]),
+            ]),
+    ],
+    [ # Mode-specific definitions
+        Mode(1, controlBanks=[
+            ControlBank('Standard',[
+                # Buttons and encoders without displays
+                Bank([
                     Encoder( 9, 0x205, 0x205), # Dial 1 - Shadows
                     Encoder(10, 0x203, 0x203), # Dial 2 - Exposure
                     Encoder(11, 0x204, 0x204), # Dial 3 - Highlights
@@ -69,8 +80,6 @@ wave = MapFile(
             ControlBank('Button',[
                 # Buttons with displays
                 Bank([
-                    Button(10, 0x100), # Undo (TODO - Move to Standard)
-                    Button(11, 0x101), # Redo (Ditto)
                     Button(12, 0x200), # Auto Tone
                     Button(15, 0x102), # Prev (TODO - Remove)
                     Button(16, 0x103), # Next (Ditto)
@@ -81,15 +90,11 @@ wave = MapFile(
             ControlBank('Standard',[
                 # Buttons and encoders without displays
                 Bank([
-                    Button(25, 0x80000009), # Up arrow -> next mode
-                    Button(26, 0x8000000a), # Down arrow -> prev mode
                 ]),
             ]),
             ControlBank('Button',[
                 # Buttons with displays
                 Bank([
-                    Button(11, 0x100), # Undo (TODO - Move to Standard)
-                    Button(12, 0x101), # Redo (Ditto)
                 ]),
             ]),
         ]),

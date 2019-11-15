@@ -5,6 +5,30 @@
       <Mode id="0x00000001"> <!-- Develop -->
         <ControlBank id="Standard">
           <Bank>
+            <Control type="Encoder" number="9">
+              <Mapping mode="Std">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+            </Control>
             <Control type="Button" number="36">
               <Mapping mode="Std">
                 <Key>0x00000102</Key> <!-- Action: Prev -->
@@ -45,30 +69,6 @@
               </Mapping>
               <Mapping mode="Alt">
                 <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
-              </Mapping>
-            </Control>
-            <Control type="Encoder" number="9">
-              <Mapping mode="Std">
-                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
-              </Mapping>
-              <Mapping mode="Alt">
-                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
-              </Mapping>
-            </Control>
-            <Control type="Encoder" number="10">
-              <Mapping mode="Std">
-                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
-              </Mapping>
-              <Mapping mode="Alt">
-                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
-              </Mapping>
-            </Control>
-            <Control type="Encoder" number="11">
-              <Mapping mode="Std">
-                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
-              </Mapping>
-              <Mapping mode="Alt">
-                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
               </Mapping>
             </Control>
           </Bank>
@@ -135,16 +135,6 @@
         </ControlBank>
         <ControlBank id="Button">
           <Bank>
-            <Control type="Button" number="10">
-              <Mapping mode="Std">
-                <Key>0x00000100</Key> <!-- Action: Undo -->
-              </Mapping>
-            </Control>
-            <Control type="Button" number="11">
-              <Mapping mode="Std">
-                <Key>0x00000101</Key> <!-- Action: Redo -->
-              </Mapping>
-            </Control>
             <Control type="Button" number="12">
               <Mapping mode="Std">
                 <Key>0x00000200</Key> <!-- Action: AutoTone -->
@@ -160,12 +150,46 @@
                 <Key>0x00000103</Key> <!-- Action: Next -->
               </Mapping>
             </Control>
+            <Control type="Button" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
           </Bank>
         </ControlBank>
       </Mode>
       <Mode id="0x00000002"> <!-- Develop2 -->
         <ControlBank id="Standard">
           <Bank>
+            <Control type="Button" number="36">
+              <Mapping mode="Std">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="37">
+              <Mapping mode="Std">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="9">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
             <Control type="Button" number="25">
               <Mapping mode="Std">
                 <Key>0x80000009</Key> <!-- Action: Next Mode -->
@@ -176,16 +200,24 @@
                 <Key>0x8000000a</Key> <!-- Action: Previous Mode -->
               </Mapping>
             </Control>
+            <Control type="Encoder" number="12">
+              <Mapping mode="Std">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+            </Control>
           </Bank>
         </ControlBank>
         <ControlBank id="Button">
           <Bank>
-            <Control type="Button" number="11">
+            <Control type="Button" number="10">
               <Mapping mode="Std">
                 <Key>0x00000100</Key> <!-- Action: Undo -->
               </Mapping>
             </Control>
-            <Control type="Button" number="12">
+            <Control type="Button" number="11">
               <Mapping mode="Std">
                 <Key>0x00000101</Key> <!-- Action: Redo -->
               </Mapping>
