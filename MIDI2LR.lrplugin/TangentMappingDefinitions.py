@@ -84,25 +84,25 @@ wave = MapFile(
                     Button(36, 0x102, 0x102), # Previous
                     Button(37, 0x103, 0x103), # Next
                     Button( 9, 0x80000001, 0x80000001), # Alt
-                    Button(25, 0x80000009), # Up arrow -> next mode
-                    Button(26, 0x8000000a), # Down arrow -> prev mode
+                    Button(25, 0x80000009, 0x80000009), # Up arrow -> next mode
+                    Button(26, 0x8000000a, 0x8000000a), # Down arrow -> prev mode
                     Encoder(12, 0x81000001, 0x81000001), # Transport dial
 
                     Encoder( 9, 0x205, 0x205), # Dial 1 - Shadows
                     Encoder(10, 0x203, 0x203), # Dial 2 - Exposure
                     Encoder(11, 0x204, 0x204), # Dial 3 - Highlights
 
-                    Button(33, 0x100), # F1 - Undo
-                    Button(34, 0x101), # F2 - Redo
-                    Button(35, 0x105), # F3 - Create Virtual Copy
+                    Button(33, 0x100, 0x100), # F1 - Undo
+                    Button(34, 0x101, 0x101), # F2 - Redo
+                    Button(35, 0x105, 0x105), # F3 - Create Virtual Copy
                 ]),
             ]),
             ControlBank('Button',[
                 # Buttons with displays
                 Bank([
-                    Button(20, 0x100), # Undo # Could move to an F key?
-                    Button(21, 0x101), # Redo
-                    Button(22, 0x104), # Show Clip
+                    Button(20, 0x100, 0x100), # Undo # Could move to an F key?
+                    Button(21, 0x101, 0x101), # Redo
+                    Button(22, 0x104, 0x104), # Show Clip
                 ]),
             ]),
     ],
