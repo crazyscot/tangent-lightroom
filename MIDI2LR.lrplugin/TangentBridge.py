@@ -139,9 +139,9 @@ class Bridge(object):
             # We don't really care about the panel type data
             self.sendTangent(u4(0x81) + encstr(APPNAME) + encstr(self.pluginDir) + encstr(''))
             #self.sendLR('GetPluginInfo', 1)
-            # Mode: Develop
-            # TODO: determine current mode & send that to panel?
+            # Initial Mode: Develop
             self.sendTangent(u4(0x85)+u4(1))
+            self.sendLR('SwToMdevelop', 1)
 
         # Mode switching
         elif cmd==9:
@@ -149,6 +149,7 @@ class Bridge(object):
             self.log('CHANGE MODE: %08x'%mode)
             # Modes are artificial here, we just bounce it back to the Hub
             self.sendTangent(u4(0x85)+u4(mode))
+            self.sendLRQueued('SwToMdevelop', 1)
 
         # Parameters. Note that these always range from 0 to 1 in midi2lr's world; it keeps a mapping.
         elif cmd==2:
