@@ -68,13 +68,14 @@ class XMLable(object):
 # CONTROLS FILES
 
 class Action(XMLable):
-    def __init__(self,id, name, name9=None, name14=None, name20=None):
+    def __init__(self,id, name, panel=None, name9=None, name14=None, name20=None):
         super(Action, self).__init__()
         self.id = id
         self.Name = name
-        self.Name9 = name9 or name
-        self.Name14 = name14 or name
-        self.Name20 = name20 or name
+        self.panel = panel
+        self.Name9 = name9 or panel or name
+        self.Name14 = name14 or panel or name
+        self.Name20 = name20 or panel or name
         if len(self.Name9) > 9:
             self.Name9 = self.Name9[0:9]
         if len(self.Name14) > 14:
@@ -96,13 +97,14 @@ class Action(XMLable):
         return 'Action: %s'%self.Name
 
 class Parameter(XMLable):
-    def __init__(self, id, name, name9=None, name10=None, name12=None, minval=0, maxval=1, stepsize=0.0001):
+    def __init__(self, id, name, panel=None, name9=None, name10=None, name12=None, minval=0, maxval=1, stepsize=0.0001):
         super(Parameter, self).__init__()
         self.id = id
         self.Name = name
-        self.Name9 = name9 or name
-        self.Name10=name10 or name
-        self.Name12=name12 or name
+        self.panel = panel
+        self.Name9 = name9 or panel or name
+        self.Name10=name10 or panel or name
+        self.Name12=name12 or panel or name
         if len(self.Name9) > 9:
             self.Name9 = self.Name9[0:9]
         if len(self.Name10) > 10:
