@@ -142,6 +142,13 @@ class Bridge(object):
             # TODO: determine current mode & send that to panel?
             self.sendTangent(u4(0x85)+u4(1))
 
+        # Mode switching
+        elif cmd==9:
+            mode = rd4(pkt, 4)
+            self.log('CHANGE MODE: %08x'%mode)
+            # Modes are artificial here, we just bounce it back to the Hub
+            self.sendTangent(u4(0x85)+u4(mode))
+
         # Parameters. Note that these always range from 0 to 1 in midi2lr's world; it keeps a mapping.
         elif cmd==2:
             param,incr = rd4(pkt,4), rd4f(pkt,8)
