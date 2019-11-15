@@ -3,7 +3,8 @@
 from TangentMapping import *
 
 controls = ControlsFile(
-    [Mode(1,'Develop')],
+    [Mode(1,'Develop'),
+     Mode(2,'Develop2')],
     [
         Group('General', [
             Action(0x100, 'Undo'),
@@ -42,8 +43,8 @@ wave = MapFile(
                     Button(36, 0x102, 0x102), # Previous
                     Button(37, 0x103, 0x103), # Next
                     Button( 9, 0x80000001, 0x80000001), # Alt
-                    Button(25, 0x80000002, 0x80000003), # Up arrow -> next/prev knob bank
-                    Button(26, 0x80000004, 0x80000005), # Down arrow -> next/prev button bank
+                    Button(25, 0x80000009), # Up arrow -> next mode
+                    Button(26, 0x8000000a), # Down arrow -> prev mode
                     Encoder(12, 0x81000001, 0x81000001), # Transport dial
 
                     # Specific to this mode:
@@ -72,6 +73,22 @@ wave = MapFile(
                     Button(12, 0x200), # Auto Tone
                     Button(15, 0x102), # Prev (TODO - Remove)
                     Button(16, 0x103), # Next (Ditto)
+                ]),
+            ]),
+        ]),
+        Mode(2, controlBanks=[
+            ControlBank('Standard',[
+                # Buttons and encoders without displays
+                Bank([
+                    Button(25, 0x80000009), # Up arrow -> next mode
+                    Button(26, 0x8000000a), # Down arrow -> prev mode
+                ]),
+            ]),
+            ControlBank('Button',[
+                # Buttons with displays
+                Bank([
+                    Button(11, 0x100), # Undo (TODO - Move to Standard)
+                    Button(12, 0x101), # Redo (Ditto)
                 ]),
             ]),
         ]),

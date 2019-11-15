@@ -31,18 +31,12 @@
             </Control>
             <Control type="Button" number="25">
               <Mapping mode="Std">
-                <Key>0x80000002</Key> <!-- Action: Next Knob Bank -->
-              </Mapping>
-              <Mapping mode="Alt">
-                <Key>0x80000003</Key> <!-- Action: Previous Knob Bank -->
+                <Key>0x80000009</Key> <!-- Action: Next Mode -->
               </Mapping>
             </Control>
             <Control type="Button" number="26">
               <Mapping mode="Std">
-                <Key>0x80000004</Key> <!-- Action: Next Button Bank -->
-              </Mapping>
-              <Mapping mode="Alt">
-                <Key>0x80000005</Key> <!-- Action: Previous Button Bank -->
+                <Key>0x8000000a</Key> <!-- Action: Previous Mode -->
               </Mapping>
             </Control>
             <Control type="Encoder" number="12">
@@ -164,6 +158,36 @@
             <Control type="Button" number="16">
               <Mapping mode="Std">
                 <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000002"> <!-- Develop2 -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="25">
+              <Mapping mode="Std">
+                <Key>0x80000009</Key> <!-- Action: Next Mode -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="26">
+              <Mapping mode="Std">
+                <Key>0x8000000a</Key> <!-- Action: Previous Mode -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Button">
+          <Bank>
+            <Control type="Button" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="12">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
               </Mapping>
             </Control>
           </Bank>
