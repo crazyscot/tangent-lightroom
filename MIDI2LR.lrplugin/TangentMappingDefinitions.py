@@ -11,7 +11,7 @@ controls = ControlsFile(
             Action(0x101, 'Redo'),
             Action(0x102, 'Prev'),
             Action(0x103, 'Next'),
-            Action(0x104, 'ShowClipping', panel='Clipping'),
+            Action(0x104, 'ShowClipping', panel='Clipping On/Off', name9='Clipping'),
             Action(0x105, 'VirtualCopy'),
         ]),
 
@@ -67,6 +67,10 @@ wave = MapFile(
                     Encoder( 9, 0x205, 0x205), # Dial 1 - Shadows
                     Encoder(10, 0x203, 0x203), # Dial 2 - Exposure
                     Encoder(11, 0x204, 0x204), # Dial 3 - Highlights
+
+                    Button(33, 0x100), # F1 - Undo
+                    Button(34, 0x101), # F2 - Redo
+                    Button(35, 0x105), # F3 - Create Virtual Copy
                 ]),
             ]),
             ControlBank('Button',[
@@ -74,7 +78,7 @@ wave = MapFile(
                 Bank([
                     Button(20, 0x100), # Undo # Could move to an F key?
                     Button(21, 0x101), # Redo
-                    Button(22, 0x105), # VirtualCopy
+                    Button(22, 0x104), # Show Clip
                 ]),
             ]),
     ],
