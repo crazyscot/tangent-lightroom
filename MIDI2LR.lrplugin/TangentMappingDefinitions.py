@@ -21,6 +21,8 @@ controls = ControlsFile(
         Mode(20,'Split Toning'),
         Mode(21,'Sharpening'),
         Mode(22,'Noise Reduction'),
+
+        Mode(50,'Crop'),
     ],
     [
         Group('General', [
@@ -30,6 +32,14 @@ controls = ControlsFile(
             Action(0x103, 'Next'),
             Action(0x104, 'ShowClipping', panel=INV('Clipping')+' '+INV('On/Off'), name9=INV('Clipping')),
             Action(0x105, 'VirtualCopy'),
+
+            Parameter(0x120, 'straightenAngle', panel='Angle'),
+            Parameter(0x121, 'CropBottom', panel='Bottom'),
+            Parameter(0x122, 'CropLeft', panel='Left'),
+            Parameter(0x123, 'CropRight', panel='Right'),
+            Parameter(0x124, 'CropTop', panel='Top'),
+            Action(0x125, 'ResetCrop'),
+            Action(0x126, 'CropOverlay', panel='Crop Overlay'),
         ]),
 
         Group('WB', [
@@ -409,6 +419,27 @@ wave = MapFile(
                     Encoder(3, 0x278, 0x278), # Colour NR
                     Encoder(4, 0x279, 0x279), # Detail
                     Encoder(5, 0x27a, 0x27a), # Smoothness
+                ]),
+            ]),
+        ]),
+
+        # Crop
+        Mode(50, controlBanks=[
+            ControlBank('Button',[
+                # Buttons with displays
+                Bank([
+                    Button(17, 0x125), # Reset Crop
+                    Button(10, 0x126), # Crop Overlay
+                ]),
+            ]),
+            ControlBank('Encoder',[
+                # Encoders with displays
+                Bank([
+                    Encoder(6, 0x120, 0x120), # Angle
+                    Encoder(1, 0x124, 0x124), # Top
+                    Encoder(2, 0x121, 0x121), # Bottom
+                    Encoder(3, 0x122, 0x122), # Left
+                    Encoder(4, 0x123, 0x123), # Right
                 ]),
             ]),
         ]),
