@@ -207,14 +207,20 @@ class Bridge(object):
             self.sendLRQueued('GetValue', name)
             # And the response will DTRT (--> 0xa6)
 
-        # Button actions. We action on DOWN and ignore UP.
+        # Button actions. We generally action on DOWN and ignore UP, but there are special cases.
         elif cmd==8:
             action = rd4(pkt,4)
+            if action & 0x40000000:
+                self.buttonCustom(action, up=False)
+                return
             name = Control.name_for(action)
             self.log('T< ACTION ON: 0x%x (%s)'%(action,name))
             self.sendLR(name, '1')
         elif cmd==0xb:
             action = rd4(pkt,4)
+            if action & 0x40000000:
+                self.buttonCustom(action, up=True)
+                return
             name = Control.name_for(action)
             self.log('T< ACTION OFF: 0x%x (%s) (ignored)'%(action,name))
         elif cmd==0x3c:
@@ -276,6 +282,8 @@ class Bridge(object):
         data = s.recv(dlen)
         self.handleTangent(data)
 
+    def buttonCustom(self, action, up):
+        self.log('Unhandled custom button action %08x'%action)
     # -----------------------------------------------------------------
     # MIDI2LR logic
 
