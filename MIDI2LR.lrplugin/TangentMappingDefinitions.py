@@ -42,6 +42,14 @@ controls = ControlsFile(
             Parameter(0x124, 'CropTop', panel='Top'),
             Action(0x125, 'ResetCrop'),
             Action(0x126, 'CropOverlay', panel='Crop Overlay'),
+
+            Action(0x127, 'Select1Left'),
+            Action(0x128, 'Select1Right'),
+
+            Action(0x129, 'ToggleZoomOffOn', panel='Zoom'),
+
+            Action(0x12a, 'SwToMlibrary', panel='Library'),
+            Action(0x12b, 'SwToMdevelop', panel='Develop'),
         ]),
 
         Group('WB', [
@@ -202,6 +210,12 @@ wave = MapFile(
                     Button(35, 0x105, 0x105), # F3 - Create Virtual Copy
 
                     Button(30, 0x308, 0x308), # F4 - Toggle Target Collection
+                    Button(31, 0x127), # F5 - Select1Left
+                    Button(32, 0x128), # F6 - Select1Right
+
+                    Button(27, 0x12a), # F7 - Library
+                    Button(28, 0x12b), # F8 - Develop
+                    Button(29, 0x129), # F9 - ToggleZoomOffOn
                 ]),
             ]),
             ControlBank('Button',[
