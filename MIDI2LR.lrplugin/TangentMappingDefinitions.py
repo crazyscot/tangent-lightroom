@@ -11,20 +11,22 @@ def INV(s):
 
 controls = ControlsFile(
     [
-        Mode(1,'Colour/Tone'),
-        Mode(2,'Tone/Presence'),
+        # the weird spacing in here is for the display in the modes menu
+        Mode(1,'Colo ur/Tone'),
+        Mode(2,'Tone/ Presence'),
         Mode(3,'Tone Curve'),
-        Mode(11,'Colour Adjust Hue'),
-        Mode(12,'Colour Adjust Sat'),
-        Mode(13,'Colour Adjust Lum'),
-        Mode(19,'Colour Adjust - BW'), # caution; XML file chokes on ampersands
+        Mode(11,'HueAdjust'),
+        Mode(12,'SatAdjust'),
+        Mode(13,'LumAdjust'),
+        Mode(19,'GreyAdjust'), # caution; XML file chokes on ampersands
         Mode(20,'Split Toning'),
         Mode(21,'Sharpening'),
         Mode(22,'Noise Reduction'),
 
         Mode(50,'Crop'),
-        Mode(60,'Flag/Rotate/Export'),
+        Mode(60,'Flag/ Rotate/Export'),
 
+        Mode(99,'ModesMenu1'),
     ],
     [
         Group('General', [
@@ -186,6 +188,8 @@ controls = ControlsFile(
         ]),
     ]
 )
+
+GO_TO_MODE = 0x8000000b
 
 wave = MapFile(
     'Wave',
@@ -499,6 +503,26 @@ wave = MapFile(
                     Button(20, 0x306), # Purple
                     Button(21, 0x307), # Yellow
                     Button(22, 0x308, 0x30b), # Toggle Target Collection / Edit in Photoshop
+                ]),
+            ]),
+        ]),
+
+        # ModesMenu
+        Mode(99, controlBanks=[
+            ControlBank('Button',[
+                # Buttons with displays
+                Bank([
+                    Button(10, GO_TO_MODE, argStd=60, keyAlt=GO_TO_MODE, argAlt=50),
+                    Button(11, GO_TO_MODE, argStd=1, keyAlt=GO_TO_MODE, argAlt=2),
+                    Button(12, GO_TO_MODE, argStd=3),
+
+                    Button(15, GO_TO_MODE, argStd=11, keyAlt=GO_TO_MODE, argAlt=13),
+                    Button(16, GO_TO_MODE, argStd=12, keyAlt=GO_TO_MODE, argAlt=19),
+                    Button(17, GO_TO_MODE, argStd=20),
+
+                    Button(20, GO_TO_MODE, argStd=21, keyAlt=GO_TO_MODE, argAlt=22),
+                    #Button(21, GO_TO_MODE, argStd=22, keyAlt=GO_TO_MODE, argAlt=60),
+                    #Button(22, GO_TO_MODE, argStd=50, keyAlt=GO_TO_MODE, argAlt=60),
                 ]),
             ]),
         ]),
