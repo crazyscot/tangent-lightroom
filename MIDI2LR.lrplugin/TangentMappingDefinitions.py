@@ -14,6 +14,10 @@ controls = ControlsFile(
         Mode(1,'Colour/Tone'),
         Mode(2,'Tone/Presence'),
         Mode(3,'Tone Curve'),
+        Mode(11,'Colour Adjust Hue'),
+        Mode(12,'Colour Adjust Sat'),
+        Mode(13,'Colour Adjust Lum'),
+        Mode(19,'Colour Adjust - BW'), # caution; XML file chokes on ampersands
     ],
     [
         Group('General', [
@@ -71,6 +75,48 @@ controls = ControlsFile(
                 'Strong': 'PointCurveStrongContrast'
             }),
             Action(0x218, 'EnableToneCurve', panel='ToneCurve On/Off'),
+        ]),
+        Group('Colour Adjust', [
+            Action(0x228, 'EnableColorAdjustments', panel='ColorAdj On/Off'),
+            Parameter(0x229, 'AllSaturationAdjustment', panel='Saturation'),
+
+            # In B&W mode there are eight Grey Mixer dials only (ROYGABPM), which affect luminance
+            Parameter(0x220, 'GrayMixerRed', panel='Red Grey'),
+            Parameter(0x221, 'GrayMixerOrange', panel='Orange Grey'),
+            Parameter(0x222, 'GrayMixerYellow', panel='Yellow Grey'),
+            Parameter(0x223, 'GrayMixerGreen', panel='Green Grey'),
+            Parameter(0x224, 'GrayMixerAqua', panel='Aqua Grey'),
+            Parameter(0x225, 'GrayMixerBlue', panel='Blue Grey'),
+            Parameter(0x226, 'GrayMixerPurple', panel='Purple G'),
+            Parameter(0x227, 'GrayMixerMagenta', panel='Magenta G'),
+
+            # In colour mode there are Sat, Hue, Lum for each of eight colurs ROYGABPM
+            Parameter(0x230, 'SaturationAdjustmentRed', panel='Red Sat'),
+            Parameter(0x231, 'SaturationAdjustmentOrange', panel='Orange Sat'),
+            Parameter(0x232, 'SaturationAdjustmentYellow', panel='Yellow Sat'),
+            Parameter(0x233, 'SaturationAdjustmentGreen', panel='Green Sat'),
+            Parameter(0x234, 'SaturationAdjustmentAqua', panel='Aqua Sat'),
+            Parameter(0x235, 'SaturationAdjustmentBlue', panel='Blue Sat'),
+            Parameter(0x236, 'SaturationAdjustmentPurple', panel='Purple S'),
+            Parameter(0x237, 'SaturationAdjustmentMagenta', panel='Magenta S'),
+
+            Parameter(0x240, 'HueAdjustmentRed', panel='Red Hue'),
+            Parameter(0x241, 'HueAdjustmentOrange', panel='Orange Hue'),
+            Parameter(0x242, 'HueAdjustmentYellow', panel='Yellow Hue'),
+            Parameter(0x243, 'HueAdjustmentGreen', panel='Green Hue'),
+            Parameter(0x244, 'HueAdjustmentAqua', panel='Aqua Hue'),
+            Parameter(0x245, 'HueAdjustmentBlue', panel='Blue Hue'),
+            Parameter(0x246, 'HueAdjustmentPurple', panel='Purple H'),
+            Parameter(0x247, 'HueAdjustmentMagenta', panel='Magenta H'),
+
+            Parameter(0x250, 'LuminanceAdjustmentRed', panel='Red Lum'),
+            Parameter(0x251, 'LuminanceAdjustmentOrange', panel='Orange Lum'),
+            Parameter(0x252, 'LuminanceAdjustmentYellow', panel='Yellow Lum'),
+            Parameter(0x253, 'LuminanceAdjustmentGreen', panel='Green Lum'),
+            Parameter(0x254, 'LuminanceAdjustmentAqua', panel='Aqua Lum'),
+            Parameter(0x255, 'LuminanceAdjustmentBlue', panel='Blue Lum'),
+            Parameter(0x256, 'LuminanceAdjustmentPurple', panel='Purple L'),
+            Parameter(0x257, 'LuminanceAdjustmentMagenta', panel='Magenta L'),
         ]),
     ]
 )
@@ -185,6 +231,104 @@ wave = MapFile(
                 ]),
             ]),
         ]),
+
+        # HSL Hue:
+        Mode(11, controlBanks=[
+            ControlBank('Encoder',[
+                # Encoders with displays
+                Bank([
+                    Encoder(0, 0x240, 0x240), # Hue Red
+                    Encoder(1, 0x241, 0x241), # Hue Orange
+                    Encoder(2, 0x242, 0x242), # Hue Yellow
+                    Encoder(3, 0x243, 0x243), # Hue Green
+                    Encoder(4, 0x244, 0x244), # Hue Aqua
+                    Encoder(5, 0x245, 0x245), # Hue Blue
+                    Encoder(6, 0x246, 0x246), # Hue Purple
+                    Encoder(7, 0x247, 0x247), # Hue Magenta
+
+                    #Encoder(8, 0x229, 0x229), # All Sat
+                ]),
+            ]),
+            ControlBank('Button',[
+                # Buttons with displays
+                Bank([
+                    Button(10, 0x228), # ColorAdj On/Off
+                ]),
+            ]),
+        ]),
+        # HSL Sat
+        Mode(12, controlBanks=[
+            ControlBank('Encoder',[
+                # Encoders with displays
+                Bank([
+                    Encoder(0, 0x230, 0x230), # Sat Red
+                    Encoder(1, 0x231, 0x231), # Sat Orange
+                    Encoder(2, 0x232, 0x232), # Sat Yellow
+                    Encoder(3, 0x233, 0x233), # Sat Green
+                    Encoder(4, 0x234, 0x234), # Sat Aqua
+                    Encoder(5, 0x235, 0x235), # Sat Blue
+                    Encoder(6, 0x236, 0x236), # Sat Purple
+                    Encoder(7, 0x237, 0x237), # Sat Magenta
+
+                    Encoder(8, 0x229, 0x229), # All Sat
+                ]),
+            ]),
+            ControlBank('Button',[
+                # Buttons with displays
+                Bank([
+                    Button(10, 0x228), # ColorAdj On/Off
+                ]),
+            ]),
+        ]),
+        # HSL Luminance
+        Mode(13, controlBanks=[
+            ControlBank('Encoder',[
+                # Encoders with displays
+                Bank([
+                    Encoder(0, 0x250, 0x250), # Lum Red
+                    Encoder(1, 0x251, 0x251), # Lum Orange
+                    Encoder(2, 0x252, 0x252), # Lum Yellow
+                    Encoder(3, 0x253, 0x253), # Lum Green
+                    Encoder(4, 0x254, 0x254), # Lum Aqua
+                    Encoder(5, 0x255, 0x255), # Lum Blue
+                    Encoder(6, 0x256, 0x256), # Lum Purple
+                    Encoder(7, 0x257, 0x257), # Lum Magenta
+
+                    #Encoder(8, 0x229, 0x229), # All Sat
+                ]),
+            ]),
+            ControlBank('Button',[
+                # Buttons with displays
+                Bank([
+                    Button(10, 0x228), # ColorAdj On/Off
+                ]),
+            ]),
+        ]),
+
+        # B&W Grey Mixers
+        Mode(19, controlBanks=[
+            ControlBank('Encoder',[
+                # Encoders with displays
+                Bank([
+                    Encoder(0, 0x220, 0x220), # Grey Red
+                    Encoder(1, 0x221, 0x221), # Grey Orange
+                    Encoder(2, 0x222, 0x222), # Grey Yellow
+                    Encoder(3, 0x223, 0x223), # Grey Green
+                    Encoder(4, 0x224, 0x224), # Grey Aqua
+                    Encoder(5, 0x225, 0x225), # Grey Blue
+                    Encoder(6, 0x226, 0x226), # Grey Purple
+                    Encoder(7, 0x227, 0x227), # Grey Magenta
+                ]),
+            ]),
+            ControlBank('Button',[
+                # Buttons with displays
+                Bank([
+                    Button(10, 0x228), # ColorAdj On/Off
+                ]),
+            ]),
+        ]),
+
+        # TODO trackballs control hue, rings luminance. We already have the rings... Centre trackball controls overall hue balance?
     ]
 )
 
