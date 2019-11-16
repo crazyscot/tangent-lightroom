@@ -162,10 +162,10 @@ controls = ControlsFile(
             Parameter(0x273, 'SharpenDetail', panel='Detail'),
             Parameter(0x274, 'SharpenEdgeMasking', panel='Masking'),
 
-            Parameter(0x275, 'LuminanceSmoothing', panel='Luminance'),
+            Parameter(0x275, 'LuminanceSmoothing', panel='NR Luminance'),
             Parameter(0x276, 'LuminanceNoiseReductionDetail', panel='Detail'),
             Parameter(0x277, 'LuminanceNoiseReductionContrast', panel='Contrast'),
-            Parameter(0x278, 'ColorNoiseReduction', panel='Colour'),
+            Parameter(0x278, 'ColorNoiseReduction', panel='NR Colour'),
             Parameter(0x279, 'ColorNoiseReductionDetail', panel='Detail'),
             Parameter(0x27a, 'ColorNoiseReductionSmoothness', panel='Smoothness'),
         ]),
@@ -521,8 +521,8 @@ wave = MapFile(
                     Button(16, GO_TO_MODE, argStd=12, keyAlt=GO_TO_MODE, argAlt=19),
                     Button(17, GO_TO_MODE, argStd=20),
 
-                    Button(20, GO_TO_MODE, argStd=21, keyAlt=GO_TO_MODE, argAlt=22),
-                    #Button(21, GO_TO_MODE, argStd=22, keyAlt=GO_TO_MODE, argAlt=60),
+                    Button(20, GO_TO_MODE, argStd=21),
+                    Button(21, GO_TO_MODE, argStd=22),
                     #Button(22, GO_TO_MODE, argStd=50, keyAlt=GO_TO_MODE, argAlt=60),
                 ]),
             ]),
