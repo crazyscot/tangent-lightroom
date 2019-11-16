@@ -282,8 +282,65 @@ class Bridge(object):
         data = s.recv(dlen)
         self.handleTangent(data)
 
+    # Custom logic
+    def upDownStateMachine(self, key, keyUp):
+        # key is 1 for up arrow, 2 for down arrow
+        # keyUp is True for key up
+
+        # STATES:
+        #  0 = both released; Up -> 1, Down -> 2
+        #  1 = Up pressed; UpRelease -> 0 & change mode; Down -> 3
+        #  2 = Down pressed; DownRelease -> 0 & change mode; Up -> 3
+        #  3 = Both pressed - action on entry; UpRelease -> 4; DownRelease -> 5
+        #  4 = DrainingDown; Up -> 3; DownRelease -> 0
+        #  5 = DrainingUp; Down -> 3; UpRelease -> 0
+
+        previousState = self.udsm
+        if self.udsm==0: # Both keys released
+            if keyUp:
+                return # ignore Up events, shouldn't happen
+            self.udsm = key
+        elif self.udsm==1: # Up already pressed
+            if key==1 and keyUp:
+                self.nextMode(-1)
+                self.udsm = 0
+            if key==2 and not keyUp:
+                self.udsm=3
+        elif self.udsm==2: # Down already pressed
+            if key==2 and keyUp:
+                self.nextMode(1)
+                self.udsm = 0
+            if key==1 and not keyUp:
+                self.udsm = 3
+        elif self.udsm==3: # Both pressed
+            if not keyUp:
+                return # ignore Down events, shouldn't happen
+            if key==1:
+                self.udsm = 4
+            else:
+                self.udsm = 5
+        elif self.udsm==4: # Down pressed, draining
+            if key==1 and not keyUp:
+                self.udsm=3
+            if key==2 and keyUp:
+                self.udsm=0
+        elif self.udsm==5: # Up pressed, draining
+            if key==2 and not keyUp:
+                self.udsm=3
+            if key==1 and keyUp:
+                self.udsm=0
+        # State entry actions
+        if self.udsm == 3 and previousState != 3:
+            self.changeMode(99) # menu
+
     def buttonCustom(self, action, up):
-        self.log('Unhandled custom button action %08x'%action)
+        if action==0x40000001:
+            self.upDownStateMachine(1, up)
+        elif action==0x40000002:
+            self.upDownStateMachine(2, up)
+        else:
+            self.log('Unhandled custom button action %08x'%action)
+
     # -----------------------------------------------------------------
     # MIDI2LR logic
 
