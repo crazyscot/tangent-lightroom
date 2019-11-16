@@ -80,6 +80,7 @@ for group in TangentMappingDefinitions.controls.groups:
 # Current values, indexed by ID [for now]
 VALUES = {}
 
+ALL_MODES = TangentMappingDefinitions.controls.modes
 
 ##############################################################
 
@@ -93,7 +94,7 @@ class Bridge(object):
         self.LRRecv = None
         self.lrQueue = Queue.Queue()
         self.lrSendInProgress= False
-
+        self.udsm = 0
         self.log('Starting up, plugin dir is %s'%self.pluginDir)
         self.connectAll()
 
@@ -130,6 +131,22 @@ class Bridge(object):
         s.sendall(u4(len(pkt)))
         s.sendall(pkt)
 
+    def changeMode(self, mode):
+        self.log('ChangeMode %08x'%mode)
+        self.sendTangent(u4(0x85) + u4(mode))
+        self.modeIndex = TangentMappingDefinitions.controls.find_mode_index(mode)
+        self.log('new index %d'%self.modeIndex)
+    def nextMode(self, step):
+        prev = self.modeIndex
+        self.modeIndex += step
+        if self.modeIndex >= len(ALL_MODES):
+            self.modeIndex = 0
+        if self.modeIndex < 0:
+            self.modeIndex = len(ALL_MODES) - 1
+        newMode = ALL_MODES[self.modeIndex]
+        self.log('NextMode index %d + %d --> index %d, id %08x'%(prev, step, self.modeIndex, newMode.id))
+        self.changeMode(newMode.id)
+
     def handleTangent(self, pkt):
         ''' Deal with a single Tangent command '''
         cmd = rd4(pkt)
@@ -139,16 +156,15 @@ class Bridge(object):
             # We don't really care about the panel type data
             self.sendTangent(u4(0x81) + encstr(APPNAME) + encstr(self.pluginDir) + encstr(''))
             #self.sendLR('GetPluginInfo', 1)
-            # Initial Mode: Develop
-            self.sendTangent(u4(0x85)+u4(1))
+            # Initial Mode: Colour/Tone
+            self.changeMode(1)
             self.sendLR('SwToMdevelop', 1)
 
         # Mode switching
         elif cmd==9:
             mode = rd4(pkt, 4)
             self.log('CHANGE MODE: %08x'%mode)
-            # Modes are artificial here, we just bounce it back to the Hub
-            self.sendTangent(u4(0x85)+u4(mode))
+            self.changeMode(mode)
             self.sendLRQueued('SwToMdevelop', 1)
 
         # Parameters. Note that these always range from 0 to 1 in midi2lr's world; it keeps a mapping.

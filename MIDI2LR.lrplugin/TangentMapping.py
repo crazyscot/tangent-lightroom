@@ -336,6 +336,11 @@ class ControlsFile(XMLable):
             if m.id == id:
                 return m
         raise Exception('Mode 0x%08x not found'%id)
+    def find_mode_index(self, id):
+        for idx in range(len(self.modes)):
+            if self.modes[idx].id == id:
+                return idx
+        raise Exception('Mode 0x%08x not found'%id)
     def find_control(self, id):
         for g in self.groups:
             for c in g.controls:
