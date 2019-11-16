@@ -211,9 +211,9 @@ wave = MapFile(
 
                     Button(33, 0x100, 0x100), # F1 - Undo
                     Button(34, 0x101, 0x101), # F2 - Redo
-                    Button(35, 0x105, 0x105), # F3 - Create Virtual Copy
+                    Button(35, 0x105), # F3 - Create Virtual Copy
 
-                    Button(30, 0x308, 0x308), # F4 - Toggle Target Collection
+                    Button(30, 0x308), # F4 - Toggle Target Collection
                     Button(31, 0x127), # F5 - Select1Left
                     Button(32, 0x128), # F6 - Select1Right
 
@@ -225,8 +225,6 @@ wave = MapFile(
             ControlBank('Button',[
                 # Buttons with displays
                 Bank([
-                    Button(20, 0x100, 0x100), # Undo # Could move to an F key?
-                    Button(21, 0x101, 0x101), # Redo
                     Button(22, 0x104, 0x104), # Show Clip
                 ]),
             ]),
