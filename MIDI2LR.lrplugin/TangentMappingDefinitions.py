@@ -18,6 +18,7 @@ controls = ControlsFile(
         Mode(12,'Colour Adjust Sat'),
         Mode(13,'Colour Adjust Lum'),
         Mode(19,'Colour Adjust - BW'), # caution; XML file chokes on ampersands
+        Mode(20,'Split Toning'),
     ],
     [
         Group('General', [
@@ -117,6 +118,14 @@ controls = ControlsFile(
             Parameter(0x255, 'LuminanceAdjustmentBlue', panel='Blue Lum'),
             Parameter(0x256, 'LuminanceAdjustmentPurple', panel='Purple L'),
             Parameter(0x257, 'LuminanceAdjustmentMagenta', panel='Magenta L'),
+        ]),
+        Group('Split Toning', [
+            Action(0x260, 'EnableSplitToning', panel='Split Tone On/Off'),
+            Parameter(0x261, 'SplitToningBalance', panel='ST Balance'),
+            Parameter(0x262, 'SplitToningShadowHue', panel='Shadow Hue'),
+            Parameter(0x263, 'SplitToningShadowSaturation', panel='Shadow Sat'),
+            Parameter(0x264, 'SplitToningHighlightHue', panel='Highl Hue'),
+            Parameter(0x265, 'SplitToningHighlightSaturation', panel='Highl Sat'),
         ]),
     ]
 )
@@ -324,6 +333,26 @@ wave = MapFile(
                 # Buttons with displays
                 Bank([
                     Button(10, 0x228), # ColorAdj On/Off
+                ]),
+            ]),
+        ]),
+
+        # Split Toning
+        Mode(20, controlBanks=[
+            ControlBank('Button',[
+                # Buttons with displays
+                Bank([
+                    Button(10, 0x260), # Split Toning On/Off
+                ]),
+            ]),
+            ControlBank('Encoder',[
+                # Encoders with displays
+                Bank([
+                    Encoder(1, 0x262, 0x262), # Hue Shadow
+                    Encoder(2, 0x263, 0x263), # Sat Shadow
+                    Encoder(3, 0x264, 0x264), # Hue HL
+                    Encoder(4, 0x265, 0x265), # Sat HL
+                    Encoder(6, 0x261, 0x261), # Balance
                 ]),
             ]),
         ]),
