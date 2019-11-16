@@ -353,11 +353,13 @@ class ControlsFile(XMLable):
 class Control(XMLable):
     # A control has a Type and a Number; then at least one Mapping within. Each Mapping contains a Key.
     # See Button and Encoder subclasses.
-    def __init__(self, type, number, keyStd=None, keyAlt=None):
+    def __init__(self, type, number, keyStd=None, keyAlt=None, argStd=None, argAlt=None):
         self.type = type
         self.number = number
         self.keyStd = keyStd
         self.keyAlt = keyAlt
+        self.argStd = argStd
+        self.argAlt = argAlt
     def xml(self, indent, cf):
         self.check(cf)
         baseindent = TAB * indent
@@ -365,10 +367,14 @@ class Control(XMLable):
         if self.keyStd:
             rv += baseindent + TAB + '<Mapping mode="Std">\n'
             rv += baseindent + TAB + TAB + '<Key>0x%08x</Key> <!-- %s -->\n' % (self.keyStd, cf.find_control(self.keyStd))
+            if self.argStd:
+                rv += baseindent + TAB + TAB + '<Argument>0x%08x</Argument>\n' % self.argStd
             rv += baseindent + TAB + '</Mapping>\n'
         if self.keyAlt:
             rv += baseindent + TAB + '<Mapping mode="Alt">\n'
             rv += baseindent + TAB + TAB + '<Key>0x%08x</Key> <!-- %s -->\n' % (self.keyAlt, cf.find_control(self.keyAlt))
+            if self.argAlt:
+                rv += baseindent + TAB + TAB + '<Argument>0x%08x</Argument>\n' % self.argAlt
             rv += baseindent + TAB + '</Mapping>\n'
         rv += baseindent + '</Control>\n'
         return rv
@@ -377,12 +383,12 @@ class Control(XMLable):
         assert self.number is not None
 
 class Button(Control):
-    def __init__(self, number, keyStd=None, keyAlt=None):
-        super(Button, self).__init__('Button', number, keyStd, keyAlt)
+    def __init__(self, number, keyStd=None, keyAlt=None, argStd=None, argAlt=None):
+        super(Button, self).__init__('Button', number, keyStd, keyAlt, argStd, argAlt)
 
 class Encoder(Control):
-    def __init__(self, number, keyStd=None, keyAlt=None):
-        super(Encoder, self).__init__('Encoder', number, keyStd, keyAlt)
+    def __init__(self, number, keyStd=None, keyAlt=None, argStd=None, argAlt=None):
+        super(Encoder, self).__init__('Encoder', number, keyStd, keyAlt, argStd, argAlt)
 
 class Bank(XMLable):
     # A bank of one or more controls
@@ -463,8 +469,8 @@ if __name__ == '__main__':
     cf = ControlsFile([Mode(1,'Develop'), Mode(2,'Navigate')], [g, g])
     cf.check(None)
     #print(cf.xml(0,cf))
-    c = Button(10, 0x100, 0x101)
-    #print(c.xml(0))
+    c = Button(10, 0x100, 0x101, argStd=0x42, argAlt=0x43)
+    #print(c.xml(0,cf))
     e = Encoder(4, 0x200, 0x201)
     #print(e.xml(0))
     b = Bank([c,e])
