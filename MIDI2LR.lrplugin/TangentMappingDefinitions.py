@@ -19,6 +19,8 @@ controls = ControlsFile(
         Mode(13,'Colour Adjust Lum'),
         Mode(19,'Colour Adjust - BW'), # caution; XML file chokes on ampersands
         Mode(20,'Split Toning'),
+        Mode(21,'Sharpening'),
+        Mode(22,'Noise Reduction'),
     ],
     [
         Group('General', [
@@ -126,6 +128,20 @@ controls = ControlsFile(
             Parameter(0x263, 'SplitToningShadowSaturation', panel='Shadow Sat'),
             Parameter(0x264, 'SplitToningHighlightHue', panel='Highl Hue'),
             Parameter(0x265, 'SplitToningHighlightSaturation', panel='Highl Sat'),
+        ]),
+        Group('Detail', [
+            Action(0x270, 'EnableDetail', panel='Detail On/Off'),
+            Parameter(0x271, 'Sharpness', panel='Sharpen'),
+            Parameter(0x272, 'SharpenRadius', panel='Radius'),
+            Parameter(0x273, 'SharpenDetail', panel='Detail'),
+            Parameter(0x274, 'SharpenEdgeMasking', panel='Masking'),
+
+            Parameter(0x275, 'LuminanceSmoothing', panel='Luminance'),
+            Parameter(0x276, 'LuminanceNoiseReductionDetail', panel='Detail'),
+            Parameter(0x277, 'LuminanceNoiseReductionContrast', panel='Contrast'),
+            Parameter(0x278, 'ColorNoiseReduction', panel='Colour'),
+            Parameter(0x279, 'ColorNoiseReductionDetail', panel='Detail'),
+            Parameter(0x27a, 'ColorNoiseReductionSmoothness', panel='Smoothness'),
         ]),
     ]
 )
@@ -353,6 +369,46 @@ wave = MapFile(
                     Encoder(3, 0x264, 0x264), # Hue HL
                     Encoder(4, 0x265, 0x265), # Sat HL
                     Encoder(6, 0x261, 0x261), # Balance
+                ]),
+            ]),
+        ]),
+
+        # Sharpening
+        Mode(21, controlBanks=[
+            ControlBank('Button',[
+                # Buttons with displays
+                Bank([
+                    Button(10, 0x270), # Detail On/Off
+                ]),
+            ]),
+            ControlBank('Encoder',[
+                # Encoders with displays
+                Bank([
+                    Encoder(2, 0x271, 0x271), # Sharpness
+                    Encoder(3, 0x272, 0x272), # Radius
+                    Encoder(4, 0x273, 0x273), # Detail
+                    Encoder(5, 0x274, 0x274), # Edge Masking
+                ]),
+            ]),
+        ]),
+
+        # Noise Reduction
+        Mode(22, controlBanks=[
+            ControlBank('Button',[
+                # Buttons with displays
+                Bank([
+                    Button(10, 0x270), # Detail On/Off
+                ]),
+            ]),
+            ControlBank('Encoder',[
+                # Encoders with displays
+                Bank([
+                    Encoder(0, 0x275, 0x275), # Luminance NR
+                    Encoder(1, 0x276, 0x276), # Detail
+                    Encoder(2, 0x277, 0x277), # Contrast
+                    Encoder(3, 0x278, 0x278), # Colour NR
+                    Encoder(4, 0x279, 0x279), # Detail
+                    Encoder(5, 0x27a, 0x27a), # Smoothness
                 ]),
             ]),
         ]),
