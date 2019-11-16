@@ -23,6 +23,8 @@ controls = ControlsFile(
         Mode(22,'Noise Reduction'),
 
         Mode(50,'Crop'),
+        Mode(60,'Flag/Rotate/Export'),
+
     ],
     [
         Group('General', [
@@ -139,6 +141,7 @@ controls = ControlsFile(
             Parameter(0x264, 'SplitToningHighlightHue', panel='Highl Hue'),
             Parameter(0x265, 'SplitToningHighlightSaturation', panel='Highl Sat'),
         ]),
+
         Group('Detail', [
             Action(0x270, 'EnableDetail', panel='Detail On/Off'),
             Parameter(0x271, 'Sharpness', panel='Sharpen'),
@@ -152,6 +155,26 @@ controls = ControlsFile(
             Parameter(0x278, 'ColorNoiseReduction', panel='Colour'),
             Parameter(0x279, 'ColorNoiseReductionDetail', panel='Detail'),
             Parameter(0x27a, 'ColorNoiseReductionSmoothness', panel='Smoothness'),
+        ]),
+
+        Group('Flagging', [
+            Action(0x300, 'Pick'),
+            Action(0x301, 'Reject'),
+            Action(0x302, 'RemoveFlag', panel='Unflag'),
+
+            Action(0x303, 'ToggleRed', panel='Red'),
+            Action(0x304, 'ToggleGreen', panel='Green'),
+            Action(0x305, 'ToggleBlue', panel='Blue'),
+            Action(0x306, 'TogglePurple', panel='Purple'),
+            Action(0x307, 'ToggleYellow', panel='Yellow'),
+
+            Action(0x308, 'AddOrRemoveFromTargetColl', panel='Target Collection'),
+
+            Action(0x309, 'RotateLeft', panel='Rotate L'),
+            Action(0x30a, 'RotateRight', panel='Rotate R'),
+            Action(0x30b, 'EditPhotoshop', panel='Photoshop Edit'),
+            Action(0x30c, 'openExportDialog', panel='Export...'),
+            Action(0x30d, 'openExportWithPreviousDialog', panel='Export again'),
         ]),
     ]
 )
@@ -177,6 +200,8 @@ wave = MapFile(
                     Button(33, 0x100, 0x100), # F1 - Undo
                     Button(34, 0x101, 0x101), # F2 - Redo
                     Button(35, 0x105, 0x105), # F3 - Create Virtual Copy
+
+                    Button(30, 0x308, 0x308), # F4 - Toggle Target Collection
                 ]),
             ]),
             ControlBank('Button',[
@@ -440,6 +465,26 @@ wave = MapFile(
                     Encoder(2, 0x121, 0x121), # Bottom
                     Encoder(3, 0x122, 0x122), # Left
                     Encoder(4, 0x123, 0x123), # Right
+                ]),
+            ]),
+        ]),
+
+        # Flag/Rotate/Export
+        Mode(60, controlBanks=[
+            ControlBank('Button',[
+                # Buttons with displays
+                Bank([
+                    Button(10, 0x300, 0x309), # Pick / RotateLeft
+                    Button(11, 0x301, 0x30a), # Reject / RotateRight
+                    Button(12, 0x302), # Unflag
+
+                    Button(15, 0x303, 0x30c), # Red / Export...
+                    Button(16, 0x304, 0x30d), # Green / Export Again
+                    Button(17, 0x305), # Blue
+
+                    Button(20, 0x306), # Purple
+                    Button(21, 0x307), # Yellow
+                    Button(22, 0x308, 0x30b), # Toggle Target Collection / Edit in Photoshop
                 ]),
             ]),
         ]),
