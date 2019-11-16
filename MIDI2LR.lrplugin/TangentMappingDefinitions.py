@@ -70,6 +70,7 @@ controls = ControlsFile(
                 'Medium': 'PointCurveMediumContrast',
                 'Strong': 'PointCurveStrongContrast'
             }),
+            Action(0x218, 'EnableToneCurve', panel='ToneCurve On/Off'),
         ]),
     ]
 )
@@ -179,6 +180,7 @@ wave = MapFile(
             ControlBank('Button',[
                 # Buttons with displays
                 Bank([
+                    Button(10, 0x218), # Enable/Disable Tone Curve
                     Button(12, 0x217), # Pt Curve menu
                 ]),
             ]),
