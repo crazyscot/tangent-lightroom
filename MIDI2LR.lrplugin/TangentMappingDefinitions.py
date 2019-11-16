@@ -84,8 +84,8 @@ wave = MapFile(
                     Button(36, 0x102, 0x102), # Previous
                     Button(37, 0x103, 0x103), # Next
                     Button( 9, 0x80000001, 0x80000001), # Alt
-                    Button(25, 0x80000009, 0x80000009), # Up arrow -> next mode
-                    Button(26, 0x8000000a, 0x8000000a), # Down arrow -> prev mode
+                    Button(26, 0x80000009, 0x80000009), # Down arrow -> next mode (heading down the LR panels)
+                    Button(25, 0x8000000a, 0x8000000a), # Up arrow -> prev mode
                     Encoder(12, 0x81000001, 0x81000001), # Transport dial
 
                     Encoder( 9, 0x205, 0x205), # Dial 1 - Shadows
