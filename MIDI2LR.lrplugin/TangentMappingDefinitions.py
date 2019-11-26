@@ -218,19 +218,13 @@ wave = MapFile(
                     Button(34, 0x101, 0x101), # F2 - Redo
                     Button(35, 0x105), # F3 - Create Virtual Copy
 
-                    Button(30, 0x308), # F4 - Toggle Target Collection
+                    Button(30, 0x104), # F4 - Clipping On/Off
                     Button(31, 0x127), # F5 - Select1Left
                     Button(32, 0x128), # F6 - Select1Right
 
                     Button(27, 0x12a), # F7 - Library
                     Button(28, 0x12b), # F8 - Develop
                     Button(29, 0x129), # F9 - ToggleZoomOffOn
-                ]),
-            ]),
-            ControlBank('Button',[
-                # Buttons with displays
-                Bank([
-                    Button(22, 0x104, 0x104), # Show Clip
                 ]),
             ]),
     ],
