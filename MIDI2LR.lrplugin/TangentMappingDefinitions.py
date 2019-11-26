@@ -232,11 +232,6 @@ wave = MapFile(
 
         # Develop WB/Tone
         Mode(1, controlBanks=[
-            ControlBank('Standard',[
-                # Buttons and encoders without displays
-                Bank([
-                ]),
-            ]),
             ControlBank('Encoder',[
                 # Encoders with displays
                 Bank([
