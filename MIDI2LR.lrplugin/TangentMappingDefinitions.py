@@ -202,8 +202,8 @@ wave = MapFile(
                 # Buttons and encoders without displays
                 Bank([
                     # Truly standard controls which should appear in every bank:
-                    Button(36, 0x102, 0x102), # Previous
-                    Button(37, 0x103, 0x103), # Next
+                    Button(36, 0x102, 0x127), # Previous / Select1Left
+                    Button(37, 0x103, 0x128), # Next / Select1Right
                     Button( 9, 0x80000001, 0x80000001), # Alt
                     Button(25, 0x40000001, 0x40000001), # Up arrow -> special logic
                     Button(26, 0x40000002, 0x40000002), # Down arrow -> special logic
