@@ -11,9 +11,8 @@ def INV(s):
 
 controls = ControlsFile(
     [
-        # the weird spacing in here is for the display in the modes menu
-        Mode(1,'Colo ur/Tone'),
-        Mode(2,'Tone/ Presence'),
+        Mode(1,'Colour/Tone'),
+        Mode(2,'Tone/Presence'),
         Mode(3,'Tone Curve'),
         Mode(11,'HueAdjust'),
         Mode(12,'SatAdjust'),
@@ -520,17 +519,17 @@ wave = MapFile(
             ControlBank('Button',[
                 # Buttons with displays
                 Bank([
-                    Button(10, GO_TO_MODE, argStd=1, keyAlt=GO_TO_MODE, argAlt=50),
-                    Button(11, GO_TO_MODE, argStd=2, keyAlt=GO_TO_MODE, argAlt=60),
-                    Button(12, GO_TO_MODE, argStd=3),
+                    Button(10, Std(GO_TO_MODE, 1, 'Colour/ Tone'), Alt(GO_TO_MODE, 50, 'Crop')),
+                    Button(11, Std(GO_TO_MODE, 2, 'Tone/ Presence'), Alt(GO_TO_MODE, 60, 'Flag')),
+                    Button(12, Std(GO_TO_MODE, 3, 'Tone Curve')),
 
-                    Button(15, GO_TO_MODE, argStd=11),
-                    Button(16, GO_TO_MODE, argStd=12),
-                    Button(17, GO_TO_MODE, argStd=13, keyAlt=GO_TO_MODE, argAlt=19),
+                    Button(15, Std(GO_TO_MODE, 11, 'Hue')),
+                    Button(16, Std(GO_TO_MODE, 12, 'Saturation')),
+                    Button(17, Std(GO_TO_MODE, 13, 'Luminance'), Alt(GO_TO_MODE, 19, 'Greys')),
 
-                    Button(20, GO_TO_MODE, argStd=20),
-                    Button(21, GO_TO_MODE, argStd=21),
-                    Button(22, GO_TO_MODE, argStd=22),
+                    Button(20, Std(GO_TO_MODE, 20, 'Split Toning')),
+                    Button(21, Std(GO_TO_MODE, 21, 'Sharpening')),
+                    Button(22, Std(GO_TO_MODE, 22, 'Noise Reduction')),
                 ]),
             ]),
         ]),
@@ -539,9 +538,9 @@ wave = MapFile(
             ControlBank('Button',[
                 # Buttons with displays
                 Bank([
-                    Button(10, GO_TO_MODE, argStd=50),
-                    Button(11, GO_TO_MODE, argStd=60),
-                    Button(12, GO_TO_MODE, argStd=61),
+                    Button(10, Std(GO_TO_MODE, 50, 'Crop')),
+                    Button(11, Std(GO_TO_MODE, 60, 'Flag')),
+                    Button(12, Std(GO_TO_MODE, 61, 'Rotate/ Export')),
                 ]),
             ]),
         ]),

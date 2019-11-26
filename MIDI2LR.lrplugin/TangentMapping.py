@@ -389,29 +389,24 @@ class Alt(Mapping):
 class Control(XMLable):
     # A control has a Type and a Number; then at least one Mapping within. Each Mapping contains a Key.
     # See Button and Encoder subclasses.
-    def __init__(self, type, number, keyStd=None, keyAlt=None, argStd=None, argAlt=None):
+    # Std and Alt mappings may be given as numbers, for simplicity, or a Std or Alt (or Mapping) object.
+    def __init__(self, type, number, std, alt=None):
         self.type = type
         self.number = number
-        self.keyStd = keyStd
-        self.keyAlt = keyAlt
-        self.argStd = argStd
-        self.argAlt = argAlt
+        self.std = std
+        if isinstance(std, int):
+            self.std = Std(std)
+        self.alt = alt
+        if isinstance(alt, int):
+            self.alt = Alt(alt)
     def xml(self, indent, cf):
         self.check(cf)
         baseindent = TAB * indent
         rv = baseindent + '<Control type="%s" number="%d">\n' % (self.type, self.number)
-        if self.keyStd:
-            rv += baseindent + TAB + '<Mapping mode="Std">\n'
-            rv += baseindent + TAB + TAB + '<Key>0x%08x</Key> <!-- %s -->\n' % (self.keyStd, cf.find_control(self.keyStd))
-            if self.argStd:
-                rv += baseindent + TAB + TAB + '<Argument>0x%08x</Argument>\n' % self.argStd
-            rv += baseindent + TAB + '</Mapping>\n'
-        if self.keyAlt:
-            rv += baseindent + TAB + '<Mapping mode="Alt">\n'
-            rv += baseindent + TAB + TAB + '<Key>0x%08x</Key> <!-- %s -->\n' % (self.keyAlt, cf.find_control(self.keyAlt))
-            if self.argAlt:
-                rv += baseindent + TAB + TAB + '<Argument>0x%08x</Argument>\n' % self.argAlt
-            rv += baseindent + TAB + '</Mapping>\n'
+        if self.std:
+            rv += self.std.xml(indent+1, cf)
+        if self.alt:
+            rv += self.alt.xml(indent+1, cf)
         rv += baseindent + '</Control>\n'
         return rv
     def check(self, controlsfile):
@@ -419,12 +414,12 @@ class Control(XMLable):
         assert self.number is not None
 
 class Button(Control):
-    def __init__(self, number, keyStd=None, keyAlt=None, argStd=None, argAlt=None):
-        super(Button, self).__init__('Button', number, keyStd, keyAlt, argStd, argAlt)
+    def __init__(self, number, std, alt=None):
+        super(Button, self).__init__('Button', number, std, alt)
 
 class Encoder(Control):
-    def __init__(self, number, keyStd=None, keyAlt=None, argStd=None, argAlt=None):
-        super(Encoder, self).__init__('Encoder', number, keyStd, keyAlt, argStd, argAlt)
+    def __init__(self, number, std, alt=None):
+        super(Encoder, self).__init__('Encoder', number, std, alt)
 
 class Bank(XMLable):
     # A bank of one or more controls
@@ -505,14 +500,14 @@ if __name__ == '__main__':
     cf = ControlsFile([Mode(1,'Develop'), Mode(2,'Navigate')], [g, g])
     cf.check(None)
     #print(cf.xml(0,cf))
-    c = Button(10, 0x100, 0x101, argStd=0x42, argAlt=0x43)
+    c = Button(10, Std(0x100, arg=0x42), Alt(0x0101, arg=0x43, customName='foobar'))
     #print(c.xml(0,cf))
     e = Encoder(4, 0x200, 0x201)
     #print(e.xml(0))
     b = Bank([c,e])
     #print(b.xml(0))
     cb = ControlBank('Standard', [b])
-    cb2 = ControlBank('Standard', [Bank([ Button(32, 0xfff) ])])
+    cb2 = ControlBank('Standard', [Bank([ Button(32, Std(0xfff)) ])])
     #print(cb.xml(0))
     m = Mode(1, controlBanks = [cb])
     m2 = Mode(2, controlBanks = [ControlBank('Standard', [Bank([c,e])])]) # needs to be a deep clone, so the shared logic doesn't duplicate
@@ -520,10 +515,3 @@ if __name__ == '__main__':
     mf = MapFile('Wave', [cb2], [m, m2])
     mf.check(cf)
     print(mf.xml(0, cf))
-
-    mapp = Mapping('Std', 42, 123, 'mylabel')
-    print(mapp.xml(0,cf))
-    map2 = Std(42, 37, 'mylabel')
-    print(map2.xml(0,cf))
-    map3 = Alt(42, 39, 'mylabel2')
-    print(map3.xml(0,cf))
