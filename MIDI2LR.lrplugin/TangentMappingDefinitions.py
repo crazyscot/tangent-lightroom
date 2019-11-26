@@ -24,7 +24,8 @@ controls = ControlsFile(
         Mode(22,'Noise Reduction'),
 
         Mode(50,'Crop'),
-        Mode(60,'Flag/ Rotate/Export'),
+        Mode(60,'Flag'),
+        Mode(61,'Rotate/Export'),
 
         Mode(100,'ModesMenu1'),
         Mode(101,'ModesMenu2'),
@@ -494,17 +495,33 @@ wave = MapFile(
             ControlBank('Button',[
                 # Buttons with displays
                 Bank([
-                    Button(10, 0x300, 0x309), # Pick / RotateLeft
-                    Button(11, 0x301, 0x30a), # Reject / RotateRight
+                    Button(10, 0x300), # Pick
+                    Button(11, 0x301), # Reject
                     Button(12, 0x302), # Unflag
 
-                    Button(15, 0x303, 0x30c), # Red / Export...
-                    Button(16, 0x304, 0x30d), # Green / Export Again
+                    Button(15, 0x303), # Red
+                    Button(16, 0x304), # Green
                     Button(17, 0x305), # Blue
 
                     Button(20, 0x306), # Purple
                     Button(21, 0x307), # Yellow
-                    Button(22, 0x308, 0x30b), # Toggle Target Collection / Edit in Photoshop
+                    Button(22, 0x308), # Toggle Target Collection
+                ]),
+            ]),
+        ]),
+
+        # Rotate/Export
+        Mode(61, controlBanks=[
+            ControlBank('Button',[
+                # Buttons with displays
+                Bank([
+                    Button(10, 0x309), # RotateLeft
+                    Button(11, 0x30a), # RotateRight
+
+                    Button(15, 0x30c), # Export...
+                    Button(16, 0x30d), # Export Again
+
+                    Button(20, 0x30b), # Edit in Photoshop
                 ]),
             ]),
         ]),
@@ -535,6 +552,7 @@ wave = MapFile(
                 Bank([
                     Button(10, GO_TO_MODE, argStd=50),
                     Button(11, GO_TO_MODE, argStd=60),
+                    Button(12, GO_TO_MODE, argStd=61),
                 ]),
             ]),
         ]),
