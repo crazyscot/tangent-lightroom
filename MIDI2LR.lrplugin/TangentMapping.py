@@ -355,6 +355,37 @@ class ControlsFile(XMLable):
 ##################################################################33
 # MAP FILES
 
+class Mapping(XMLable):
+    # A Mapping has a Mode (Std/Alt), a Key, and maybe an Argument and/or CustomName
+    def __init__(self, mode, key, arg=None, customName=None):
+        self.mode = mode
+        self.key = key
+        self.arg = arg
+        self.customName = customName
+    def xml(self, indent, cf):
+        self.check(cf)
+        bind = TAB * indent
+        rv = bind + '<Mapping mode="%s">\n' % self.mode
+        rv += bind + TAB + '<Key>0x%08x</Key> <!-- %s -->\n' % (self.key, cf.find_control(self.key))
+        if self.arg:
+            rv += bind + TAB + '<Argument>0x%08x</Argument>\n' % self.arg
+        if self.customName:
+            rv += bind + TAB + '<CustomName>%s</CustomName>\n' % self.customName
+        rv += bind + '</Mapping>\n'
+        return rv
+    def check(self, controlsfile):
+        assert self.mode in ['Std','Alt']
+        assert self.key is not None
+
+class Std(Mapping):
+    def __init__(self, key, arg=None, customName=None):
+        super(Std, self).__init__('Std', key, arg, customName)
+
+class Alt(Mapping):
+    def __init__(self, key, arg=None, customName=None):
+        super(Alt, self).__init__('Alt', key, arg, customName)
+
+
 class Control(XMLable):
     # A control has a Type and a Number; then at least one Mapping within. Each Mapping contains a Key.
     # See Button and Encoder subclasses.
@@ -490,3 +521,9 @@ if __name__ == '__main__':
     mf.check(cf)
     print(mf.xml(0, cf))
 
+    mapp = Mapping('Std', 42, 123, 'mylabel')
+    print(mapp.xml(0,cf))
+    map2 = Std(42, 37, 'mylabel')
+    print(map2.xml(0,cf))
+    map3 = Alt(42, 39, 'mylabel2')
+    print(map3.xml(0,cf))
