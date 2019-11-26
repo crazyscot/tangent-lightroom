@@ -331,7 +331,7 @@ class Bridge(object):
                 self.udsm=0
         # State entry actions
         if self.udsm == 3 and previousState != 3:
-            self.changeMode(99) # menu
+            self.changeMode(100) # menu
 
     def buttonCustom(self, action, up):
         if action==0x40000001:

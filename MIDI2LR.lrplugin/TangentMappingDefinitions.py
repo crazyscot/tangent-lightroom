@@ -26,7 +26,8 @@ controls = ControlsFile(
         Mode(50,'Crop'),
         Mode(60,'Flag/ Rotate/Export'),
 
-        Mode(99,'ModesMenu1'),
+        Mode(100,'ModesMenu1'),
+        Mode(101,'ModesMenu2'),
     ],
     [
         Group('General', [
@@ -509,21 +510,31 @@ wave = MapFile(
         ]),
 
         # ModesMenu
-        Mode(99, controlBanks=[
+        Mode(100, controlBanks=[
             ControlBank('Button',[
                 # Buttons with displays
                 Bank([
-                    Button(10, GO_TO_MODE, argStd=60, keyAlt=GO_TO_MODE, argAlt=50),
-                    Button(11, GO_TO_MODE, argStd=1, keyAlt=GO_TO_MODE, argAlt=2),
+                    Button(10, GO_TO_MODE, argStd=1, keyAlt=GO_TO_MODE, argAlt=50),
+                    Button(11, GO_TO_MODE, argStd=2, keyAlt=GO_TO_MODE, argAlt=60),
                     Button(12, GO_TO_MODE, argStd=3),
 
-                    Button(15, GO_TO_MODE, argStd=11, keyAlt=GO_TO_MODE, argAlt=13),
-                    Button(16, GO_TO_MODE, argStd=12, keyAlt=GO_TO_MODE, argAlt=19),
-                    Button(17, GO_TO_MODE, argStd=20),
+                    Button(15, GO_TO_MODE, argStd=11),
+                    Button(16, GO_TO_MODE, argStd=12),
+                    Button(17, GO_TO_MODE, argStd=13, keyAlt=GO_TO_MODE, argAlt=19),
 
-                    Button(20, GO_TO_MODE, argStd=21),
-                    Button(21, GO_TO_MODE, argStd=22),
-                    #Button(22, GO_TO_MODE, argStd=50, keyAlt=GO_TO_MODE, argAlt=60),
+                    Button(20, GO_TO_MODE, argStd=20),
+                    Button(21, GO_TO_MODE, argStd=21),
+                    Button(22, GO_TO_MODE, argStd=22),
+                ]),
+            ]),
+        ]),
+
+        Mode(101, controlBanks=[
+            ControlBank('Button',[
+                # Buttons with displays
+                Bank([
+                    Button(10, GO_TO_MODE, argStd=50),
+                    Button(11, GO_TO_MODE, argStd=60),
                 ]),
             ]),
         ]),
