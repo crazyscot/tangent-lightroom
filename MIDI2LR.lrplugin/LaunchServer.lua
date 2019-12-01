@@ -23,9 +23,9 @@ local LrTasks     = import 'LrTasks'
 LrTasks.startAsyncTask( 
   function()
     if(WIN_ENV) then
-      LrShell.openFilesInApp({LrPathUtils.child(_PLUGIN.path, 'Info.lua')}, LrPathUtils.child(_PLUGIN.path, 'MIDI2LR.exe'))
+      LrShell.openPathsViaCommandLine({LrPathUtils.child(_PLUGIN.path, 'TangentBridge.py')}, 'C:\\python2.7\\python.exe')
     else
-      LrShell.openFilesInApp({LrPathUtils.child(_PLUGIN.path, 'Info.lua')}, LrPathUtils.child(_PLUGIN.path, 'MIDI2LR.app')) 
+      LrShell.openPathsViaCommandLine({LrPathUtils.child(_PLUGIN.path, 'TangentBridge.py')}, '/usr/bin/env', 'python')
     end
   end
 )

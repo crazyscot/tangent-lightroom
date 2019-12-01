@@ -770,10 +770,10 @@ LrTasks.startAsyncTask(
         logger:trace('startServer')
 
         if(WIN_ENV) then
-          -- TODO: LrShell.openFilesInApp({LrPathUtils.child(_PLUGIN.path, 'Info.lua')}, LrPathUtils.child(_PLUGIN.path, 'MIDI2LR.exe'))
+          -- UNTESTED:
+          LrShell.openPathsViaCommandLine({LrPathUtils.child(_PLUGIN.path, 'TangentBridge.py')}, 'C:\\python2.7\\python.exe')
         else
-          -- LrShell.openFilesInApp({LrPathUtils.child(_PLUGIN.path, 'Info.lua')}, LrPathUtils.child(_PLUGIN.path, 'MIDI2LR.app'))
-          -- TODO: LrShell.openPathsViaCommandLine({LrPathUtils.child(_PLUGIN.path, 'Info.lua')}, LrPathUtils.child(_PLUGIN.path, 'TangentBridge.py'))
+          LrShell.openPathsViaCommandLine({LrPathUtils.child(_PLUGIN.path, 'TangentBridge.py')}, '/usr/bin/env', 'python')
         end
 
         -- add an observer for develop param changes--needs to occur in develop module

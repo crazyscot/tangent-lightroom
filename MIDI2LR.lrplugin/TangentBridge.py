@@ -428,6 +428,6 @@ class Bridge(object):
                 _ = self.LRSend.recv(128)
 
 if __name__ == '__main__':
-    # First argument is the path to the plugin Info.lua, which must be in the same dir as the XML files
+    # First argument is the path to the plugin Info.lua, which must be in the same dir as the XML files. If not given, it's assumed to be the directory this file lives in.
     bridge = Bridge(sys.argv[0])
     bridge.run()
