@@ -100,7 +100,9 @@ LrTasks.startAsyncTask(
 
     local LrLogger = import 'LrLogger'
     local logger = LrLogger( 'tangent2midi2lr' )
+    --[[-- Debug logging master switch:
     logger:enable("logfile")
+    --]]--
 
     local ACTIONS = {
       AdjustmentBrush                        = CU.fToggleTool('localized'),
