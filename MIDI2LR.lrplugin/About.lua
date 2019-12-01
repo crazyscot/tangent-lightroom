@@ -19,4 +19,4 @@ MIDI2LR.  If not, see <http://www.gnu.org/licenses/>.
 
 local LrDialogs = import 'LrDialogs'
 
-LrDialogs.message(LOC('$$$/MIDI2LR/About/about=How to use: connect a MIDI controller, launch MIDI2LR, and begin editing! See https://github.com/rsjaffe/MIDI2LR/wiki for details.'))
+LrDialogs.message('This plugin allows you to use a Tangent control surface. It is based on MIDI2LR by Rory Jaffe; if you want to use a MIDI controller, use his plugin instead.')

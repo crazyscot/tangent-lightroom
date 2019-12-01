@@ -21,17 +21,18 @@ return {
   LrAlsoUseBuiltInTranslations = true, 
   LrForceInitPlugin = true, 
   LrInitPlugin = 'Client.lua', -- Main client logic
-  LrPluginInfoUrl = 'https://github.com/rsjaffe/MIDI2LR/wiki',
-  LrPluginName = 'MIDI2LR',
+  LrPluginInfoUrl = 'https://github.com/crazyscot/tangent-lightroom',
+  LrPluginName = 'TangentLR',
   LrSdkMinimumVersion = 6.0, -- minimum SDK version required by this plug-in
   LrSdkVersion = 6.0,
   LrShutdownPlugin = 'ShutDownPlugin.lua',
-  LrToolkitIdentifier = 'com.rsjaffe.midi2lr',
+  LrToolkitIdentifier = 'nz.mediary.tangentlr',
   LrExportMenuItems = {
     {
       title = LOC("$$$/MIDI2LR/Menu/GeneralOptions=General &options"),
       file = 'Options.lua',
     },
+    --[[--
     {
       title = LOC("$$$/SmartCollection/Criteria/DevelopPreset=Develop Preset"),
       file = 'PresetsDialog.lua',
@@ -40,12 +41,13 @@ return {
       title = LOC("$$$/AgLibrary/Filter/BrowserCriteria/Keywords=Keywords"),
       file = 'KeywordsDialog.lua',
     },
+    --]]--
     {
-      title = LOC("$$$/AgPluginManager/Status/HttpServer/StartServer=Start Server"),
+      title = 'Start Helper',
       file = "LaunchServer.lua"
     },
     {
-      title = LOC("$$$/AgPluginManager/Status/HttpServer/StopServer=Stop Server"),
+      title = 'Stop Helper',
       file = "StopServer.lua"
     },
     {
@@ -60,16 +62,19 @@ return {
       title = LOC("$$$/MIDI2LR/Help/OnlineHelp=Online &help"), 
       file = "OnlineHelp.lua",
     },     
+    --[[--
     {
       title = LOC("$$$/MIDI2LR/Info/BuildFiles=Build files (development use only)"),
       file = "Build.lua"
     },
+    --]]--
   },
   LrHelpMenuItems = {
     { 
       title = LOC("$$$/MIDI2LR/Help/OnlineHelp=&Online help"), 
       file = "OnlineHelp.lua",
     }, 
+    --[[--
     {
       title = LOC("$$$/MIDI2LR/Help/Support=&Support"), 
       file = "Support.lua",
@@ -78,8 +83,9 @@ return {
       title = LOC("$$$/MIDI2LR/Help/Latest=&View latest release"),
       file = "Latest.lua",
     },
+    --]]--
     {
-      title = LOC("$$$/MIDI2LR/Help/Donate=&Donate to support project development"),
+      title = 'Donate to the MIDI2LR project',
       file = "Donate.lua",
     },
     {
@@ -87,5 +93,5 @@ return {
       file = "About.lua",
     },
   },
-  VERSION = { major=3, minor=3, revision=2, build=0}
+  VERSION = { major=1, minor=0, revision=0, build=0}
 }
