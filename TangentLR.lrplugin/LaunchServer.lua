@@ -23,7 +23,7 @@ local LrTasks     = import 'LrTasks'
 LrTasks.startAsyncTask( 
   function()
     if(WIN_ENV) then
-      LrShell.openPathsViaCommandLine({LrPathUtils.child(_PLUGIN.path, 'TangentBridge.py')}, 'C:\\python2.7\\python.exe')
+      LrShell.openPathsViaCommandLine({LrPathUtils.child(_PLUGIN.path, 'TangentBridge.py')}, 'python.exe')
     else
       LrShell.openPathsViaCommandLine({LrPathUtils.child(_PLUGIN.path, 'TangentBridge.py')}, '/usr/bin/env', 'python')
     end
