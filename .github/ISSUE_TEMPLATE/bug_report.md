@@ -26,7 +26,8 @@ If applicable, add screenshots to help explain your problem.
 **System(please complete the following information):**
  - OS: [e.g. MacOS Mojave]
  - Lightroom version
- - MIDI2LR version
+ - TangentLightroom version
+ - Tangent panel you are using
 
 **Additional context**
 Add any other context about the problem here.
