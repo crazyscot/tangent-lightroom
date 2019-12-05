@@ -24,7 +24,7 @@ Professional film and video colour graders use hardware control surfaces all the
 
 1. Ensure you have installed the Tangent support software. This should be supplied with your panel, or you can download it from [Tangent Support](https://www.tangentwave.co.uk/tangent-support/).
 1. Ensure your panel is connected.
-1. Download the latest version of TangentLightroom (or clone from GitHub).
+1. Download or clone the latest version of TangentLightroom. [Releases page](https://github.com/crazyscot/tangent-lightroom/releases)
 1. Put the plugin directory somewhere useful (your Documents folder, perhaps).
 1. Open up Lightroom, go into the Plugin Manager (File→Plugin-Manager), press Add, navigate to wherever you just saved the plugin.
 
