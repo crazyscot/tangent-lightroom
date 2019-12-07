@@ -176,7 +176,7 @@ class Bridge(object):
             if param not in VALUES:
                 VALUES[param]=0.5 # safeish default?
             VALUES[param] += incr
-            print('T< Param Change: 0x%x (%s): %f -> %f'%(param,name,incr,VALUES[param]))
+            self.log('T< Param Change: 0x%x (%s): %f -> %f'%(param,name,incr,VALUES[param]))
             self.sendLR(name, VALUES[param])
         elif cmd==4:
             param = rd4(pkt,4)
@@ -201,7 +201,7 @@ class Bridge(object):
             incr = rd4f(pkt, 4+offset)
             self.log('T< CUSTOM PARAM: %s, %f'%(name,incr))
             VALUES[name] += incr
-            print('T< Param Change: %s: %f -> %f'%(name,incr,VALUES[name]))
+            self.log('T< Param Change: %s: %f -> %f'%(name,incr,VALUES[name]))
             self.sendLR(name, VALUES[name])
         elif cmd==0x37:
             name,_ = rdstr(pkt, 4)
@@ -362,7 +362,6 @@ class Bridge(object):
             try:
                 item = self.lrQueue.get(False)
                 self.lrSendInProgress = True
-                #print('>>> %s'%item.strip())
                 self.LRSend.sendall(item)
             except Queue.Empty:
                 pass
