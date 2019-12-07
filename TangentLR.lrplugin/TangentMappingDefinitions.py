@@ -22,7 +22,8 @@ controls = ControlsFile(
         Mode(21,'Sharpening'),
         Mode(22,'Noise Reduction'),
 
-        Mode(50,'Crop'),
+        Mode(50,'Crop Edges'),
+        Mode(51,'Crop Corners'),
         Mode(60,'Flag'),
         Mode(61,'Rotate/Export'),
 
@@ -53,6 +54,12 @@ controls = ControlsFile(
 
             Action(0x12a, 'SwToMlibrary', panel='Library'),
             Action(0x12b, 'SwToMdevelop', panel='Develop'),
+
+            Parameter(0x130, 'CropTopLeft', panel='Top Left'),
+            Parameter(0x131, 'CropTopRight', panel='Top Right'),
+            Parameter(0x132, 'CropBottomLeft', panel='Bottom L'),
+            Parameter(0x133, 'CropBottomRight', panel='Bottom R'),
+            Parameter(0x134, 'CropAll', panel='Crop All'),
 
             Action(0x40000001, 'UpArrow'),
             Action(0x40000002, 'DownArrow'),
@@ -470,11 +477,37 @@ wave = MapFile(
             ControlBank('Encoder',[
                 # Encoders with displays
                 Bank([
-                    Encoder(6, 0x120, 0x120), # Angle
+                    Encoder(6, 0x134, 0x134), # All
+                    Encoder(8, 0x120, 0x120), # Angle
+
                     Encoder(1, 0x124, 0x124), # Top
                     Encoder(2, 0x121, 0x121), # Bottom
                     Encoder(3, 0x122, 0x122), # Left
                     Encoder(4, 0x123, 0x123), # Right
+                ]),
+            ]),
+        ]),
+
+        # Crop 2
+        Mode(51, controlBanks=[
+            ControlBank('Button',[
+                # Buttons with displays
+                Bank([
+                    Button(17, 0x125), # Reset Crop
+                    Button(10, 0x126), # Crop Overlay
+                ]),
+            ]),
+            ControlBank('Encoder',[
+                # Encoders with displays
+                Bank([
+                    Encoder(6, 0x134, 0x134), # All
+                    Encoder(8, 0x120, 0x120), # Angle
+
+                    Encoder(1, 0x130, 0x130), # TL
+                    Encoder(2, 0x132, 0x132), # BL
+                    Encoder(3, 0x133, 0x133), # BR
+                    Encoder(4, 0x131, 0x131), # TR
+
                 ]),
             ]),
         ]),
@@ -521,9 +554,9 @@ wave = MapFile(
             ControlBank('Button',[
                 # Buttons with displays
                 Bank([
-                    Button(10, Std(GO_TO_MODE, 1, 'Colour/ Tone'), Alt(GO_TO_MODE, 50, 'Crop')),
-                    Button(11, Std(GO_TO_MODE, 2, 'Tone/ Presence'), Alt(GO_TO_MODE, 60, 'Flag')),
-                    Button(12, Std(GO_TO_MODE, 3, 'Tone Curve')),
+                    Button(10, Std(GO_TO_MODE, 1, 'Colour/ Tone'), Alt(GO_TO_MODE, 50, 'Crop Corners')),
+                    Button(11, Std(GO_TO_MODE, 2, 'Tone/ Presence'), Alt(GO_TO_MODE, 51, 'Crop Edges')),
+                    Button(12, Std(GO_TO_MODE, 3, 'Tone Curve'), Alt(GO_TO_MODE, 60, 'Flag')),
 
                     Button(15, Std(GO_TO_MODE, 11, 'Hue')),
                     Button(16, Std(GO_TO_MODE, 12, 'Saturation')),
@@ -540,9 +573,10 @@ wave = MapFile(
             ControlBank('Button',[
                 # Buttons with displays
                 Bank([
-                    Button(10, Std(GO_TO_MODE, 50, 'Crop')),
-                    Button(11, Std(GO_TO_MODE, 60, 'Flag')),
-                    Button(12, Std(GO_TO_MODE, 61, 'Rotate/ Export')),
+                    Button(10, Std(GO_TO_MODE, 50, 'Crop Edges')),
+                    Button(11, Std(GO_TO_MODE, 51, 'Crop Corners')),
+                    Button(12, Std(GO_TO_MODE, 60, 'Flag')),
+                    Button(13, Std(GO_TO_MODE, 61, 'Rotate/ Export')),
                 ]),
             ]),
         ]),
