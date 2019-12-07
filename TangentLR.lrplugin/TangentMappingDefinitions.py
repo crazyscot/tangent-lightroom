@@ -181,6 +181,7 @@ controls = ControlsFile(
             Action(0x305, 'ToggleBlue', panel='Blue'),
             Action(0x306, 'TogglePurple', panel='Purple'),
             Action(0x307, 'ToggleYellow', panel='Yellow'),
+            Action(0x30e, 'ColorLabelNone', panel='Clear Colours'),
 
             Action(0x308, 'AddOrRemoveFromTargetColl', panel='Target Collection'),
 
@@ -494,6 +495,7 @@ wave = MapFile(
                     Button(20, 0x306), # Purple
                     Button(21, 0x307), # Yellow
                     Button(22, 0x308), # Toggle Target Collection
+                    #Button(22, 0x30e), # Clear Labels
                 ]),
             ]),
         ]),
