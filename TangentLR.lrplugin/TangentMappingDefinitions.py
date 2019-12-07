@@ -63,6 +63,7 @@ controls = ControlsFile(
 
             Action(0x40000001, 'UpArrow'),
             Action(0x40000002, 'DownArrow'),
+            Action(0x40000003, 'Ignore'),
         ]),
 
         Group('WB', [
