@@ -576,7 +576,7 @@ wave = MapFile(
                     Button(10, Std(GO_TO_MODE, 50, 'Crop Edges')),
                     Button(11, Std(GO_TO_MODE, 51, 'Crop Corners')),
                     Button(12, Std(GO_TO_MODE, 60, 'Flag')),
-                    Button(13, Std(GO_TO_MODE, 61, 'Rotate/ Export')),
+                    Button(15, Std(GO_TO_MODE, 61, 'Rotate/ Export')),
                 ]),
             ]),
         ]),
