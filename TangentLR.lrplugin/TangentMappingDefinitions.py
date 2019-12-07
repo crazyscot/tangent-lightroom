@@ -552,6 +552,12 @@ wave = MapFile(
 
         # ModesMenu
         Mode(100, controlBanks=[
+            ControlBank('Encoder',[
+                # Encoders with displays
+                Bank([
+                    Encoder(0, Std(0x40000003, None, INV(' Modes 1 '))), # action ignored
+                ]),
+            ]),
             ControlBank('Button',[
                 # Buttons with displays
                 Bank([
@@ -571,6 +577,12 @@ wave = MapFile(
         ]),
 
         Mode(101, controlBanks=[
+            ControlBank('Encoder',[
+                # Encoders with displays
+                Bank([
+                    Encoder(0, Std(0x40000003, None, INV(' Modes 2 '))), # action ignored
+                ]),
+            ]),
             ControlBank('Button',[
                 # Buttons with displays
                 Bank([
