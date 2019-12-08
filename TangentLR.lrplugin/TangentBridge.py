@@ -1,13 +1,16 @@
 #!/usr/bin/env python
-# Python 2 as that's what OSX provides
+# Written to work on both Python 2 and 3 (OSX provides 2.7)
 
 import binascii
 import os
-import Queue
 import select
 import socket
 import struct
 import sys
+if sys.version_info[0] < 3:
+    import Queue
+else:
+    import queue as Queue
 
 from TangentMapping import ALL_MENUS
 import TangentMappingDefinitions
@@ -165,21 +168,25 @@ class Bridge(object):
             mode = rd4(pkt, 4)
             self.log('CHANGE MODE: %08x'%mode)
             self.changeMode(mode)
-            self.sendLRQueued('SwToMdevelop', 1)
+            self.sendLR('SwToMdevelop', 1)
 
         # Parameters. Note that these always range from 0 to 1 in midi2lr's world; it keeps a mapping.
         elif cmd==2:
             param,incr = rd4(pkt,4), rd4f(pkt,8)
+            if param & 0x40000000:
+                return self.encoderCustom(param, incr=incr)
             name = Control.name_for(param)
             if param not in VALUES:
                 VALUES[param]=0.5 # safeish default?
             VALUES[param] += incr
-            print('T< Param Change: 0x%x (%s): %f -> %f'%(param,name,incr,VALUES[param]))
+            self.log('T< Param Change: 0x%x (%s): %f -> %f'%(param,name,incr,VALUES[param]))
             self.sendLR(name, VALUES[param])
         elif cmd==4:
             param = rd4(pkt,4)
             name = Control.name_for(param)
             self.log('T< READ PARAM: 0x%x (%s)'%(param,name))
+            if param & 0x40000000:
+                return self.encoderCustom(param)
             #self.log('>>> GetValue %s'%name)
             self.sendLRQueued('GetValue', name)
             # And the response will DTRT (--> 0x82)
@@ -187,6 +194,8 @@ class Bridge(object):
             param = rd4(pkt,4)
             name = Control.name_for(param)
             self.log('T< RESET PARAM: 0x%x (%s)'%(param,name))
+            if param & 0x40000000:
+                return self.encoderCustom(param, reset=True)
             self.sendLR('Reset'+name, '1')
 
         # Custom Parameters.
@@ -195,7 +204,7 @@ class Bridge(object):
             incr = rd4f(pkt, 4+offset)
             self.log('T< CUSTOM PARAM: %s, %f'%(name,incr))
             VALUES[name] += incr
-            print('T< Param Change: %s: %f -> %f'%(name,incr,VALUES[name]))
+            self.log('T< Param Change: %s: %f -> %f'%(name,incr,VALUES[name]))
             self.sendLR(name, VALUES[name])
         elif cmd==0x37:
             name,_ = rdstr(pkt, 4)
@@ -341,6 +350,13 @@ class Bridge(object):
         else:
             self.log('Unhandled custom button action %08x'%action)
 
+    def encoderCustom(self, param, incr=None, reset=False):
+        if action==0x40000003:
+            # Acknowledge, but otherwise ignore
+            self.sendTangent(u4(0x82) + u4(action) + encf(0.5) + u4(0))
+        else:
+            self.log('Unhandled custom encoder action %08x'%action)
+
     # -----------------------------------------------------------------
     # MIDI2LR logic
 
@@ -349,7 +365,6 @@ class Bridge(object):
             try:
                 item = self.lrQueue.get(False)
                 self.lrSendInProgress = True
-                #print('>>> %s'%item.strip())
                 self.LRSend.sendall(item)
             except Queue.Empty:
                 pass

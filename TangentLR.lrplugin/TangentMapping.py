@@ -1,8 +1,9 @@
 #!/usr/bin/env python
+# Should work with both Python 2.7 and 3
 
 import abc
 
-# This Python2 module declares:
+# This module declares:
 #   Objects to make it easier to specify control mappings
 #   The list of all controls that we support (--> controls.xml)
 #   The notion of "default" controls that are shared across all banks
@@ -13,7 +14,7 @@ TABSIZE=2
 TAB = ' ' * TABSIZE
 
 class XMLable(object):
-    __metaclass__ = abc.ABCMeta
+    __metaclass__ = abc.ABCMeta # N.B. python 2 compatible syntax
 
     def __init__(self):
         self.TYPES = {}
@@ -153,7 +154,7 @@ class Menu(XMLable):
         ALL_MENUS[id] = self
     def get(self):
         # returns a tuple (Display string, MIDI2LR verb)
-        key = self.verbs.keys()[self.index]
+        key = list(self.verbs.keys())[self.index]
         return (key,self.verbs[key])
     def change(self, incr):
         t=self.index + incr
@@ -232,21 +233,21 @@ class Mode(XMLable):
         self.Name = name
         self.controlbanks = controlBanks
         if name is None and controlBanks is None:
-            raise Error('one of Name and ControlBanks is required')
+            raise Exception('one of Name and ControlBanks is required')
         if name is not None and controlBanks is not None:
-            raise Error('only one of Name and ControlBanks is allowed')
+            raise Exception('only one of Name and ControlBanks is allowed')
     def merge(self, sharedBanks):
         # sharedBanks is an array of ControlBank objects to merge in
         if self.controlbanks is None:
-            raise Error('cannot merge when no ControlBanks are present')
+            raise Exception('cannot merge when no ControlBanks are present')
         for cb in self.controlbanks: # for each bank ...
             for mcb in sharedBanks: # find a matching shared bank
                 if mcb.id != cb.id:
                     continue
                 # got it; merge in
-                print('merging %s into %s'%(mcb.id, cb.id))
+                print(('merging %s into %s'%(mcb.id, cb.id)))
                 if len(mcb.banks)>1:
-                    raise Error('shared control bank %s has more than one bank; not supported' % mcb.id)
+                    raise Exception('shared control bank %s has more than one bank; not supported' % mcb.id)
                 for bnk in cb.banks:
                     bnk.controls.extend(mcb.banks[0].controls)
         # And the reverse mapping: a mode need not define all banks, but must still accept all shared banks
@@ -258,7 +259,7 @@ class Mode(XMLable):
                 found = True
             if not found:
                 #raise Exception('shared control bank %s has nowhere to go in mode %08x'%(mcb.id, self.id))
-                print('Creating control bank %s in mode %08x'%(mcb.id,self.id))
+                print(('Creating control bank %s in mode %08x'%(mcb.id,self.id)))
                 self.controlbanks.append(mcb)
 
     def xml(self, indent, cf):
@@ -277,7 +278,7 @@ class Mode(XMLable):
         return rv
     def check(self, controlsfile):
         assert self.id is not None
-        assert (self.Name and not self.controlbanks) or (self.controlbanks and not self.Name)
+        assert (self.Name and not self.controlbanks) or (type(self.controlbanks) is list and not self.Name)
         if self.controlbanks:
             assert controlsfile is not None
             # our ID must be found in the controls file
@@ -287,7 +288,7 @@ class Mode(XMLable):
                 cb.check(controlsfile)
 
 
-FILEHEADER = '''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+FILEHEADER = '''<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
 <TangentWave fileType="%s" fileVersion="3.0">
 '''
 
@@ -453,39 +454,51 @@ class ControlBank(XMLable):
         for b in self.banks:
             b.check(controlsfile)
 
-class MapFile(XMLable):
-    def __init__(self, panelType, sharedControlBanks, modes):
+class Panel(XMLable):
+    def __init__(self, panelType, sharedControlBanks, modes, ignoreModesCheck=False):
         self.panelType = panelType
         self.modes = modes
         self.sharedControlBanks = sharedControlBanks
+        self.ignoreModesCheck = ignoreModesCheck
         for m in self.modes:
             m.merge(self.sharedControlBanks)
     def xml(self, indent, cf):
         self.check(cf)
-        rv = FILEHEADER%'PanelMap'
-        rv += TAB*(indent+1) + '<Panels>\n'
-        rv += TAB*(indent+2) + '<Panel type="%s">\n' % self.panelType
+        rv = TAB*indent + '<Panel type="%s">\n' % self.panelType
         for m in self.modes:
-            rv += m.xml(indent+3, cf)
-        rv += TAB*(indent+2) + '</Panel>\n'
-        rv += TAB*(indent+1) + '</Panels>\n'
-        rv += FILEFOOTER
+            rv += m.xml(indent+1, cf)
+        rv += TAB*indent + '</Panel>'
         return rv
     def check(self, controlsfile):
         assert controlsfile is not None
         assert self.panelType is not None
         for m in self.modes:
             m.check(controlsfile)
-        for cm in controlsfile.modes:
-            # every defined mode must be mapped
-            found=False
-            for m in self.modes:
-                if m.id == cm.id:
-                    found=True
-                    break
-            if not found:
-                raise Exception('Mode 0x%08x (%s) in controls file not found in map for %s'%(cm.id, cm.Name, self.panelType))
+        if not self.ignoreModesCheck:
+            for cm in controlsfile.modes:
+                # every defined mode must be mapped
+                found=False
+                for m in self.modes:
+                    if m.id == cm.id:
+                        found=True
+                        break
+                if not found:
+                    raise Exception('Mode 0x%08x (%s) in controls file not found in map for %s'%(cm.id, cm.Name, self.panelType))
 
+class MapFile(XMLable):
+    def __init__(self, panels):
+        self.panels = panels
+    def xml(self, indent, cf):
+        self.check(cf)
+        rv = FILEHEADER%'PanelMap'
+        rv += TAB*(indent+1) + '<Panels>\n'
+        for p in self.panels:
+            rv += p.xml(indent+2, cf) + '\n'
+        rv += TAB*(indent+1) + '</Panels>\n'
+        rv += FILEFOOTER
+        return rv
+    def check(self, controlsfile):
+        assert self.panels
 
 if __name__ == '__main__':
     # This is test code.. for the real outputs, see TangentMappingDefinitions
@@ -512,6 +525,9 @@ if __name__ == '__main__':
     m = Mode(1, controlBanks = [cb])
     m2 = Mode(2, controlBanks = [ControlBank('Standard', [Bank([c,e])])]) # needs to be a deep clone, so the shared logic doesn't duplicate
     #print(m.xml(0))
-    mf = MapFile('Wave', [cb2], [m, m2])
+    p = Panel('Wave', [cb2], [m,m2])
+    p.check(cf)
+    #print((p.xml(0, cf)))
+    mf = MapFile([p])
     mf.check(cf)
-    print(mf.xml(0, cf))
+    print((mf.xml(0, cf)))

@@ -1,0 +1,1770 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<TangentWave fileType="PanelMap" fileVersion="3.0">
+  <Panels>
+    <Panel type="Element-Mf">
+      <Mode id="0x00000001"> <!-- Colour/Tone -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="16">
+              <Mapping mode="Std">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="17">
+              <Mapping mode="Std">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="12">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Button">
+          <Bank>
+            <Control type="Button" number="9">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="6">
+              <Mapping mode="Std">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="3">
+              <Mapping mode="Std">
+                <Key>0x0000012a</Key> <!-- Action: SwToMlibrary -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="4">
+              <Mapping mode="Std">
+                <Key>0x0000012b</Key> <!-- Action: SwToMdevelop -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000129</Key> <!-- Action: ToggleZoomOffOn -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="2">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000064</Argument>
+                <CustomName>Modes</CustomName>
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000002"> <!-- Tone/Presence -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="16">
+              <Mapping mode="Std">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="17">
+              <Mapping mode="Std">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="12">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Button">
+          <Bank>
+            <Control type="Button" number="9">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="6">
+              <Mapping mode="Std">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="3">
+              <Mapping mode="Std">
+                <Key>0x0000012a</Key> <!-- Action: SwToMlibrary -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="4">
+              <Mapping mode="Std">
+                <Key>0x0000012b</Key> <!-- Action: SwToMdevelop -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000129</Key> <!-- Action: ToggleZoomOffOn -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="2">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000064</Argument>
+                <CustomName>Modes</CustomName>
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000003"> <!-- Tone Curve -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="16">
+              <Mapping mode="Std">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="17">
+              <Mapping mode="Std">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="12">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Button">
+          <Bank>
+            <Control type="Button" number="9">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="6">
+              <Mapping mode="Std">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="3">
+              <Mapping mode="Std">
+                <Key>0x0000012a</Key> <!-- Action: SwToMlibrary -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="4">
+              <Mapping mode="Std">
+                <Key>0x0000012b</Key> <!-- Action: SwToMdevelop -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000129</Key> <!-- Action: ToggleZoomOffOn -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="2">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000064</Argument>
+                <CustomName>Modes</CustomName>
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x0000000b"> <!-- HueAdjust -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="16">
+              <Mapping mode="Std">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="17">
+              <Mapping mode="Std">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="12">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Button">
+          <Bank>
+            <Control type="Button" number="9">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="6">
+              <Mapping mode="Std">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="3">
+              <Mapping mode="Std">
+                <Key>0x0000012a</Key> <!-- Action: SwToMlibrary -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="4">
+              <Mapping mode="Std">
+                <Key>0x0000012b</Key> <!-- Action: SwToMdevelop -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000129</Key> <!-- Action: ToggleZoomOffOn -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="2">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000064</Argument>
+                <CustomName>Modes</CustomName>
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x0000000c"> <!-- SatAdjust -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="16">
+              <Mapping mode="Std">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="17">
+              <Mapping mode="Std">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="12">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Button">
+          <Bank>
+            <Control type="Button" number="9">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="6">
+              <Mapping mode="Std">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="3">
+              <Mapping mode="Std">
+                <Key>0x0000012a</Key> <!-- Action: SwToMlibrary -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="4">
+              <Mapping mode="Std">
+                <Key>0x0000012b</Key> <!-- Action: SwToMdevelop -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000129</Key> <!-- Action: ToggleZoomOffOn -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="2">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000064</Argument>
+                <CustomName>Modes</CustomName>
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x0000000d"> <!-- LumAdjust -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="16">
+              <Mapping mode="Std">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="17">
+              <Mapping mode="Std">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="12">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Button">
+          <Bank>
+            <Control type="Button" number="9">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="6">
+              <Mapping mode="Std">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="3">
+              <Mapping mode="Std">
+                <Key>0x0000012a</Key> <!-- Action: SwToMlibrary -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="4">
+              <Mapping mode="Std">
+                <Key>0x0000012b</Key> <!-- Action: SwToMdevelop -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000129</Key> <!-- Action: ToggleZoomOffOn -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="2">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000064</Argument>
+                <CustomName>Modes</CustomName>
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000013"> <!-- GreyAdjust -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="16">
+              <Mapping mode="Std">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="17">
+              <Mapping mode="Std">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="12">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Button">
+          <Bank>
+            <Control type="Button" number="9">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="6">
+              <Mapping mode="Std">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="3">
+              <Mapping mode="Std">
+                <Key>0x0000012a</Key> <!-- Action: SwToMlibrary -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="4">
+              <Mapping mode="Std">
+                <Key>0x0000012b</Key> <!-- Action: SwToMdevelop -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000129</Key> <!-- Action: ToggleZoomOffOn -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="2">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000064</Argument>
+                <CustomName>Modes</CustomName>
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000014"> <!-- Split Toning -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="16">
+              <Mapping mode="Std">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="17">
+              <Mapping mode="Std">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="12">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Button">
+          <Bank>
+            <Control type="Button" number="9">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="6">
+              <Mapping mode="Std">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="3">
+              <Mapping mode="Std">
+                <Key>0x0000012a</Key> <!-- Action: SwToMlibrary -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="4">
+              <Mapping mode="Std">
+                <Key>0x0000012b</Key> <!-- Action: SwToMdevelop -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000129</Key> <!-- Action: ToggleZoomOffOn -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="2">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000064</Argument>
+                <CustomName>Modes</CustomName>
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000015"> <!-- Sharpening -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="16">
+              <Mapping mode="Std">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="17">
+              <Mapping mode="Std">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="12">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Button">
+          <Bank>
+            <Control type="Button" number="9">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="6">
+              <Mapping mode="Std">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="3">
+              <Mapping mode="Std">
+                <Key>0x0000012a</Key> <!-- Action: SwToMlibrary -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="4">
+              <Mapping mode="Std">
+                <Key>0x0000012b</Key> <!-- Action: SwToMdevelop -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000129</Key> <!-- Action: ToggleZoomOffOn -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="2">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000064</Argument>
+                <CustomName>Modes</CustomName>
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000016"> <!-- Noise Reduction -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="16">
+              <Mapping mode="Std">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="17">
+              <Mapping mode="Std">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="12">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Button">
+          <Bank>
+            <Control type="Button" number="9">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="6">
+              <Mapping mode="Std">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="3">
+              <Mapping mode="Std">
+                <Key>0x0000012a</Key> <!-- Action: SwToMlibrary -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="4">
+              <Mapping mode="Std">
+                <Key>0x0000012b</Key> <!-- Action: SwToMdevelop -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000129</Key> <!-- Action: ToggleZoomOffOn -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="2">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000064</Argument>
+                <CustomName>Modes</CustomName>
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000032"> <!-- Crop Edges -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="16">
+              <Mapping mode="Std">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="17">
+              <Mapping mode="Std">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="12">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Button">
+          <Bank>
+            <Control type="Button" number="9">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="6">
+              <Mapping mode="Std">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="3">
+              <Mapping mode="Std">
+                <Key>0x0000012a</Key> <!-- Action: SwToMlibrary -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="4">
+              <Mapping mode="Std">
+                <Key>0x0000012b</Key> <!-- Action: SwToMdevelop -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000129</Key> <!-- Action: ToggleZoomOffOn -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="2">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000064</Argument>
+                <CustomName>Modes</CustomName>
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000033"> <!-- Crop Corners -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="16">
+              <Mapping mode="Std">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="17">
+              <Mapping mode="Std">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="12">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Button">
+          <Bank>
+            <Control type="Button" number="9">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="6">
+              <Mapping mode="Std">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="3">
+              <Mapping mode="Std">
+                <Key>0x0000012a</Key> <!-- Action: SwToMlibrary -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="4">
+              <Mapping mode="Std">
+                <Key>0x0000012b</Key> <!-- Action: SwToMdevelop -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000129</Key> <!-- Action: ToggleZoomOffOn -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="2">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000064</Argument>
+                <CustomName>Modes</CustomName>
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x0000003c"> <!-- Flag -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="16">
+              <Mapping mode="Std">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="17">
+              <Mapping mode="Std">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="12">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Button">
+          <Bank>
+            <Control type="Button" number="9">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="6">
+              <Mapping mode="Std">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="3">
+              <Mapping mode="Std">
+                <Key>0x0000012a</Key> <!-- Action: SwToMlibrary -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="4">
+              <Mapping mode="Std">
+                <Key>0x0000012b</Key> <!-- Action: SwToMdevelop -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000129</Key> <!-- Action: ToggleZoomOffOn -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="2">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000064</Argument>
+                <CustomName>Modes</CustomName>
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x0000003d"> <!-- Rotate/Export -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="16">
+              <Mapping mode="Std">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="17">
+              <Mapping mode="Std">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="12">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Button">
+          <Bank>
+            <Control type="Button" number="9">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="6">
+              <Mapping mode="Std">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="3">
+              <Mapping mode="Std">
+                <Key>0x0000012a</Key> <!-- Action: SwToMlibrary -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="4">
+              <Mapping mode="Std">
+                <Key>0x0000012b</Key> <!-- Action: SwToMdevelop -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000129</Key> <!-- Action: ToggleZoomOffOn -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="2">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000064</Argument>
+                <CustomName>Modes</CustomName>
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000065"> <!-- ModesMenu2 -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="16">
+              <Mapping mode="Std">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="17">
+              <Mapping mode="Std">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="12">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Button">
+          <Bank>
+            <Control type="Button" number="9">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="6">
+              <Mapping mode="Std">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="3">
+              <Mapping mode="Std">
+                <Key>0x0000012a</Key> <!-- Action: SwToMlibrary -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="4">
+              <Mapping mode="Std">
+                <Key>0x0000012b</Key> <!-- Action: SwToMdevelop -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000129</Key> <!-- Action: ToggleZoomOffOn -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="2">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000064</Argument>
+                <CustomName>Modes</CustomName>
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000064"> <!-- ModesMenu1 -->
+        <ControlBank id="Button">
+          <Bank>
+            <Control type="Button" number="0">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000001</Argument>
+                <CustomName>Basic</CustomName>
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000032</Argument>
+                <CustomName>Crop</CustomName>
+              </Mapping>
+            </Control>
+            <Control type="Button" number="1">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000003</Argument>
+                <CustomName>ToneCurve</CustomName>
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x0000003c</Argument>
+                <CustomName>Flag</CustomName>
+              </Mapping>
+            </Control>
+            <Control type="Button" number="2">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000013</Argument>
+                <CustomName>Greys</CustomName>
+              </Mapping>
+            </Control>
+            <Control type="Button" number="3">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x0000000b</Argument>
+                <CustomName>Hue</CustomName>
+              </Mapping>
+            </Control>
+            <Control type="Button" number="4">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x0000000c</Argument>
+                <CustomName>Sat</CustomName>
+              </Mapping>
+            </Control>
+            <Control type="Button" number="5">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x0000000d</Argument>
+                <CustomName>Lum</CustomName>
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000013</Argument>
+                <CustomName>Greys</CustomName>
+              </Mapping>
+            </Control>
+            <Control type="Button" number="6">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000014</Argument>
+                <CustomName>SplitTone</CustomName>
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000015</Argument>
+                <CustomName>Sharpen</CustomName>
+              </Mapping>
+            </Control>
+            <Control type="Button" number="8">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000016</Argument>
+                <CustomName>Noise Red</CustomName>
+              </Mapping>
+            </Control>
+            <Control type="Button" number="9">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000032</Argument>
+                <CustomName>Crop</CustomName>
+              </Mapping>
+            </Control>
+            <Control type="Button" number="10">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x0000003c</Argument>
+                <CustomName>Flag</CustomName>
+              </Mapping>
+            </Control>
+            <Control type="Button" number="11">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x0000003d</Argument>
+                <CustomName>Rota/Expo</CustomName>
+              </Mapping>
+            </Control>
+            <Control type="Button" number="9">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="6">
+              <Mapping mode="Std">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="3">
+              <Mapping mode="Std">
+                <Key>0x0000012a</Key> <!-- Action: SwToMlibrary -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="4">
+              <Mapping mode="Std">
+                <Key>0x0000012b</Key> <!-- Action: SwToMdevelop -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000129</Key> <!-- Action: ToggleZoomOffOn -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="2">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000064</Argument>
+                <CustomName>Modes</CustomName>
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="16">
+              <Mapping mode="Std">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="17">
+              <Mapping mode="Std">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="12">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+    </Panel>
+  </Panels>
+</TangentWave>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
 <TangentWave fileType="PanelMap" fileVersion="3.0">
   <Panels>
     <Panel type="Wave">
@@ -1986,7 +1986,7 @@
           </Bank>
         </ControlBank>
       </Mode>
-      <Mode id="0x00000032"> <!-- Crop -->
+      <Mode id="0x00000032"> <!-- Crop Edges -->
         <ControlBank id="Button">
           <Bank>
             <Control type="Button" number="17">
@@ -2004,6 +2004,14 @@
         <ControlBank id="Encoder">
           <Bank>
             <Control type="Encoder" number="6">
+              <Mapping mode="Std">
+                <Key>0x00000134</Key> <!-- Parameter: CropAll -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000134</Key> <!-- Parameter: CropAll -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="8">
               <Mapping mode="Std">
                 <Key>0x00000120</Key> <!-- Parameter: straightenAngle -->
               </Mapping>
@@ -2041,6 +2049,201 @@
               </Mapping>
               <Mapping mode="Alt">
                 <Key>0x00000123</Key> <!-- Parameter: CropRight -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="36">
+              <Mapping mode="Std">
+                <Key>0x00000102</Key> <!-- Action: Prev -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="37">
+              <Mapping mode="Std">
+                <Key>0x00000103</Key> <!-- Action: Next -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="9">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="25">
+              <Mapping mode="Std">
+                <Key>0x40000001</Key> <!-- Action: UpArrow -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x40000001</Key> <!-- Action: UpArrow -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="26">
+              <Mapping mode="Std">
+                <Key>0x40000002</Key> <!-- Action: DownArrow -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x40000002</Key> <!-- Action: DownArrow -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="12">
+              <Mapping mode="Std">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x81000001</Key> <!-- Parameter: Transport Ring -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="9">
+              <Mapping mode="Std">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="11">
+              <Mapping mode="Std">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="33">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="34">
+              <Mapping mode="Std">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="35">
+              <Mapping mode="Std">
+                <Key>0x00000105</Key> <!-- Action: VirtualCopy -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="30">
+              <Mapping mode="Std">
+                <Key>0x00000104</Key> <!-- Action: ShowClipping -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="31">
+              <Mapping mode="Std">
+                <Key>0x00000127</Key> <!-- Action: Select1Left -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="32">
+              <Mapping mode="Std">
+                <Key>0x00000128</Key> <!-- Action: Select1Right -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="27">
+              <Mapping mode="Std">
+                <Key>0x0000012a</Key> <!-- Action: SwToMlibrary -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="28">
+              <Mapping mode="Std">
+                <Key>0x0000012b</Key> <!-- Action: SwToMdevelop -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="29">
+              <Mapping mode="Std">
+                <Key>0x00000129</Key> <!-- Action: ToggleZoomOffOn -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000033"> <!-- Crop Corners -->
+        <ControlBank id="Button">
+          <Bank>
+            <Control type="Button" number="17">
+              <Mapping mode="Std">
+                <Key>0x00000125</Key> <!-- Action: ResetCrop -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="10">
+              <Mapping mode="Std">
+                <Key>0x00000126</Key> <!-- Action: CropOverlay -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Encoder">
+          <Bank>
+            <Control type="Encoder" number="6">
+              <Mapping mode="Std">
+                <Key>0x00000134</Key> <!-- Parameter: CropAll -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000134</Key> <!-- Parameter: CropAll -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000120</Key> <!-- Parameter: straightenAngle -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000120</Key> <!-- Parameter: straightenAngle -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="1">
+              <Mapping mode="Std">
+                <Key>0x00000130</Key> <!-- Parameter: CropTopLeft -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000130</Key> <!-- Parameter: CropTopLeft -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x00000132</Key> <!-- Parameter: CropBottomLeft -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000132</Key> <!-- Parameter: CropBottomLeft -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="3">
+              <Mapping mode="Std">
+                <Key>0x00000133</Key> <!-- Parameter: CropBottomRight -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000133</Key> <!-- Parameter: CropBottomRight -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="4">
+              <Mapping mode="Std">
+                <Key>0x00000131</Key> <!-- Parameter: CropTopRight -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000131</Key> <!-- Parameter: CropTopRight -->
               </Mapping>
             </Control>
           </Bank>
@@ -2510,6 +2713,16 @@
         </ControlBank>
       </Mode>
       <Mode id="0x00000064"> <!-- ModesMenu1 -->
+        <ControlBank id="Encoder">
+          <Bank>
+            <Control type="Encoder" number="0">
+              <Mapping mode="Std">
+                <Key>0x40000003</Key> <!-- Action: Ignore -->
+                <CustomName> Νοδεσ ± </CustomName>
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
         <ControlBank id="Button">
           <Bank>
             <Control type="Button" number="10">
@@ -2521,7 +2734,7 @@
               <Mapping mode="Alt">
                 <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
                 <Argument>0x00000032</Argument>
-                <CustomName>Crop</CustomName>
+                <CustomName>Crop Corners</CustomName>
               </Mapping>
             </Control>
             <Control type="Button" number="11">
@@ -2532,8 +2745,8 @@
               </Mapping>
               <Mapping mode="Alt">
                 <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
-                <Argument>0x0000003c</Argument>
-                <CustomName>Flag</CustomName>
+                <Argument>0x00000033</Argument>
+                <CustomName>Crop Edges</CustomName>
               </Mapping>
             </Control>
             <Control type="Button" number="12">
@@ -2541,6 +2754,11 @@
                 <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
                 <Argument>0x00000003</Argument>
                 <CustomName>Tone Curve</CustomName>
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x0000003c</Argument>
+                <CustomName>Flag</CustomName>
               </Mapping>
             </Control>
             <Control type="Button" number="15">
@@ -2721,23 +2939,40 @@
         </ControlBank>
       </Mode>
       <Mode id="0x00000065"> <!-- ModesMenu2 -->
+        <ControlBank id="Encoder">
+          <Bank>
+            <Control type="Encoder" number="0">
+              <Mapping mode="Std">
+                <Key>0x40000003</Key> <!-- Action: Ignore -->
+                <CustomName> Νοδεσ ² </CustomName>
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
         <ControlBank id="Button">
           <Bank>
             <Control type="Button" number="10">
               <Mapping mode="Std">
                 <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
                 <Argument>0x00000032</Argument>
-                <CustomName>Crop</CustomName>
+                <CustomName>Crop Edges</CustomName>
               </Mapping>
             </Control>
             <Control type="Button" number="11">
+              <Mapping mode="Std">
+                <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
+                <Argument>0x00000033</Argument>
+                <CustomName>Crop Corners</CustomName>
+              </Mapping>
+            </Control>
+            <Control type="Button" number="12">
               <Mapping mode="Std">
                 <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
                 <Argument>0x0000003c</Argument>
                 <CustomName>Flag</CustomName>
               </Mapping>
             </Control>
-            <Control type="Button" number="12">
+            <Control type="Button" number="15">
               <Mapping mode="Std">
                 <Key>0x8000000b</Key> <!-- Action: Go To Mode -->
                 <Argument>0x0000003d</Argument>

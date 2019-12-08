@@ -1,0 +1,1037 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<TangentWave fileType="ControlSystem" fileVersion="3.0">
+<Capabilities>
+    <Jog enabled="true"/>
+    <Shuttle enabled="false"/>
+    <StatusDisplay lineCount="3"/>
+    <CustomControls enabled="true"/>
+  </Capabilities>
+  <Modes>
+    <Mode id="0x00000001">
+      <Name>Colour/Tone</Name>
+    </Mode>
+    <Mode id="0x00000002">
+      <Name>Tone/Presence</Name>
+    </Mode>
+    <Mode id="0x00000003">
+      <Name>Tone Curve</Name>
+    </Mode>
+    <Mode id="0x0000000b">
+      <Name>HueAdjust</Name>
+    </Mode>
+    <Mode id="0x0000000c">
+      <Name>SatAdjust</Name>
+    </Mode>
+    <Mode id="0x0000000d">
+      <Name>LumAdjust</Name>
+    </Mode>
+    <Mode id="0x00000013">
+      <Name>GreyAdjust</Name>
+    </Mode>
+    <Mode id="0x00000014">
+      <Name>Split Toning</Name>
+    </Mode>
+    <Mode id="0x00000015">
+      <Name>Sharpening</Name>
+    </Mode>
+    <Mode id="0x00000016">
+      <Name>Noise Reduction</Name>
+    </Mode>
+    <Mode id="0x00000032">
+      <Name>Crop Edges</Name>
+    </Mode>
+    <Mode id="0x00000033">
+      <Name>Crop Corners</Name>
+    </Mode>
+    <Mode id="0x0000003c">
+      <Name>Flag</Name>
+    </Mode>
+    <Mode id="0x0000003d">
+      <Name>Rotate/Export</Name>
+    </Mode>
+    <Mode id="0x00000064">
+      <Name>ModesMenu1</Name>
+    </Mode>
+    <Mode id="0x00000065">
+      <Name>ModesMenu2</Name>
+    </Mode>
+  </Modes>
+  <Controls>
+    <Group name="General">
+      <Action id="0x00000100">
+        <Name>Undo</Name>
+        <Name9>Undo</Name9>
+        <Name14>Undo</Name14>
+        <Name20>Undo</Name20>
+      </Action>
+      <Action id="0x00000101">
+        <Name>Redo</Name>
+        <Name9>Redo</Name9>
+        <Name14>Redo</Name14>
+        <Name20>Redo</Name20>
+      </Action>
+      <Action id="0x00000102">
+        <Name>Prev</Name>
+        <Name9>Prev</Name9>
+        <Name14>Prev</Name14>
+        <Name20>Prev</Name20>
+      </Action>
+      <Action id="0x00000103">
+        <Name>Next</Name>
+        <Name9>Next</Name9>
+        <Name14>Next</Name14>
+        <Name20>Next</Name20>
+      </Action>
+      <Action id="0x00000104">
+        <Name>ShowClipping</Name>
+        <Name9>Clipping</Name9>
+        <Name14>Clipping On/Of</Name14>
+        <Name20>Clipping On/Off</Name20>
+      </Action>
+      <Action id="0x00000105">
+        <Name>VirtualCopy</Name>
+        <Name9>Virt Copy</Name9>
+        <Name14>VirtualCopy</Name14>
+        <Name20>VirtualCopy</Name20>
+      </Action>
+      <Parameter id="0x00000120">
+        <Name>straightenAngle</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Angle</Name9>
+        <Name10>Angle</Name10>
+        <Name12>Angle</Name12>
+      </Parameter>
+      <Parameter id="0x00000121">
+        <Name>CropBottom</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Bottom</Name9>
+        <Name10>Bottom</Name10>
+        <Name12>Bottom</Name12>
+      </Parameter>
+      <Parameter id="0x00000122">
+        <Name>CropLeft</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Left</Name9>
+        <Name10>Left</Name10>
+        <Name12>Left</Name12>
+      </Parameter>
+      <Parameter id="0x00000123">
+        <Name>CropRight</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Right</Name9>
+        <Name10>Right</Name10>
+        <Name12>Right</Name12>
+      </Parameter>
+      <Parameter id="0x00000124">
+        <Name>CropTop</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Top</Name9>
+        <Name10>Top</Name10>
+        <Name12>Top</Name12>
+      </Parameter>
+      <Action id="0x00000125">
+        <Name>ResetCrop</Name>
+        <Name9>ResetCrop</Name9>
+        <Name14>ResetCrop</Name14>
+        <Name20>ResetCrop</Name20>
+      </Action>
+      <Action id="0x00000126">
+        <Name>CropOverlay</Name>
+        <Name9>Crop Over</Name9>
+        <Name14>Crop Overlay</Name14>
+        <Name20>Crop Overlay</Name20>
+      </Action>
+      <Action id="0x00000127">
+        <Name>Select1Left</Name>
+        <Name9>Sel Left</Name9>
+        <Name14>Select1Left</Name14>
+        <Name20>Select1Left</Name20>
+      </Action>
+      <Action id="0x00000128">
+        <Name>Select1Right</Name>
+        <Name9>Sel Right</Name9>
+        <Name14>Select1Right</Name14>
+        <Name20>Select1Right</Name20>
+      </Action>
+      <Action id="0x00000129">
+        <Name>ToggleZoomOffOn</Name>
+        <Name9>Zoom</Name9>
+        <Name14>Zoom</Name14>
+        <Name20>Zoom</Name20>
+      </Action>
+      <Action id="0x0000012a">
+        <Name>SwToMlibrary</Name>
+        <Name9>Library</Name9>
+        <Name14>Library</Name14>
+        <Name20>Library</Name20>
+      </Action>
+      <Action id="0x0000012b">
+        <Name>SwToMdevelop</Name>
+        <Name9>Develop</Name9>
+        <Name14>Develop</Name14>
+        <Name20>Develop</Name20>
+      </Action>
+      <Parameter id="0x00000130">
+        <Name>CropTopLeft</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Top Left</Name9>
+        <Name10>Top Left</Name10>
+        <Name12>Top Left</Name12>
+      </Parameter>
+      <Parameter id="0x00000131">
+        <Name>CropTopRight</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Top Right</Name9>
+        <Name10>Top Right</Name10>
+        <Name12>Top Right</Name12>
+      </Parameter>
+      <Parameter id="0x00000132">
+        <Name>CropBottomLeft</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Bottom L</Name9>
+        <Name10>Bottom L</Name10>
+        <Name12>Bottom L</Name12>
+      </Parameter>
+      <Parameter id="0x00000133">
+        <Name>CropBottomRight</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Bottom R</Name9>
+        <Name10>Bottom R</Name10>
+        <Name12>Bottom R</Name12>
+      </Parameter>
+      <Parameter id="0x00000134">
+        <Name>CropAll</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Crop All</Name9>
+        <Name10>Crop All</Name10>
+        <Name12>Crop All</Name12>
+      </Parameter>
+      <Action id="0x40000001">
+        <Name>UpArrow</Name>
+        <Name9>UpArrow</Name9>
+        <Name14>UpArrow</Name14>
+        <Name20>UpArrow</Name20>
+      </Action>
+      <Action id="0x40000002">
+        <Name>DownArrow</Name>
+        <Name9>DownArrow</Name9>
+        <Name14>DownArrow</Name14>
+        <Name20>DownArrow</Name20>
+      </Action>
+      <Action id="0x40000003">
+        <Name>Ignore</Name>
+        <Name9>Ignore</Name9>
+        <Name14>Ignore</Name14>
+        <Name20>Ignore</Name20>
+      </Action>
+    </Group>
+    <Group name="WB">
+      <Action id="0x00000111">
+        <Name>WhiteBalanceAuto</Name>
+        <Name9>Auto WB</Name9>
+        <Name14>Auto WB</Name14>
+        <Name20>Auto WB</Name20>
+      </Action>
+      <Menu id="0x00000112">
+        <Name>Treatment</Name>
+        <Name9>Treatment</Name9>
+        <Name14>Treatment</Name14>
+        <Name20>Treatment</Name20>
+      </Menu>
+      <Menu id="0x00000113">
+        <Name>WB Preset</Name>
+        <Name9>WB Preset</Name9>
+        <Name14>WB Preset</Name14>
+        <Name20>WB Preset</Name20>
+      </Menu>
+    </Group>
+    <Group name="Tone">
+      <Action id="0x00000110">
+        <Name>AutoTone</Name>
+        <Name9>Auto Tone</Name9>
+        <Name14>Auto Tone</Name14>
+        <Name20>Auto Tone</Name20>
+      </Action>
+      <Parameter id="0x00000201">
+        <Name>Temperature</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>ColorTemp</Name9>
+        <Name10>Color Temp</Name10>
+        <Name12>Temperature</Name12>
+      </Parameter>
+      <Parameter id="0x00000202">
+        <Name>Tint</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Tint</Name9>
+        <Name10>Tint</Name10>
+        <Name12>Tint</Name12>
+      </Parameter>
+      <Parameter id="0x00000203">
+        <Name>Exposure</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Exposure</Name9>
+        <Name10>Exposure</Name10>
+        <Name12>Exposure</Name12>
+      </Parameter>
+      <Parameter id="0x00000204">
+        <Name>Highlights</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Highlight</Name9>
+        <Name10>Highlights</Name10>
+        <Name12>Highlights</Name12>
+      </Parameter>
+      <Parameter id="0x00000205">
+        <Name>Shadows</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Shadows</Name9>
+        <Name10>Shadows</Name10>
+        <Name12>Shadows</Name12>
+      </Parameter>
+      <Parameter id="0x00000206">
+        <Name>Brightness</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Bright</Name9>
+        <Name10>Brightness</Name10>
+        <Name12>Brightness</Name12>
+      </Parameter>
+      <Parameter id="0x00000207">
+        <Name>Contrast</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Contrast</Name9>
+        <Name10>Contrast</Name10>
+        <Name12>Contrast</Name12>
+      </Parameter>
+      <Parameter id="0x00000208">
+        <Name>Blacks</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Blacks</Name9>
+        <Name10>Blacks</Name10>
+        <Name12>Blacks</Name12>
+      </Parameter>
+      <Parameter id="0x00000209">
+        <Name>Whites</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Whites</Name9>
+        <Name10>Whites</Name10>
+        <Name12>Whites</Name12>
+      </Parameter>
+    </Group>
+    <Group name="Presence">
+      <Parameter id="0x0000020a">
+        <Name>Clarity</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Clarity</Name9>
+        <Name10>Clarity</Name10>
+        <Name12>Clarity</Name12>
+      </Parameter>
+      <Parameter id="0x0000020b">
+        <Name>Vibrance</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Vibrance</Name9>
+        <Name10>Vibrance</Name10>
+        <Name12>Vibrance</Name12>
+      </Parameter>
+      <Parameter id="0x0000020c">
+        <Name>Saturation</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Saturate</Name9>
+        <Name10>Saturation</Name10>
+        <Name12>Saturation</Name12>
+      </Parameter>
+      <Parameter id="0x0000020d">
+        <Name>Dehaze</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Dehaze</Name9>
+        <Name10>Dehaze</Name10>
+        <Name12>Dehaze</Name12>
+      </Parameter>
+      <Parameter id="0x0000020e">
+        <Name>Texture</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Texture</Name9>
+        <Name10>Texture</Name10>
+        <Name12>Texture</Name12>
+      </Parameter>
+    </Group>
+    <Group name="Tone Curve">
+      <Parameter id="0x00000210">
+        <Name>ParametricDarks</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Darks</Name9>
+        <Name10>Darks</Name10>
+        <Name12>Darks</Name12>
+      </Parameter>
+      <Parameter id="0x00000211">
+        <Name>ParametricLights</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Lights</Name9>
+        <Name10>Lights</Name10>
+        <Name12>Lights</Name12>
+      </Parameter>
+      <Parameter id="0x00000212">
+        <Name>ParametricShadows</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Shadows</Name9>
+        <Name10>Shadows</Name10>
+        <Name12>Shadows</Name12>
+      </Parameter>
+      <Parameter id="0x00000213">
+        <Name>ParametricHighlights</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Highlight</Name9>
+        <Name10>Highlights</Name10>
+        <Name12>Highlights</Name12>
+      </Parameter>
+      <Parameter id="0x00000214">
+        <Name>ParametricShadowSplit</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>ShadoSpli</Name9>
+        <Name10>ShadoSplit</Name10>
+        <Name12>ShadoSplit</Name12>
+      </Parameter>
+      <Parameter id="0x00000215">
+        <Name>ParametricMidtoneSplit</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Mid Split</Name9>
+        <Name10>Mid Split</Name10>
+        <Name12>Mid Split</Name12>
+      </Parameter>
+      <Parameter id="0x00000216">
+        <Name>ParametricHighlightSplit</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>HighSplit</Name9>
+        <Name10>HighSplit</Name10>
+        <Name12>HighSplit</Name12>
+      </Parameter>
+      <Menu id="0x00000217">
+        <Name>Pt Curve</Name>
+        <Name9>Pt Curve</Name9>
+        <Name14>Pt Curve</Name14>
+        <Name20>Pt Curve</Name20>
+      </Menu>
+      <Action id="0x00000218">
+        <Name>EnableToneCurve</Name>
+        <Name9>ToneCurve</Name9>
+        <Name14>ToneCurve On/O</Name14>
+        <Name20>ToneCurve On/Off</Name20>
+      </Action>
+    </Group>
+    <Group name="Colour Adjust">
+      <Action id="0x00000228">
+        <Name>EnableColorAdjustments</Name>
+        <Name9>ColorAdj </Name9>
+        <Name14>ColorAdj On/Of</Name14>
+        <Name20>ColorAdj On/Off</Name20>
+      </Action>
+      <Parameter id="0x00000229">
+        <Name>AllSaturationAdjustment</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Sat All</Name9>
+        <Name10>Saturation</Name10>
+        <Name12>Saturation</Name12>
+      </Parameter>
+      <Parameter id="0x00000220">
+        <Name>GrayMixerRed</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Red Grey</Name9>
+        <Name10>Red Grey</Name10>
+        <Name12>Red Grey</Name12>
+      </Parameter>
+      <Parameter id="0x00000221">
+        <Name>GrayMixerOrange</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Orange Gr</Name9>
+        <Name10>Orange Gre</Name10>
+        <Name12>Orange Grey</Name12>
+      </Parameter>
+      <Parameter id="0x00000222">
+        <Name>GrayMixerYellow</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Yellow Gr</Name9>
+        <Name10>Yellow Gre</Name10>
+        <Name12>Yellow Grey</Name12>
+      </Parameter>
+      <Parameter id="0x00000223">
+        <Name>GrayMixerGreen</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Green Gre</Name9>
+        <Name10>Green Grey</Name10>
+        <Name12>Green Grey</Name12>
+      </Parameter>
+      <Parameter id="0x00000224">
+        <Name>GrayMixerAqua</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Aqua Grey</Name9>
+        <Name10>Aqua Grey</Name10>
+        <Name12>Aqua Grey</Name12>
+      </Parameter>
+      <Parameter id="0x00000225">
+        <Name>GrayMixerBlue</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Blue Grey</Name9>
+        <Name10>Blue Grey</Name10>
+        <Name12>Blue Grey</Name12>
+      </Parameter>
+      <Parameter id="0x00000226">
+        <Name>GrayMixerPurple</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Purple G</Name9>
+        <Name10>Purple G</Name10>
+        <Name12>Purple G</Name12>
+      </Parameter>
+      <Parameter id="0x00000227">
+        <Name>GrayMixerMagenta</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Magenta G</Name9>
+        <Name10>Magenta G</Name10>
+        <Name12>Magenta G</Name12>
+      </Parameter>
+      <Parameter id="0x00000230">
+        <Name>SaturationAdjustmentRed</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Red Sat</Name9>
+        <Name10>Red Sat</Name10>
+        <Name12>Red Sat</Name12>
+      </Parameter>
+      <Parameter id="0x00000231">
+        <Name>SaturationAdjustmentOrange</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Orange Sa</Name9>
+        <Name10>Orange Sat</Name10>
+        <Name12>Orange Sat</Name12>
+      </Parameter>
+      <Parameter id="0x00000232">
+        <Name>SaturationAdjustmentYellow</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Yellow Sa</Name9>
+        <Name10>Yellow Sat</Name10>
+        <Name12>Yellow Sat</Name12>
+      </Parameter>
+      <Parameter id="0x00000233">
+        <Name>SaturationAdjustmentGreen</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Green Sat</Name9>
+        <Name10>Green Sat</Name10>
+        <Name12>Green Sat</Name12>
+      </Parameter>
+      <Parameter id="0x00000234">
+        <Name>SaturationAdjustmentAqua</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Aqua Sat</Name9>
+        <Name10>Aqua Sat</Name10>
+        <Name12>Aqua Sat</Name12>
+      </Parameter>
+      <Parameter id="0x00000235">
+        <Name>SaturationAdjustmentBlue</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Blue Sat</Name9>
+        <Name10>Blue Sat</Name10>
+        <Name12>Blue Sat</Name12>
+      </Parameter>
+      <Parameter id="0x00000236">
+        <Name>SaturationAdjustmentPurple</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Purple S</Name9>
+        <Name10>Purple S</Name10>
+        <Name12>Purple S</Name12>
+      </Parameter>
+      <Parameter id="0x00000237">
+        <Name>SaturationAdjustmentMagenta</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Magenta S</Name9>
+        <Name10>Magenta S</Name10>
+        <Name12>Magenta S</Name12>
+      </Parameter>
+      <Parameter id="0x00000240">
+        <Name>HueAdjustmentRed</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Red Hue</Name9>
+        <Name10>Red Hue</Name10>
+        <Name12>Red Hue</Name12>
+      </Parameter>
+      <Parameter id="0x00000241">
+        <Name>HueAdjustmentOrange</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Orange Hu</Name9>
+        <Name10>Orange Hue</Name10>
+        <Name12>Orange Hue</Name12>
+      </Parameter>
+      <Parameter id="0x00000242">
+        <Name>HueAdjustmentYellow</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Yellow Hu</Name9>
+        <Name10>Yellow Hue</Name10>
+        <Name12>Yellow Hue</Name12>
+      </Parameter>
+      <Parameter id="0x00000243">
+        <Name>HueAdjustmentGreen</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Green Hue</Name9>
+        <Name10>Green Hue</Name10>
+        <Name12>Green Hue</Name12>
+      </Parameter>
+      <Parameter id="0x00000244">
+        <Name>HueAdjustmentAqua</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Aqua Hue</Name9>
+        <Name10>Aqua Hue</Name10>
+        <Name12>Aqua Hue</Name12>
+      </Parameter>
+      <Parameter id="0x00000245">
+        <Name>HueAdjustmentBlue</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Blue Hue</Name9>
+        <Name10>Blue Hue</Name10>
+        <Name12>Blue Hue</Name12>
+      </Parameter>
+      <Parameter id="0x00000246">
+        <Name>HueAdjustmentPurple</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Purple H</Name9>
+        <Name10>Purple H</Name10>
+        <Name12>Purple H</Name12>
+      </Parameter>
+      <Parameter id="0x00000247">
+        <Name>HueAdjustmentMagenta</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Magenta H</Name9>
+        <Name10>Magenta H</Name10>
+        <Name12>Magenta H</Name12>
+      </Parameter>
+      <Parameter id="0x00000250">
+        <Name>LuminanceAdjustmentRed</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Red Lum</Name9>
+        <Name10>Red Lum</Name10>
+        <Name12>Red Lum</Name12>
+      </Parameter>
+      <Parameter id="0x00000251">
+        <Name>LuminanceAdjustmentOrange</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Orange Lu</Name9>
+        <Name10>Orange Lum</Name10>
+        <Name12>Orange Lum</Name12>
+      </Parameter>
+      <Parameter id="0x00000252">
+        <Name>LuminanceAdjustmentYellow</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Yellow Lu</Name9>
+        <Name10>Yellow Lum</Name10>
+        <Name12>Yellow Lum</Name12>
+      </Parameter>
+      <Parameter id="0x00000253">
+        <Name>LuminanceAdjustmentGreen</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Green Lum</Name9>
+        <Name10>Green Lum</Name10>
+        <Name12>Green Lum</Name12>
+      </Parameter>
+      <Parameter id="0x00000254">
+        <Name>LuminanceAdjustmentAqua</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Aqua Lum</Name9>
+        <Name10>Aqua Lum</Name10>
+        <Name12>Aqua Lum</Name12>
+      </Parameter>
+      <Parameter id="0x00000255">
+        <Name>LuminanceAdjustmentBlue</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Blue Lum</Name9>
+        <Name10>Blue Lum</Name10>
+        <Name12>Blue Lum</Name12>
+      </Parameter>
+      <Parameter id="0x00000256">
+        <Name>LuminanceAdjustmentPurple</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Purple L</Name9>
+        <Name10>Purple L</Name10>
+        <Name12>Purple L</Name12>
+      </Parameter>
+      <Parameter id="0x00000257">
+        <Name>LuminanceAdjustmentMagenta</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Magenta L</Name9>
+        <Name10>Magenta L</Name10>
+        <Name12>Magenta L</Name12>
+      </Parameter>
+    </Group>
+    <Group name="Split Toning">
+      <Action id="0x00000260">
+        <Name>EnableSplitToning</Name>
+        <Name9>Split Ton</Name9>
+        <Name14>Split Tone On/</Name14>
+        <Name20>Split Tone On/Off</Name20>
+      </Action>
+      <Parameter id="0x00000261">
+        <Name>SplitToningBalance</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>ST Balanc</Name9>
+        <Name10>ST Balance</Name10>
+        <Name12>ST Balance</Name12>
+      </Parameter>
+      <Parameter id="0x00000262">
+        <Name>SplitToningShadowHue</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Shadow Hu</Name9>
+        <Name10>Shadow Hue</Name10>
+        <Name12>Shadow Hue</Name12>
+      </Parameter>
+      <Parameter id="0x00000263">
+        <Name>SplitToningShadowSaturation</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Shadow Sa</Name9>
+        <Name10>Shadow Sat</Name10>
+        <Name12>Shadow Sat</Name12>
+      </Parameter>
+      <Parameter id="0x00000264">
+        <Name>SplitToningHighlightHue</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Highl Hue</Name9>
+        <Name10>Highl Hue</Name10>
+        <Name12>Highl Hue</Name12>
+      </Parameter>
+      <Parameter id="0x00000265">
+        <Name>SplitToningHighlightSaturation</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Highl Sat</Name9>
+        <Name10>Highl Sat</Name10>
+        <Name12>Highl Sat</Name12>
+      </Parameter>
+    </Group>
+    <Group name="Detail">
+      <Action id="0x00000270">
+        <Name>EnableDetail</Name>
+        <Name9>Detail On</Name9>
+        <Name14>Detail On/Off</Name14>
+        <Name20>Detail On/Off</Name20>
+      </Action>
+      <Parameter id="0x00000271">
+        <Name>Sharpness</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Sharpen</Name9>
+        <Name10>Sharpen</Name10>
+        <Name12>Sharpen</Name12>
+      </Parameter>
+      <Parameter id="0x00000272">
+        <Name>SharpenRadius</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Radius</Name9>
+        <Name10>Radius</Name10>
+        <Name12>Radius</Name12>
+      </Parameter>
+      <Parameter id="0x00000273">
+        <Name>SharpenDetail</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Detail</Name9>
+        <Name10>Detail</Name10>
+        <Name12>Detail</Name12>
+      </Parameter>
+      <Parameter id="0x00000274">
+        <Name>SharpenEdgeMasking</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Masking</Name9>
+        <Name10>Masking</Name10>
+        <Name12>Masking</Name12>
+      </Parameter>
+      <Parameter id="0x00000275">
+        <Name>LuminanceSmoothing</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>NR Lumina</Name9>
+        <Name10>NR Luminan</Name10>
+        <Name12>NR Luminance</Name12>
+      </Parameter>
+      <Parameter id="0x00000276">
+        <Name>LuminanceNoiseReductionDetail</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Detail</Name9>
+        <Name10>Detail</Name10>
+        <Name12>Detail</Name12>
+      </Parameter>
+      <Parameter id="0x00000277">
+        <Name>LuminanceNoiseReductionContrast</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Contrast</Name9>
+        <Name10>Contrast</Name10>
+        <Name12>Contrast</Name12>
+      </Parameter>
+      <Parameter id="0x00000278">
+        <Name>ColorNoiseReduction</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>NR Colour</Name9>
+        <Name10>NR Colour</Name10>
+        <Name12>NR Colour</Name12>
+      </Parameter>
+      <Parameter id="0x00000279">
+        <Name>ColorNoiseReductionDetail</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Detail</Name9>
+        <Name10>Detail</Name10>
+        <Name12>Detail</Name12>
+      </Parameter>
+      <Parameter id="0x0000027a">
+        <Name>ColorNoiseReductionSmoothness</Name>
+        <MinValue>0</MinValue>
+        <MaxValue>1</MaxValue>
+        <StepSize>0.0001</StepSize>
+        <Name9>Smoothnes</Name9>
+        <Name10>Smoothness</Name10>
+        <Name12>Smoothness</Name12>
+      </Parameter>
+    </Group>
+    <Group name="Flagging">
+      <Action id="0x00000300">
+        <Name>Pick</Name>
+        <Name9>Pick</Name9>
+        <Name14>Pick</Name14>
+        <Name20>Pick</Name20>
+      </Action>
+      <Action id="0x00000301">
+        <Name>Reject</Name>
+        <Name9>Reject</Name9>
+        <Name14>Reject</Name14>
+        <Name20>Reject</Name20>
+      </Action>
+      <Action id="0x00000302">
+        <Name>RemoveFlag</Name>
+        <Name9>Unflag</Name9>
+        <Name14>Unflag</Name14>
+        <Name20>Unflag</Name20>
+      </Action>
+      <Action id="0x00000303">
+        <Name>ToggleRed</Name>
+        <Name9>Red</Name9>
+        <Name14>Red</Name14>
+        <Name20>Red</Name20>
+      </Action>
+      <Action id="0x00000304">
+        <Name>ToggleGreen</Name>
+        <Name9>Green</Name9>
+        <Name14>Green</Name14>
+        <Name20>Green</Name20>
+      </Action>
+      <Action id="0x00000305">
+        <Name>ToggleBlue</Name>
+        <Name9>Blue</Name9>
+        <Name14>Blue</Name14>
+        <Name20>Blue</Name20>
+      </Action>
+      <Action id="0x00000306">
+        <Name>TogglePurple</Name>
+        <Name9>Purple</Name9>
+        <Name14>Purple</Name14>
+        <Name20>Purple</Name20>
+      </Action>
+      <Action id="0x00000307">
+        <Name>ToggleYellow</Name>
+        <Name9>Yellow</Name9>
+        <Name14>Yellow</Name14>
+        <Name20>Yellow</Name20>
+      </Action>
+      <Action id="0x0000030e">
+        <Name>ColorLabelNone</Name>
+        <Name9>Clear Col</Name9>
+        <Name14>Clear Colours</Name14>
+        <Name20>Clear Colours</Name20>
+      </Action>
+      <Action id="0x00000308">
+        <Name>AddOrRemoveFromTargetColl</Name>
+        <Name9>TargetCol</Name9>
+        <Name14>Target Collect</Name14>
+        <Name20>Target Collection</Name20>
+      </Action>
+      <Action id="0x00000309">
+        <Name>RotateLeft</Name>
+        <Name9>Rotate L</Name9>
+        <Name14>Rotate L</Name14>
+        <Name20>Rotate L</Name20>
+      </Action>
+      <Action id="0x0000030a">
+        <Name>RotateRight</Name>
+        <Name9>Rotate R</Name9>
+        <Name14>Rotate R</Name14>
+        <Name20>Rotate R</Name20>
+      </Action>
+      <Action id="0x0000030b">
+        <Name>EditPhotoshop</Name>
+        <Name9>Photoshop</Name9>
+        <Name14>Photoshop Edit</Name14>
+        <Name20>Photoshop Edit</Name20>
+      </Action>
+      <Action id="0x0000030c">
+        <Name>openExportDialog</Name>
+        <Name9>Export...</Name9>
+        <Name14>Export...</Name14>
+        <Name20>Export...</Name20>
+      </Action>
+      <Action id="0x0000030d">
+        <Name>openExportWithPreviousDialog</Name>
+        <Name9>ReExport</Name9>
+        <Name14>Export again</Name14>
+        <Name20>Export again</Name20>
+      </Action>
+    </Group>
+  </Controls>
+  <DefaultGlobalSettings>
+    <KnobSensitivity std="1" alt="5"/>
+    <JogDialSensitivity std="1" alt="5"/>
+    <TrackerballSensitivity std="1" alt="5"/>
+    <TrackerballDialSensitivity std="1" alt="5"/>
+    <IndependentPanelBanks enabled="false"/>
+  </DefaultGlobalSettings>
+</TangentWave>

@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<TangentWave fileType="PanelMap" fileVersion="3.0">
+  <Panels>
+    <Panel type="Element-Tk">
+      <Mode id="0x00000001"> <!-- Colour/Tone -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="0">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000002"> <!-- Tone/Presence -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="0">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000003"> <!-- Tone Curve -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="0">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x0000000b"> <!-- HueAdjust -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="0">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x0000000c"> <!-- SatAdjust -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="0">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x0000000d"> <!-- LumAdjust -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="0">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000013"> <!-- GreyAdjust -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="0">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000014"> <!-- Split Toning -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="0">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000015"> <!-- Sharpening -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="0">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000016"> <!-- Noise Reduction -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="0">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000032"> <!-- Crop Edges -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="0">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000033"> <!-- Crop Corners -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="0">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x0000003c"> <!-- Flag -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="0">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x0000003d"> <!-- Rotate/Export -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="0">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000064"> <!-- ModesMenu1 -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="0">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+      <Mode id="0x00000065"> <!-- ModesMenu2 -->
+        <ControlBank id="Standard">
+          <Bank>
+            <Control type="Button" number="0">
+              <Mapping mode="Std">
+                <Key>0x80000001</Key> <!-- Action: ALT -->
+              </Mapping>
+            </Control>
+            <Control type="Button" number="7">
+              <Mapping mode="Std">
+                <Key>0x00000100</Key> <!-- Action: Undo -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000101</Key> <!-- Action: Redo -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+        <ControlBank id="Trackerball">
+          <Bank>
+            <Control type="Encoder" number="2">
+              <Mapping mode="Std">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000205</Key> <!-- Parameter: Shadows -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="5">
+              <Mapping mode="Std">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000203</Key> <!-- Parameter: Exposure -->
+              </Mapping>
+            </Control>
+            <Control type="Encoder" number="8">
+              <Mapping mode="Std">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+              <Mapping mode="Alt">
+                <Key>0x00000204</Key> <!-- Parameter: Highlights -->
+              </Mapping>
+            </Control>
+          </Bank>
+        </ControlBank>
+      </Mode>
+    </Panel>
+  </Panels>
+</TangentWave>
