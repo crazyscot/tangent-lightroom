@@ -1,13 +1,16 @@
 #!/usr/bin/env python
-# Python 2 as that's what OSX provides
+# Written to work on both Python 2 and 3 (OSX provides 2.7)
 
 import binascii
 import os
-import Queue
 import select
 import socket
 import struct
 import sys
+if sys.version_info[0] < 3:
+    import Queue
+else:
+    import queue as Queue
 
 from TangentMapping import ALL_MENUS
 import TangentMappingDefinitions

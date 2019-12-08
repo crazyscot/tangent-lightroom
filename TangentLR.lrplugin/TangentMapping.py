@@ -1,8 +1,9 @@
 #!/usr/bin/env python
+# Should work with both Python 2.7 and 3
 
 import abc
 
-# This Python2 module declares:
+# This module declares:
 #   Objects to make it easier to specify control mappings
 #   The list of all controls that we support (--> controls.xml)
 #   The notion of "default" controls that are shared across all banks
@@ -13,7 +14,7 @@ TABSIZE=2
 TAB = ' ' * TABSIZE
 
 class XMLable(object):
-    __metaclass__ = abc.ABCMeta
+    __metaclass__ = abc.ABCMeta # N.B. python 2 compatible syntax
 
     def __init__(self):
         self.TYPES = {}
@@ -153,7 +154,7 @@ class Menu(XMLable):
         ALL_MENUS[id] = self
     def get(self):
         # returns a tuple (Display string, MIDI2LR verb)
-        key = self.verbs.keys()[self.index]
+        key = list(self.verbs.keys())[self.index]
         return (key,self.verbs[key])
     def change(self, incr):
         t=self.index + incr
@@ -244,7 +245,7 @@ class Mode(XMLable):
                 if mcb.id != cb.id:
                     continue
                 # got it; merge in
-                print('merging %s into %s'%(mcb.id, cb.id))
+                print(('merging %s into %s'%(mcb.id, cb.id)))
                 if len(mcb.banks)>1:
                     raise Error('shared control bank %s has more than one bank; not supported' % mcb.id)
                 for bnk in cb.banks:
@@ -258,7 +259,7 @@ class Mode(XMLable):
                 found = True
             if not found:
                 #raise Exception('shared control bank %s has nowhere to go in mode %08x'%(mcb.id, self.id))
-                print('Creating control bank %s in mode %08x'%(mcb.id,self.id))
+                print(('Creating control bank %s in mode %08x'%(mcb.id,self.id)))
                 self.controlbanks.append(mcb)
 
     def xml(self, indent, cf):
@@ -514,4 +515,4 @@ if __name__ == '__main__':
     #print(m.xml(0))
     mf = MapFile('Wave', [cb2], [m, m2])
     mf.check(cf)
-    print(mf.xml(0, cf))
+    print((mf.xml(0, cf)))

@@ -1,4 +1,14 @@
 #!/usr/bin/env python
+# Should work with both Python 2.7 and 3
+
+# This module defines:
+# - All the controls we support (for controls.xml)
+# - All the mappings we support (for wave-map.xml, etc)
+# in a way that is hopefully easier to edit than editing the XML by hand.
+#
+# Features:
+# - Multiple modes (particularly useful on Wave)
+# - Ability to set common definitions that apply to all modes
 
 from TangentMapping import *
 
