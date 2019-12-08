@@ -165,7 +165,7 @@ class Bridge(object):
             mode = rd4(pkt, 4)
             self.log('CHANGE MODE: %08x'%mode)
             self.changeMode(mode)
-            self.sendLRQueued('SwToMdevelop', 1)
+            self.sendLR('SwToMdevelop', 1)
 
         # Parameters. Note that these always range from 0 to 1 in midi2lr's world; it keeps a mapping.
         elif cmd==2:
