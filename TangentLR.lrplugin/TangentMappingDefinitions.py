@@ -604,13 +604,38 @@ wave = MapFile(
                 ]),
             ]),
         ]),
-
-        # TODO trackballs control hue, rings luminance. We already have the rings... Centre trackball controls overall hue balance?
     ]
+)
+
+# Modes don't make sense on the Ripple, so we'll cheat
+ripple_modes = []
+for m in controls.modes:
+    ripple_modes.append( Mode(m.id, controlBanks=[]) )
+
+ripple = MapFile(
+    'Ripple',
+    [ # common definitions
+        ControlBank('Standard',[
+            Bank([
+                Button(0, 0x80000001), # A -> Alt
+                Button(7, 0x100, 0x101), # B -> Undo / Redo
+            ]),
+        ]),
+        ControlBank('Trackerball',[
+            # for some reason Tangent Hub insists this is a separate bank, even though the Ripple has no displays
+            Bank([
+                Encoder(2, 0x205, 0x205), # Dial 1 -> Shadows
+                Encoder(5, 0x203, 0x203), # Dial 2 -> Exposure
+                Encoder(8, 0x204, 0x204), # Dial 3 -> Highlights
+            ]),
+        ]),
+    ],
+    ripple_modes
 )
 
 controls.check(None)
 wave.check(controls)
+ripple.check(controls)
 
 def write_file(filename, obj):
     if sys.version_info[0] < 3:
@@ -626,3 +651,4 @@ def write_file(filename, obj):
 if __name__ == '__main__':
     write_file('controls.xml', controls)
     write_file('wave-map.xml', wave)
+    write_file('ripple-map.xml', ripple)
