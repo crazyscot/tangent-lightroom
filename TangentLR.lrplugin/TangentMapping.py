@@ -233,13 +233,13 @@ class Mode(XMLable):
         self.Name = name
         self.controlbanks = controlBanks
         if name is None and controlBanks is None:
-            raise Error('one of Name and ControlBanks is required')
+            raise Exception('one of Name and ControlBanks is required')
         if name is not None and controlBanks is not None:
-            raise Error('only one of Name and ControlBanks is allowed')
+            raise Exception('only one of Name and ControlBanks is allowed')
     def merge(self, sharedBanks):
         # sharedBanks is an array of ControlBank objects to merge in
         if self.controlbanks is None:
-            raise Error('cannot merge when no ControlBanks are present')
+            raise Exception('cannot merge when no ControlBanks are present')
         for cb in self.controlbanks: # for each bank ...
             for mcb in sharedBanks: # find a matching shared bank
                 if mcb.id != cb.id:
@@ -247,7 +247,7 @@ class Mode(XMLable):
                 # got it; merge in
                 print(('merging %s into %s'%(mcb.id, cb.id)))
                 if len(mcb.banks)>1:
-                    raise Error('shared control bank %s has more than one bank; not supported' % mcb.id)
+                    raise Exception('shared control bank %s has more than one bank; not supported' % mcb.id)
                 for bnk in cb.banks:
                     bnk.controls.extend(mcb.banks[0].controls)
         # And the reverse mapping: a mode need not define all banks, but must still accept all shared banks
