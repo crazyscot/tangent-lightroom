@@ -607,14 +607,11 @@ wave = MapFile([Panel(
     ]
 )])
 
-# Modes don't make sense on the Ripple, so we'll cheat
-ripple_modes = []
-for m in controls.modes:
-    ripple_modes.append( Mode(m.id, controlBanks=[]) )
-
 ripple = MapFile([Panel(
     'Ripple',
     [ # common definitions
+    ],
+    [Mode(1, controlBanks=[
         ControlBank('Standard',[
             Bank([
                 Button(0, 0x80000001), # A -> Alt
@@ -629,8 +626,9 @@ ripple = MapFile([Panel(
                 Encoder(8, 0x204, 0x204), # Dial 3 -> Highlights
             ]),
         ]),
-    ],
-    ripple_modes
+
+    ])],
+    ignoreModesCheck=True
 )])
 
 controls.check(None)
