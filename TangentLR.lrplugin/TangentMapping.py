@@ -288,7 +288,7 @@ class Mode(XMLable):
                 cb.check(controlsfile)
 
 
-FILEHEADER = '''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+FILEHEADER = '''<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
 <TangentWave fileType="%s" fileVersion="3.0">
 '''
 

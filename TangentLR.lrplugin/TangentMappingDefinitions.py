@@ -11,6 +11,7 @@
 # - Ability to set common definitions that apply to all modes
 
 from TangentMapping import *
+import sys
 
 def INV(s):
     # Sets all bits of the input string to 0x80, which inverts on the Tangent display
@@ -611,10 +612,17 @@ wave = MapFile(
 controls.check(None)
 wave.check(controls)
 
+def write_file(filename, obj):
+    if sys.version_info[0] < 3:
+        # N.B. assumes latin_1 encoding; ASCII + some high-bit-set characters
+        with open(filename, 'w') as f:
+            f.write( obj.xml(0, controls) )
+    else:
+        with open(filename, 'w',encoding='latin_1') as f:
+            f.write( obj.xml(0, controls) )
+    print("Wrote to %s"%filename)
+
+
 if __name__ == '__main__':
-    with open('controls.xml','w') as f:
-        f.write( controls.xml(0, controls) )
-        print("Wrote to controls.xml")
-    with open('wave-map.xml', 'w') as f:
-        f.write( wave.xml(0, controls) )
-        print("Wrote to wave-map.xml")
+    write_file('controls.xml', controls)
+    write_file('wave-map.xml', wave)
