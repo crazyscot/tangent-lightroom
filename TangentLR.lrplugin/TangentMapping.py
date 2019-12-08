@@ -455,10 +455,11 @@ class ControlBank(XMLable):
             b.check(controlsfile)
 
 class Panel(XMLable):
-    def __init__(self, panelType, sharedControlBanks, modes):
+    def __init__(self, panelType, sharedControlBanks, modes, ignoreModesCheck=False):
         self.panelType = panelType
         self.modes = modes
         self.sharedControlBanks = sharedControlBanks
+        self.ignoreModesCheck = ignoreModesCheck
         for m in self.modes:
             m.merge(self.sharedControlBanks)
     def xml(self, indent, cf):
@@ -473,15 +474,17 @@ class Panel(XMLable):
         assert self.panelType is not None
         for m in self.modes:
             m.check(controlsfile)
-        for cm in controlsfile.modes:
-            # every defined mode must be mapped
-            found=False
-            for m in self.modes:
-                if m.id == cm.id:
-                    found=True
-                    break
-            if not found:
-                raise Exception('Mode 0x%08x (%s) in controls file not found in map for %s'%(cm.id, cm.Name, self.panelType))
+        if not self.ignoreModesCheck:
+            for cm in controlsfile.modes:
+                # every defined mode must be mapped
+                found=False
+                for m in self.modes:
+                    if m.id == cm.id:
+                        found=True
+                        break
+                if not found:
+                    raise Exception('Mode 0x%08x (%s) in controls file not found in map for %s'%(cm.id, cm.Name, self.panelType))
+
 class MapFile(XMLable):
     def __init__(self, panels):
         self.panels = panels
