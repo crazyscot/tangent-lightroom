@@ -215,7 +215,7 @@ controls = ControlsFile(
 
 GO_TO_MODE = 0x8000000b
 
-wave = MapFile(
+wave = MapFile([Panel(
     'Wave',
     [ # common definitions
             ControlBank('Standard',[
@@ -605,14 +605,14 @@ wave = MapFile(
             ]),
         ]),
     ]
-)
+)])
 
 # Modes don't make sense on the Ripple, so we'll cheat
 ripple_modes = []
 for m in controls.modes:
     ripple_modes.append( Mode(m.id, controlBanks=[]) )
 
-ripple = MapFile(
+ripple = MapFile([Panel(
     'Ripple',
     [ # common definitions
         ControlBank('Standard',[
@@ -631,7 +631,7 @@ ripple = MapFile(
         ]),
     ],
     ripple_modes
-)
+)])
 
 controls.check(None)
 wave.check(controls)

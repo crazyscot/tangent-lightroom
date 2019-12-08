@@ -454,7 +454,7 @@ class ControlBank(XMLable):
         for b in self.banks:
             b.check(controlsfile)
 
-class MapFile(XMLable):
+class Panel(XMLable):
     def __init__(self, panelType, sharedControlBanks, modes):
         self.panelType = panelType
         self.modes = modes
@@ -463,14 +463,10 @@ class MapFile(XMLable):
             m.merge(self.sharedControlBanks)
     def xml(self, indent, cf):
         self.check(cf)
-        rv = FILEHEADER%'PanelMap'
-        rv += TAB*(indent+1) + '<Panels>\n'
-        rv += TAB*(indent+2) + '<Panel type="%s">\n' % self.panelType
+        rv = TAB*indent + '<Panel type="%s">\n' % self.panelType
         for m in self.modes:
-            rv += m.xml(indent+3, cf)
-        rv += TAB*(indent+2) + '</Panel>\n'
-        rv += TAB*(indent+1) + '</Panels>\n'
-        rv += FILEFOOTER
+            rv += m.xml(indent+1, cf)
+        rv += TAB*indent + '</Panel>'
         return rv
     def check(self, controlsfile):
         assert controlsfile is not None
@@ -486,7 +482,20 @@ class MapFile(XMLable):
                     break
             if not found:
                 raise Exception('Mode 0x%08x (%s) in controls file not found in map for %s'%(cm.id, cm.Name, self.panelType))
-
+class MapFile(XMLable):
+    def __init__(self, panels):
+        self.panels = panels
+    def xml(self, indent, cf):
+        self.check(cf)
+        rv = FILEHEADER%'PanelMap'
+        rv += TAB*(indent+1) + '<Panels>\n'
+        for p in self.panels:
+            rv += p.xml(indent+2, cf) + '\n'
+        rv += TAB*(indent+1) + '</Panels>\n'
+        rv += FILEFOOTER
+        return rv
+    def check(self, controlsfile):
+        assert self.panels
 
 if __name__ == '__main__':
     # This is test code.. for the real outputs, see TangentMappingDefinitions
@@ -513,6 +522,9 @@ if __name__ == '__main__':
     m = Mode(1, controlBanks = [cb])
     m2 = Mode(2, controlBanks = [ControlBank('Standard', [Bank([c,e])])]) # needs to be a deep clone, so the shared logic doesn't duplicate
     #print(m.xml(0))
-    mf = MapFile('Wave', [cb2], [m, m2])
+    p = Panel('Wave', [cb2], [m,m2])
+    p.check(cf)
+    #print((p.xml(0, cf)))
+    mf = MapFile([p])
     mf.check(cf)
     print((mf.xml(0, cf)))
