@@ -94,21 +94,35 @@ At the time of writing, these are the current defined modes in the default Wave 
 * Rotate/Export
 * Modes menu (two pages worth)
 
-### Tangent Arc, Element, Ripple
+### Tangent Element, Ripple
 
-I haven't yet written a mapping file for these panels. (If you'd
-like me to create one for you, it'd be easier if I had access to such
-a panel...)
-
-All is not lost; you will want to set up a mapping in the Tangent Mapper application.
-
-*Don't forget to save your mapping from within Tangent Mapper!*
+I don't have one of these panels, so while I've created a mapping file you may
+want to play around with the mapping. You can do this in the _Tangent Hub_.
 
 If you'd like to contribute your mapping, you'll need to export it
 from the Mapper (File → Manage Control Maps) - please create an issue
 on the GitHub page and attach the mapping file. (Or, even better, send
 in a pull request, but to do that effectively you'll need to understand
 the XML generator in TangentMappingDefinitions.)
+
+#### Modes
+
+The Ripple does not have modes.
+
+The Element has a modes menu, accessed by a button on the _Bt_ and _Mf_ panel.
+
+The modes are:
+
+* Basic
+* Tone Curve
+* Grey Adjust (B&W treatment only); Hue Adjust; Saturation Adjust; Luminance Adjust;
+* Split Toning
+* Sharpening
+* Noise Reduction
+* Crop
+* Flag
+* Rotate/Export
+
 
 ## Tips
 
