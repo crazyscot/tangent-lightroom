@@ -278,7 +278,7 @@ class Mode(XMLable):
         return rv
     def check(self, controlsfile):
         assert self.id is not None
-        assert (self.Name and not self.controlbanks) or (self.controlbanks and not self.Name)
+        assert (self.Name and not self.controlbanks) or (type(self.controlbanks) is list and not self.Name)
         if self.controlbanks:
             assert controlsfile is not None
             # our ID must be found in the controls file
