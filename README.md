@@ -1,14 +1,20 @@
 ﻿# TangentLightroom
 
-**TangentLightroom** is a plugin that interfaces the Tangent series of hardware control surfaces with Lightroom.
+**TangentLightroom** is a plugin that interfaces the Tangent series
+of hardware control surfaces with Lightroom.
 
 **This is alpha quality software!** There are likely to be bugs.
 
-TangentLightroom is based on the *MIDI2LR* project by [rsjaffe](https://github.com/rsjaffe/). (If you have a MIDI controller you want to interface with Lightroom, you probably wanted [MIDI2LR](https://rsjaffe.github.io/MIDI2LR/).)
+TangentLightroom is based on the *MIDI2LR* project by
+[rsjaffe](https://github.com/rsjaffe/). (If you have a MIDI
+controller you want to interface with Lightroom, you probably wanted
+[MIDI2LR](https://rsjaffe.github.io/MIDI2LR/).)
 
 ## What is this and who is it for?
 
-It's all about speed. If you have a lot of photos you want to make colour corrections to, it's so much faster to put the controls on a hardware panel than it is to use the mouse.
+It's all about speed. If you have a lot of photos you want to make
+colour corrections to, it's so much faster to put the controls on a
+hardware panel than it is to use the mouse.
 
 Professional film and video colour graders use hardware control surfaces all the time.
 
@@ -16,17 +22,24 @@ Professional film and video colour graders use hardware control surfaces all the
 
 - Adobe Lightroom Classic. (CC 2019 edition tested; it should work all the way back to Lightroom 6).
 - Recent MacOS (tested on 10.14.6); _Windows is untested but ought to work, see below_.
-- A Tangent control surface. _This plugin was developed and tested for the Tangent Wave. However, it works with the Tangent Mapper so should work on all Tangent panels (see below)._
+- A Tangent control surface. _This plugin was developed and tested
+for the Tangent Wave. However, it works with the Tangent Mapper so should
+work on all Tangent panels (see below)._
 
 ## Setup
 
 ### OSX
 
-1. Ensure you have installed the Tangent support software. This should be supplied with your panel, or you can download it from [Tangent Support](https://www.tangentwave.co.uk/tangent-support/).
+1. Ensure you have installed the Tangent support software. This
+should be supplied with your panel, or you can download it from [Tangent
+Support](https://www.tangentwave.co.uk/tangent-support/).
 1. Ensure your panel is connected.
-1. Download or clone the latest version of TangentLightroom. [Releases page](https://github.com/crazyscot/tangent-lightroom/releases)
+1. Download or clone the latest version of TangentLightroom. [Releases
+page](https://github.com/crazyscot/tangent-lightroom/releases)
 1. Put the plugin directory somewhere useful (your Documents folder, perhaps).
-1. Open up Lightroom, go into the Plugin Manager (File→Plugin-Manager), press Add, navigate to wherever you just saved the plugin.
+1. Open up Lightroom, go into the Plugin Manager
+(File→Plugin-Manager), press Add, navigate to wherever you just saved
+the plugin.
 
 ### Windows
 
@@ -64,7 +77,7 @@ The following mappings apply in all modes:
 - F9: Zoom in/out
 
 - Up/Down: Step through modes
-- Up AND Down together: Go to modes menu
+- Up+Down: Go to modes menu _Note: Hold Up and press Down to make this work (or the other way round)._
 
 #### Modes
 
@@ -75,16 +88,32 @@ At the time of writing, these are the current defined modes in the default Wave 
 * Split Toning
 * Sharpening
 * Noise Reduction
-* Crop
+* Crop Edges
+* Crop Corners
 * Flag
 * Rotate/Export
 * Modes menu (two pages worth)
 
 ### Tangent Arc, Element, Ripple
 
-I haven't yet written a mapping file for these panels. (If you'd like me to create one for you, it'd be easier if I had access to such a panel...)
+I haven't yet written a mapping file for these panels. (If you'd
+like me to create one for you, it'd be easier if I had access to such
+a panel...)
 
 All is not lost; you will want to set up a mapping in the Tangent Mapper application.
-*If you do this, don't forget to save your mapping from within Tangent Mapper!*
 
-If you'd like to contribute your mapping, you'll need to export it from the Mapper (File → Manage Control Maps) - please create an issue on the GitHub page and attach the mapping file.
+*Don't forget to save your mapping from within Tangent Mapper!*
+
+If you'd like to contribute your mapping, you'll need to export it
+from the Mapper (File → Manage Control Maps) - please create an issue
+on the GitHub page and attach the mapping file. (Or, even better, send
+in a pull request, but to do that effectively you'll need to understand
+the XML generator in TangentMappingDefinitions.)
+
+## Tips
+
+### Undo/Redo
+
+* Lightroom tracks updates and only creates undo points when you stop providing inputs
+for a certain time. This time is configurable; you will find it in _File→Plugin
+Extras→General options / Other... / Tracking Delay_ .
