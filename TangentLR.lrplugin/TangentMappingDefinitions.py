@@ -43,12 +43,12 @@ controls = ControlsFile(
     ],
     [
         Group('General', [
-            Action(0x100, 'Undo', panel=INV('Undo')),
-            Action(0x101, 'Redo', panel=INV('Redo')),
+            Action(0x100, 'Undo', panel='Undo'),
+            Action(0x101, 'Redo', panel='Redo'),
             Action(0x102, 'Prev'),
             Action(0x103, 'Next'),
-            Action(0x104, 'ShowClipping', panel=INV('Clipping')+' '+INV('On/Off'), name9=INV('Clipping')),
-            Action(0x105, 'VirtualCopy'),
+            Action(0x104, 'ShowClipping', panel='Clipping On/Off', name9='Clipping'),
+            Action(0x105, 'VirtualCopy', name9='Virt Copy'),
 
             Parameter(0x120, 'straightenAngle', panel='Angle'),
             Parameter(0x121, 'CropBottom', panel='Bottom'),
@@ -58,8 +58,8 @@ controls = ControlsFile(
             Action(0x125, 'ResetCrop'),
             Action(0x126, 'CropOverlay', panel='Crop Overlay'),
 
-            Action(0x127, 'Select1Left'),
-            Action(0x128, 'Select1Right'),
+            Action(0x127, 'Select1Left', name9='Sel Left'),
+            Action(0x128, 'Select1Right', name9='Sel Right'),
 
             Action(0x129, 'ToggleZoomOffOn', panel='Zoom'),
 
@@ -126,7 +126,7 @@ controls = ControlsFile(
         ]),
         Group('Colour Adjust', [
             Action(0x228, 'EnableColorAdjustments', panel='ColorAdj On/Off'),
-            Parameter(0x229, 'AllSaturationAdjustment', panel='Saturation'),
+            Parameter(0x229, 'AllSaturationAdjustment', panel='Saturation', name9='Sat All'),
 
             # In B&W mode there are eight Grey Mixer dials only (ROYGABPM), which affect luminance
             Parameter(0x220, 'GrayMixerRed', panel='Red Grey'),
@@ -202,13 +202,13 @@ controls = ControlsFile(
             Action(0x307, 'ToggleYellow', panel='Yellow'),
             Action(0x30e, 'ColorLabelNone', panel='Clear Colours'),
 
-            Action(0x308, 'AddOrRemoveFromTargetColl', panel='Target Collection'),
+            Action(0x308, 'AddOrRemoveFromTargetColl', panel='Target Collection', name9='TargetCol'),
 
             Action(0x309, 'RotateLeft', panel='Rotate L'),
             Action(0x30a, 'RotateRight', panel='Rotate R'),
             Action(0x30b, 'EditPhotoshop', panel='Photoshop Edit'),
             Action(0x30c, 'openExportDialog', panel='Export...'),
-            Action(0x30d, 'openExportWithPreviousDialog', panel='Export again'),
+            Action(0x30d, 'openExportWithPreviousDialog', panel='Export again', name9='ReExport'),
         ]),
     ]
 )
