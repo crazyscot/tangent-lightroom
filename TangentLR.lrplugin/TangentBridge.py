@@ -383,17 +383,17 @@ class Bridge(object):
         ''' Deal with a single Midi2LR request '''
         #self.log('<<< %s'%message)
         command,value = message.split(b' ',1)
-        if value=='' and command != 'TerminateApplication':
+        if value==b'' and command != b'TerminateApplication':
             self.log('Received message without value: %s'%command)
-        elif command == 'SwitchProfile':
+        elif command == b'SwitchProfile':
             # WRITEME
             self.log('<<< SWITCH PROFILE %s (ignored)'%value)
-        elif command == 'TerminateApplication':
+        elif command == b'TerminateApplication':
             self.log('<<< TERMINATE (bye!)')
             self.halt = True
-        elif command == 'Log':
+        elif command == b'Log':
             self.log('<<< LOG: %s'%value)
-        elif command == 'SendKey':
+        elif command == b'SendKey':
             self.log('<<< SENDKEY %s (ignored)'%value)
             # TODO: This is used to send fake keystrokes to the app
         else:
