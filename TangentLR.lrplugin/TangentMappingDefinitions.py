@@ -644,7 +644,7 @@ for m in emptymodes:
 
 tkmodes = copy.deepcopy(emptymodes)
 mfmodes = copy.deepcopy(emptymodes)
-mfmodes = filter(lambda m : m.id is not 100, mfmodes)
+mfmodes = list(filter(lambda m : m.id is not 100, mfmodes))
 mfmodes.append(Mode(100, controlBanks=[
     ControlBank('Button',[
         # Buttons with displays

@@ -41,6 +41,8 @@ def rdstr(seq,pos):
     length = rd4(seq,pos)
     return seq[pos+4:pos+4+length], 4+length
 def encstr(s):
+    if type(s) is str:
+        s = bytes(s, 'utf-8')
     return u4(len(s)) + s
 def encf(f):
     return struct.pack('>f', f)
@@ -365,12 +367,12 @@ class Bridge(object):
             try:
                 item = self.lrQueue.get(False)
                 self.lrSendInProgress = True
-                self.LRSend.sendall(item)
+                self.LRSend.sendall(bytes(item,'utf-8'))
             except Queue.Empty:
                 pass
 
     def sendLR(self, param, value):
-        self.LRSend.sendall("%s %s\n"%(param,value))
+        self.LRSend.sendall(bytes("%s %s\n"%(param,value),'utf-8'))
 
     def sendLRQueued(self, param, value):
         # LR can't cope with too many messages at once, so queue them
@@ -380,7 +382,7 @@ class Bridge(object):
     def handleLR(self, message):
         ''' Deal with a single Midi2LR request '''
         #self.log('<<< %s'%message)
-        command,value = message.split(' ',1)
+        command,value = message.split(b' ',1)
         if value=='' and command != 'TerminateApplication':
             self.log('Received message without value: %s'%command)
         elif command == 'SwitchProfile':
@@ -416,7 +418,7 @@ class Bridge(object):
             self.halt = True
             return
         # commands are strings, terminated with \n
-        packets = msg.split('\n')
+        packets = msg.split(b'\n')
         for p in packets:
             if len(p):
                 self.handleLR(p)
