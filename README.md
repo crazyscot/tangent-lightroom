@@ -17,7 +17,7 @@ It's all about speed. If you have a lot of photos you want to interactively make
 colour corrections to, it's so much faster to put the controls on a
 hardware panel than it is to use the mouse.
 
-Professional film and video colour graders use hardware control surfaces all the time.
+Professional film and video colour graders use hardware control surfaces all the time. Broadcast (video) engineers do something very similar with their CCUs.
 
 ## System requirements
 
@@ -52,7 +52,7 @@ the plugin.
 
 ### Tangent Wave
 
-If you have a Wave or Wave2, you have the best experience, because I have a wave.
+If you have a Wave or Wave2, you have the best experience, because I have a Wave.
 You get my mappings file, and can customise it through the Tangent Mapper.
 
 #### Fixed mappings
@@ -84,7 +84,7 @@ The following mappings apply in all modes:
 At the time of writing, these are the current defined modes in the default Wave config file:
 
 * Colour/Tone; Tone/Presence; Tone Curve
-* Hue Adjust; Saturation Adjust; Luminance Adjust; Grey Adjust (B&W treatment only)
+* Hue Adjust; Saturation Adjust; Luminance Adjust; Grey Adjust (applicable to B&W treatment only)
 * Split Toning
 * Sharpening
 * Noise Reduction
@@ -141,7 +141,14 @@ The knobs, dials and buttons are working well, but I had trouble getting the tra
 for a certain time. This time is configurable; you will find it in _File→Plugin
 Extras→General options / Other... / Tracking Delay_ .
 
-## Hacking
+## Suggestions and feedback
+
+Is there a missing feature? Some control that you use regularly that isn't available to be mapped? 
+Please let me know - the best way to do this is to open an issue here on Github, under the Issues tab.
+Or you can email me on crazyscot at gmail dot com. This is a hobby project, so don't be surprised if I
+don't get back to you immediately.
+
+## Hacking on the plugin
 
 This plugin consists of three parts:
 
