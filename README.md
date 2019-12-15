@@ -9,6 +9,8 @@ TangentLightroom is based on the *MIDI2LR* project by
 controller you want to interface with Lightroom, you probably wanted
 [MIDI2LR](https://rsjaffe.github.io/MIDI2LR/).)
 
+If you like this and find it useful, please consider shouting me a coffee - hit the Sponsor button at the top of the page.
+
 ## What is this and who is it for?
 
 It's all about speed. If you have a lot of photos you want to interactively make
