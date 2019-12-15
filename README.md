@@ -1,6 +1,6 @@
 ﻿# TangentLightroom
 
-**TangentLightroom** is a plugin for Adobe Lightroom CC that allows you to control it using the Tangent series of hardware control surfaces.
+**TangentLightroom** is a plugin for Adobe Lightroom Classic that allows you to control it using the Tangent series of hardware control surfaces.
 
 **This is beta quality software!** There are likely to be bugs.
 
