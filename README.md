@@ -2,7 +2,7 @@
 
 **TangentLightroom** is a plugin for Adobe Lightroom CC that allows you to control it using the Tangent series of hardware control surfaces.
 
-**This is alpha quality software!** There are likely to be bugs.
+**This is beta quality software!** There are likely to be bugs.
 
 TangentLightroom is based on the *MIDI2LR* project by
 [rsjaffe](https://github.com/rsjaffe/). (If you have a MIDI

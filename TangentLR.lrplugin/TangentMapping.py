@@ -83,6 +83,8 @@ class Action(XMLable):
             self.Name14 = self.Name14[0:14]
         if len(self.Name20) > 20:
             self.Name20 = self.Name20[0:20]
+        self.MinValue = None
+        self.MaxValue = None
     def xml(self, indent, cf):
         self.check(cf)
         baseindent = TAB * indent
@@ -149,6 +151,8 @@ class Menu(XMLable):
             self.Name14 = self.Name14[0:14]
         if len(self.Name20) > 20:
             self.Name20 = self.Name20[0:20]
+        self.MinValue = None
+        self.MaxValue = None
         assert id not in ALL_MENUS
         self.index = 0 # currently selected index; TODO can we read these out of LR?
         ALL_MENUS[id] = self

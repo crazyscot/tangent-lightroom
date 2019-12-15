@@ -270,7 +270,7 @@
                 <Key>0x00000218</Key> <!-- Action: EnableToneCurve -->
               </Mapping>
               <Mapping mode="Alt">
-                <Key>0x00000217</Key> <!-- Menu : Pt Curve {'Strong': 'PointCurveStrongContrast', 'Medium': 'PointCurveMediumContrast', 'Linear': 'PointCurveLinear'} -->
+                <Key>0x00000217</Key> <!-- Menu : Pt Curve {'Linear': 'PointCurveLinear', 'Medium': 'PointCurveMediumContrast', 'Strong': 'PointCurveStrongContrast'} -->
               </Mapping>
             </Control>
           </Bank>
