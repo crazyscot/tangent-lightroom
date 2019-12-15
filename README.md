@@ -125,6 +125,10 @@ The modes are:
 
 ## Tips for all panel types
 
+### Press Alt to make it go faster
+
+The dials and knobs are set to a pretty slow speed, for fine adjustments and in case you accidentally knock them. The Alt button (Wave) / A button (Ripple/Elements) makes changes faster.
+
 ### The trackballs don't do anything (yet) !
 
 Yes, you read that right. All of Lightroom's controls are one-dimensional. There isn't a direct correspondence for a trackball control to, well, anything much. (Temperature and Tint, perhaps?) While I could create a composite control, there's no obvious control to map it to.
