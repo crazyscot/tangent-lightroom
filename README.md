@@ -125,6 +125,12 @@ The modes are:
 
 ## Tips for all panel types
 
+### The trackballs don't do anything (yet) !
+
+Yes, you read that right. All of Lightroom's controls are one-dimensional. There isn't a direct correspondence for a trackball control to, well, anything much. (Temperature and Tint, perhaps?) While I could create a composite control, there's no obvious control to map it to.
+
+The knobs, dials and buttons are working well, but I had trouble getting the trackballs working properly so haven't mapped anything to them yet. This isn't a problem with Tangent; it's most likely an issue with how my bridge code is talking to MIDI2LR and/or how MIDI2LR is talking to Lightroom. I may have another go at this some time.
+
 ### Undo/Redo
 
 * Lightroom tracks updates and only creates undo points when you stop providing inputs
