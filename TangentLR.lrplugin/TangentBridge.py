@@ -9,8 +9,10 @@ import struct
 import sys
 if sys.version_info[0] < 3:
     import Queue
+    PYTHON3=False
 else:
     import queue as Queue
+    PYTHON3=True
 
 from TangentMapping import ALL_MENUS
 import TangentMappingDefinitions
@@ -35,17 +37,17 @@ def rd4f(seq, pos=0):
 def rd4multi(seq, pos, n):
     return [ rd4(seq, pos*i+4) for i in range(n)]
 def u4(i):
-    return struct.pack('>i', i)
+    return bytearray(struct.pack('>i', i))
 def rdstr(seq,pos):
     # returns (string, how far to advance the stream)
     length = rd4(seq,pos)
     return seq[pos+4:pos+4+length], 4+length
 def encstr(s):
-    if type(s) is str:
+    if type(s) is str and PYTHON3:
         s = bytes(s, 'utf-8')
     return u4(len(s)) + s
 def encf(f):
-    return struct.pack('>f', f)
+    return bytearray(struct.pack('>f', f))
 
 def split(seq, length=4):
     ''' splits data into words '''
@@ -134,6 +136,7 @@ class Bridge(object):
         ''' Sends a Tangent packet. This function takes care of sending the length word. '''
         s = self.Tangent
         s.sendall(u4(len(pkt)))
+        pkt = bytearray(pkt)
         s.sendall(pkt)
 
     def changeMode(self, mode):
@@ -369,12 +372,17 @@ class Bridge(object):
             try:
                 item = self.lrQueue.get(False)
                 self.lrSendInProgress = True
-                self.LRSend.sendall(bytes(item,'utf-8'))
+                if PYTHON3:
+                    item = bytes(item,'utf-8')
+                self.LRSend.sendall(item)
             except Queue.Empty:
                 pass
 
     def sendLR(self, param, value):
-        self.LRSend.sendall(bytes("%s %s\n"%(param,value),'utf-8'))
+        msg="%s %s\n"%(param,value)
+        if PYTHON3:
+            msg = bytes(msg, 'utf-8')
+        self.LRSend.sendall(msg)
 
     def sendLRQueued(self, param, value):
         # LR can't cope with too many messages at once, so queue them
@@ -385,7 +393,8 @@ class Bridge(object):
         ''' Deal with a single Midi2LR request '''
         #self.log('<<< %s'%message)
         command,value = message.split(b' ',1)
-        command = command.decode('ascii')
+        if PYTHON3:
+             command = command.decode('ascii')
         if value == b'':
             value = None
         else:
