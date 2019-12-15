@@ -12,7 +12,7 @@
             </Control>
             <Control type="Button" number="1">
               <Mapping mode="Std">
-                <Key>0x00000113</Key> <!-- Menu : WB Preset {'Fluo': 'QuickDevWBFluorescent', 'Flash': 'QuickDevWBFlash', 'Cloudy': 'QuickDevWBCloudy', 'Daylight': 'QuickDevWBDaylight', 'Shade': 'QuickDevWBShade', 'Tungsten': 'QuickDevWBTungsten'} -->
+                <Key>0x00000113</Key> <!-- Menu : WB Preset {'Daylight': 'QuickDevWBDaylight', 'Cloudy': 'QuickDevWBCloudy', 'Shade': 'QuickDevWBShade', 'Tungsten': 'QuickDevWBTungsten', 'Fluo': 'QuickDevWBFluorescent', 'Flash': 'QuickDevWBFlash'} -->
               </Mapping>
             </Control>
             <Control type="Button" number="2">
@@ -45,7 +45,7 @@
             </Control>
             <Control type="Button" number="1">
               <Mapping mode="Std">
-                <Key>0x00000113</Key> <!-- Menu : WB Preset {'Fluo': 'QuickDevWBFluorescent', 'Flash': 'QuickDevWBFlash', 'Cloudy': 'QuickDevWBCloudy', 'Daylight': 'QuickDevWBDaylight', 'Shade': 'QuickDevWBShade', 'Tungsten': 'QuickDevWBTungsten'} -->
+                <Key>0x00000113</Key> <!-- Menu : WB Preset {'Daylight': 'QuickDevWBDaylight', 'Cloudy': 'QuickDevWBCloudy', 'Shade': 'QuickDevWBShade', 'Tungsten': 'QuickDevWBTungsten', 'Fluo': 'QuickDevWBFluorescent', 'Flash': 'QuickDevWBFlash'} -->
               </Mapping>
             </Control>
             <Control type="Button" number="2">
@@ -78,7 +78,7 @@
             </Control>
             <Control type="Button" number="1">
               <Mapping mode="Std">
-                <Key>0x00000217</Key> <!-- Menu : Pt Curve {'Strong': 'PointCurveStrongContrast', 'Medium': 'PointCurveMediumContrast', 'Linear': 'PointCurveLinear'} -->
+                <Key>0x00000217</Key> <!-- Menu : Pt Curve {'Linear': 'PointCurveLinear', 'Medium': 'PointCurveMediumContrast', 'Strong': 'PointCurveStrongContrast'} -->
               </Mapping>
             </Control>
             <Control type="Button" number="11">
