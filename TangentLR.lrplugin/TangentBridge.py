@@ -64,9 +64,11 @@ class Control(object):
     by_name = {}
     by_id = {}
 
-    def __init__(self, id, name):
+    def __init__(self, id, name, minvalue, maxvalue):
         self.id = id
         self.name = name
+        self.MinValue = minvalue
+        self.MaxValue = maxvalue
 
         Control.by_name[name] = self
         Control.by_id[id] = self
@@ -82,7 +84,7 @@ class Control(object):
 ALL_CONTROLS = []
 for group in TangentMappingDefinitions.controls.groups:
     for ctrl in group.controls:
-        ALL_CONTROLS.append(Control(ctrl.id, ctrl.Name))
+        ALL_CONTROLS.append(Control(ctrl.id, ctrl.Name, ctrl.MinValue, ctrl.MaxValue))
 
 # Current values, indexed by ID [for now]
 VALUES = {}
@@ -180,14 +182,17 @@ class Bridge(object):
             param,incr = rd4(pkt,4), rd4f(pkt,8)
             if param & 0x40000000:
                 return self.encoderCustom(param, incr=incr)
-            name = Control.name_for(param)
+            control = Control.by_id[param]
+            name = control.name
             if param not in VALUES:
                 VALUES[param]=0.5 # safeish default?
                 self.log('!!! no param for ' + name)
-                self.sendLR('GetValue', name)
-            VALUES[param] += incr
-            self.log('T< Param Change: 0x%x (%s): %f -> %f'%(param,name,incr,VALUES[param]))
-            self.sendLR(name, VALUES[param])
+                #self.sendLR('GetValue', name)
+            newvalue = VALUES[param] + incr
+            newvalue = max( min(newvalue, control.MaxValue), control.MinValue )
+            VALUES[param] = newvalue
+            self.log('T< Param Change: 0x%x (%s): %f -> %f'%(param,name,incr,newvalue))
+            self.sendLR(name, newvalue)
         elif cmd==4:
             param = rd4(pkt,4)
             name = Control.name_for(param)
