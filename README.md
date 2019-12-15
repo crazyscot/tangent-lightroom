@@ -1,7 +1,6 @@
 ﻿# TangentLightroom
 
-**TangentLightroom** is a plugin that interfaces the Tangent series
-of hardware control surfaces with Lightroom.
+**TangentLightroom** is a plugin for Adobe Lightroom CC that allows you to control it using the Tangent series of hardware control surfaces.
 
 **This is alpha quality software!** There are likely to be bugs.
 
@@ -12,7 +11,7 @@ controller you want to interface with Lightroom, you probably wanted
 
 ## What is this and who is it for?
 
-It's all about speed. If you have a lot of photos you want to make
+It's all about speed. If you have a lot of photos you want to interactively make
 colour corrections to, it's so much faster to put the controls on a
 hardware panel than it is to use the mouse.
 
@@ -21,10 +20,9 @@ Professional film and video colour graders use hardware control surfaces all the
 ## System requirements
 
 - Adobe Lightroom Classic. (CC 2019 edition tested; it should work all the way back to Lightroom 6).
-- Recent MacOS (tested on 10.14.6); _Windows is untested but ought to work, see below_.
+- Recent MacOS (tested on 10.14.6) or Windows (10).
 - A Tangent control surface. _This plugin was developed and tested
-for the Tangent Wave. However, it works with the Tangent Mapper so should
-work on all Tangent panels (see below)._
+for the Tangent Wave. However, it works through the Tangent Mapper and includes map files for other panels, which you can customise._
 
 ## Setup
 
@@ -33,12 +31,11 @@ work on all Tangent panels (see below)._
 **Caution:** Windows is not my primary development platform. These instructions were written on Windows 10. Please let me know how you go!
 
 1. Install Python 3.7 from the Microsoft store
-1. XXX does it autolaunch?
 1. Follow the OSX instructions below.
 
 ### OSX
 
-1. Ensure you have installed the Tangent support software. This
+1. Ensure you have installed the Tangent support software (_Tangent Hub_, etc.). This
 should be supplied with your panel, or you can download it from [Tangent
 Support](https://www.tangentwave.co.uk/tangent-support/).
 1. Ensure your panel is connected.
@@ -53,7 +50,7 @@ the plugin.
 
 ### Tangent Wave
 
-If you have a Wave or Wave2, everything is ready to go.
+If you have a Wave or Wave2, you have the best experience, because I have a wave.
 You get my mappings file, and can customise it through the Tangent Mapper.
 
 #### Fixed mappings
@@ -93,18 +90,18 @@ At the time of writing, these are the current defined modes in the default Wave 
 * Crop Corners
 * Flag
 * Rotate/Export
-* Modes menu (two pages worth)
+* Modes menu (two pages, identified by the legend under the first dial)
 
 ### Tangent Element, Ripple
 
-I don't have one of these panels, so while I've created a files you may
+I don't have one of these panels, so while I've created map files you may
 want to play around with the mapping. You can do this in the _Tangent Hub_.
 
 If you'd like to contribute your mapping, you'll need to export it
 from the Mapper (File → Manage Control Maps) - please create an issue
 on the GitHub page and attach the mapping file. (Or, even better, send
 in a pull request, but to do that effectively you'll need to understand
-the XML generator in TangentMappingDefinitions.py.)
+the XML generator in TangentMappingDefinitions.py...)
 
 #### Modes
 
@@ -116,7 +113,7 @@ The modes are:
 
 * Basic
 * Tone Curve
-* Grey Adjust (B&W treatment only); Hue Adjust; Saturation Adjust; Luminance Adjust;
+* Grey Adjust (B&W treatment only); Hue Adjust; Saturation Adjust; Luminance Adjust
 * Split Toning
 * Sharpening
 * Noise Reduction
@@ -124,8 +121,7 @@ The modes are:
 * Flag
 * Rotate/Export
 
-
-## Tips
+## Tips for all panel types
 
 ### Undo/Redo
 
@@ -135,7 +131,7 @@ Extras→General options / Other... / Tracking Delay_ .
 
 ## Hacking
 
-The plugin consists of three parts:
+This plugin consists of three parts:
 
 1. A collection of Lua scripts. (The use of Lua is mandated by the Lightroom SDK.)
 These are inherited from the _MIDI2LR_ project, with some light local modifications.
