@@ -180,6 +180,8 @@ class Bridge(object):
             name = Control.name_for(param)
             if param not in VALUES:
                 VALUES[param]=0.5 # safeish default?
+                self.log('!!! no param for ' + name)
+                self.sendLR('GetValue', name)
             VALUES[param] += incr
             self.log('T< Param Change: 0x%x (%s): %f -> %f'%(param,name,incr,VALUES[param]))
             self.sendLR(name, VALUES[param])
@@ -383,7 +385,12 @@ class Bridge(object):
         ''' Deal with a single Midi2LR request '''
         #self.log('<<< %s'%message)
         command,value = message.split(b' ',1)
-        if value==b'' and command != b'TerminateApplication':
+        command = command.decode('ascii')
+        if value == b'':
+            value = None
+        else:
+            value=float(value)
+        if value is None and command != b'TerminateApplication':
             self.log('Received message without value: %s'%command)
         elif command == b'SwitchProfile':
             # WRITEME
