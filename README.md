@@ -19,6 +19,8 @@ hardware panel than it is to use the mouse.
 
 Professional film and video colour graders use hardware control surfaces all the time. Broadcast (video) engineers do something very similar with their CCUs.
 
+![Panel in use](/../images/tangent-lightroom-in-use-small.jpg?raw=true "Panel in use")
+
 ## System requirements
 
 - Adobe Lightroom Classic. (CC 2019 edition tested; it should work all the way back to Lightroom 6).
@@ -93,6 +95,8 @@ At the time of writing, these are the current defined modes in the default Wave 
 * Flag
 * Rotate/Export
 * Modes menu (two pages, identified by the legend under the first dial)
+
+![Modes menu](/../images/tangent-lightroom-panel.jpg?raw=true "Modes menu")
 
 ### Tangent Element, Ripple
 
