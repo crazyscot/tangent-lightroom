@@ -125,7 +125,7 @@ The modes are:
 
 ## Tips for all panel types
 
-### Press Alt to make it go faster
+### Hold Alt to make it go faster
 
 The dials and knobs are set to a pretty slow speed, for fine adjustments and in case you accidentally knock them. The Alt button (Wave) / A button (Ripple/Elements) makes changes faster.
 
