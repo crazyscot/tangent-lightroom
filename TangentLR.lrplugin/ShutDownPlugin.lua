@@ -25,8 +25,10 @@ if MIDI2LR then
   if MIDI2LR.SERVER then
     MIDI2LR.SERVER:send('TerminateApplication 1\n')
     MIDI2LR.SERVER:close()
+    MIDI2LR.SERVER = nil
   end
   if MIDI2LR.CLIENT then
     MIDI2LR.CLIENT:close()
+    MIDI2LR.CLIENT = nil
   end
 end
