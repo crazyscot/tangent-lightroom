@@ -464,6 +464,7 @@ class Bridge(object):
             if lrtx in rlist:
                 # this is an 'ok' for each command, which we just sink
                 _ = self.LRSend.recv(128)
+        self.closeAll()
 
 if __name__ == '__main__':
     # First argument is the path to the plugin Info.lua, which must be in the same dir as the XML files. If not given, it's assumed to be the directory this file lives in.
