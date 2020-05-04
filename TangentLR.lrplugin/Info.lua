@@ -2,7 +2,7 @@
 
 Info.lua
 MIDI2LR Plugin properties
- 
+
 This file is part of MIDI2LR. Copyright 2015 by Rory Jaffe.
 
 MIDI2LR is free software: you can redistribute it and/or modify it under the
@@ -14,12 +14,12 @@ WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with
-MIDI2LR.  If not, see <http://www.gnu.org/licenses/>. 
+MIDI2LR.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------]]
 
 return {
-  LrAlsoUseBuiltInTranslations = true, 
-  LrForceInitPlugin = true, 
+  LrAlsoUseBuiltInTranslations = true,
+  LrForceInitPlugin = true,
   LrInitPlugin = 'Client.lua', -- Main client logic
   LrPluginInfoUrl = 'https://github.com/crazyscot/tangent-lightroom',
   LrPluginName = 'TangentLR',
@@ -58,8 +58,8 @@ return {
       title = LOC("$$$/MIDI2LR/Menu/ExportConfiguration=&Export configuration"),
       file = "FileSavePref.lua"
     },
-    { 
-      title = LOC("$$$/MIDI2LR/Help/OnlineHelp=Online &help"), 
+    {
+      title = LOC("$$$/MIDI2LR/Help/OnlineHelp=Online &help"),
       file = "OnlineHelp.lua",
     },     
     --[[--
@@ -70,13 +70,13 @@ return {
     --]]--
   },
   LrHelpMenuItems = {
-    { 
-      title = LOC("$$$/MIDI2LR/Help/OnlineHelp=&Online help"), 
+    {
+      title = LOC("$$$/MIDI2LR/Help/OnlineHelp=&Online help"),
       file = "OnlineHelp.lua",
     }, 
     --[[--
     {
-      title = LOC("$$$/MIDI2LR/Help/Support=&Support"), 
+      title = LOC("$$$/MIDI2LR/Help/Support=&Support"),
       file = "Support.lua",
     },
     {
@@ -93,5 +93,5 @@ return {
       file = "About.lua",
     },
   },
-  VERSION = { major=1, minor=3, revision=0, build=0}
+  VERSION = { major=1, minor=3, revision=1, build=0}
 }
