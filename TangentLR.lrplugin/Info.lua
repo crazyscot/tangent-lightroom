@@ -26,6 +26,8 @@ return {
   LrSdkMinimumVersion = 6.0, -- minimum SDK version required by this plug-in
   LrSdkVersion = 6.0,
   LrShutdownPlugin = 'ShutDownPlugin.lua',
+  LrDisablePlugin = 'ShutDownPlugin.lua',
+  LrEnablePlugin = 'Client.lua',
   LrToolkitIdentifier = 'nz.mediary.tangentlr',
   LrExportMenuItems = {
     {
