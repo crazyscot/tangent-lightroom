@@ -25,7 +25,7 @@ Professional film and video colour graders use hardware control surfaces all the
 
 - Adobe Lightroom Classic. (CC 2019 edition tested; it should work all the way back to Lightroom 6).
 - Recent MacOS (tested on 10.14.6) or Windows (10).
-- A Tangent control surface. _This plugin was developed and tested
+- A Tangent control surface and its driver package. _This plugin was developed and tested
 for the Tangent Wave. However, it works through the Tangent Mapper and includes map files for other panels, which you can customise._
 
 ## Setup
@@ -49,6 +49,10 @@ page](https://github.com/crazyscot/tangent-lightroom/releases)
 1. Open up Lightroom, go into the Plugin Manager
 (File→Plugin-Manager), press Add, navigate to wherever you just saved
 the plugin.
+
+At this point the panel should spring into life. The displays (if present) should show some useful labels for functions, and the control dials (see below) should affect the shadows, exposure and highlights.
+
+Note: If nothing happens, you may need to install a later version of the _Tangent Hub_ package from [Tangent](https://www.tangentwave.co.uk/tangent-support/). On Windows 10, Tangent Hub version 1.6.4 is known to work.
 
 ## Using the plugin
 
