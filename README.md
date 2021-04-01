@@ -1,4 +1,4 @@
-This branch of this repository contains my mapping for the Tangent plugin for Adobe Lightroom Classic. Here's a [direct download link](https://raw.githubusercontent.com/crazyscot/tangent-lightroom/tangent-map/RY-Lightroom.xml) - you'll need to import it into the Tangent Mapper in the usual way.
+This branch of this repository contains my Tangent Wave mapping for controlling Adobe Lightroom Classic using Tangent's official plugin. Here's a [direct download link](https://raw.githubusercontent.com/crazyscot/tangent-lightroom/tangent-map/RY-Lightroom.xml) - you'll need to import it into the Tangent Mapper in the usual way.
 
 My changes from the beta (1.6.9) mapping are:
 
