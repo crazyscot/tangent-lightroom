@@ -1,5 +1,7 @@
 This branch of this repository contains my mapping for the Tangent plugin for Adobe Lightroom Classic.
 
+My changes from the beta (1.6.9) mapping are:
+
 *    Trackball dials (with Alt) -> Basic Shadow / Exposure / Highlights (note speed)
 *    Centre Trackball (Alt) -> Grading - Midtone (note speed)
 *    Down arrow -> Previous Knob Bank
