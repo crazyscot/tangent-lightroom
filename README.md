@@ -1,4 +1,16 @@
-﻿# TangentLightroom
+# This project is obsolete!
+On 1 Apr 2021, Tangent released their own official plugin for Lightroom. It's included in version 1.7.0 of the Tangent bundle, whish you can get from [Tangent support](https://www.tangentwave.co.uk/tangent-support/).
+
+I still keep my own modified mapping for the official Tangent plugin here:
+* [tangent-map branch](https://github.com/crazyscot/tangent-lightroom/tree/tangent-map)
+* [Direct download](https://raw.githubusercontent.com/crazyscot/tangent-lightroom/tangent-map/RY-Lightroom.xml)
+
+
+Below are the old contents of README.md, preserved for posterity.
+
+<hr>
+
+# TangentLightroom
 
 **TangentLightroom** is a plugin for Adobe Lightroom Classic that allows you to control it using the Tangent series of hardware control surfaces.
 
